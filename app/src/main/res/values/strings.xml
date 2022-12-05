@@ -1,0 +1,13 @@
+<resources>
+<!--    제목-->
+    <string name="app_name">Anda</string>
+    <string name="title_home">홈 화면</string>
+    <string name="title_map">지도 화면</string>
+    <string name="title_compare">안과비교 화면</string>
+    <string name="title_community">커뮤니티 화면</string>
+    <string name="title_myInfo">내정보 화면</string>
+
+<!--    홈화면-->
+    <string name="home_do_review_btn_txt">내 리뷰 작성하기</string>
+
+</resources>

@@ -1,0 +1,155 @@
+package com.anda.ui.main.home
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
+import com.anda.MainActivity
+import com.anda.R
+import com.anda.data.entities.HomeAndaRankingSelect
+import com.anda.data.entities.HomeOphthaEvent
+import com.anda.databinding.FragmentHomeBinding
+import com.anda.ui.main.map.MapFragment
+import com.google.android.material.tabs.TabLayout
+
+class HomeFragment : Fragment() {
+
+    private var isDoReviewClicked = false
+    private var ophthaEventDatas = ArrayList<HomeOphthaEvent>()
+    private var homeAndaRankingSelecDatas = ArrayList<HomeAndaRankingSelect>()
+    lateinit var binding: FragmentHomeBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        ClickSetting()
+        addAndaRankingSelect()
+        addOphthaEvent()
+        optionAdsBanner()
+        optionAndaInfoBanner()
+
+        return binding.root
+    }
+
+    private fun optionAdsBanner() {
+        val adsBannerAdapter = HomeAdsBannerVPAdapter(this)
+        adsBannerAdapter.addFragment(HomeAdsBannerFragment(R.drawable.ophtha_ex_img))
+        adsBannerAdapter.addFragment(HomeAdsBannerFragment(R.drawable.ex_img))
+        binding.homeAdsVp.adapter = adsBannerAdapter
+        binding.homeAdsVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+    private fun optionAndaInfoBanner() {
+
+        /* 여백, 너비에 대한 정의 */
+        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
+        val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
+        val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
+        val offsetPx = screenWidth - pageMarginPx - pagerWidth
+
+        binding.homeAndaInfoVp.setPageTransformer { page, position ->
+            page.translationX = position * -offsetPx
+        }
+
+
+        val andaInfoBannerAdapter = HomeAndaInfoBannerVPAdapter(this)
+        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
+        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
+        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
+        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
+        binding.homeAndaInfoVp.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
+        binding.homeAndaInfoVp.adapter = andaInfoBannerAdapter
+        binding.homeAndaInfoVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+
+    private fun addAndaRankingSelect() {
+        homeAndaRankingSelecDatas.apply {
+            add(HomeAndaRankingSelect(0, R.drawable.home_ranking_unselected_lasik_img))
+            add(HomeAndaRankingSelect(1, R.drawable.home_ranking_unselected_lasek_img))
+            add(HomeAndaRankingSelect(2, R.drawable.home_ranking_unselected_smile_img))
+            add(HomeAndaRankingSelect(3, R.drawable.home_ranking_unselected_lens_img))
+            add(HomeAndaRankingSelect(4, R.drawable.home_ranking_unselected_back_img))
+        }
+        val andaRankingSelectRVAdapter = HomeAndaRankingSelectRVAdapter(homeAndaRankingSelecDatas)
+        binding.homeRankingSelectRv.adapter = andaRankingSelectRVAdapter
+        binding.homeRankingSelectRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        andaRankingSelectRVAdapter.setHomeandaRankingSelectItemClickListener(object : HomeAndaRankingSelectRVAdapter.homeandaRankingSelectItemClickListener{
+            override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) {
+
+            }
+        })
+    }
+
+    private fun addOphthaEvent() {
+        ophthaEventDatas.apply {
+            add(
+                HomeOphthaEvent(
+                    "김안과병원",
+                    "서울특별시 영등포구",
+                    R.drawable.ophtha_ex_img,
+                    "라식 할인"
+                )
+            )
+            add(
+                HomeOphthaEvent(
+                    "안다 병원",
+                    "서울특별시 마포구",
+                    R.drawable.ophtha_ex_img,
+                    "라섹 할인"
+                )
+            )
+            add(
+                HomeOphthaEvent(
+                    "모른다 병원",
+                    "서울특별시 광진구",
+                    R.drawable.ophtha_ex_img,
+                    "스마일 라식 무료"
+                )
+            )
+            add(
+                HomeOphthaEvent(
+                    "알지도 병원",
+                    "서울특별시 관악구",
+                    R.drawable.ophtha_ex_img,
+                    "전부 다 할인"
+                )
+            )
+            add(
+                HomeOphthaEvent(
+                    "알아라 병원",
+                    "서울특별시 광진구",
+                    R.drawable.ophtha_ex_img,
+                    "이것만 무료"
+                )
+            )
+        }
+        val ophthaEventRVAdapter = HomeOphthaEventRVAdapter(ophthaEventDatas)
+        binding.homeEventRv.adapter = ophthaEventRVAdapter
+        binding.homeEventRv.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun ClickSetting() {
+        binding.homeDoReviewBtn.setOnClickListener {
+            if (!isDoReviewClicked) {
+                binding.homeDoReviewTv.visibility = View.VISIBLE
+                isDoReviewClicked = !isDoReviewClicked
+            } else {
+                binding.homeDoReviewTv.visibility = View.GONE
+                isDoReviewClicked = !isDoReviewClicked
+            }
+        }
+        binding.homeDoReviewTv.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, MapFragment())
+                .commitAllowingStateLoss()
+        }
+    }
+}

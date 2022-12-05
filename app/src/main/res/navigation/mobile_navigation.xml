@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_navgraph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.anda.ui.main.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.anda.ui.main.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/compareFragment"
+        android:name="com.anda.ui.main.map.MapFragment"
+        android:label="@string/title_compare"
+        tools:layout="@layout/fragment_compare" />
+
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.anda.ui.main.map.MapFragment"
+        android:label="@string/title_community"
+        tools:layout="@layout/fragment_community" />
+
+    <fragment
+        android:id="@+id/myInfoFragment"
+        android:name="com.anda.ui.main.map.MapFragment"
+        android:label="@string/title_myInfo"
+        tools:layout="@layout/fragment_my_info" />
+</navigation>
