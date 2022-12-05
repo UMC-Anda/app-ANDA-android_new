@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+            android:id="@+id/item_home_ranking_num_img_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/home_anda_ranking_ophtha_num1_img"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/item_home_ranking_ophtha_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="김안과병원"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/item_home_ranking_num_img_iv"
+            app:layout_constraintTop_toTopOf="@id/item_home_ranking_num_img_iv"/>
+
+        <TextView
+            android:id="@+id/item_home_ranking_ophtha_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="서울특별시 영등포구"
+            android:textSize="13dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/item_home_ranking_num_img_iv"
+            app:layout_constraintTop_toBottomOf="@id/item_home_ranking_ophtha_name_tv"/>
+
+        <RatingBar
+            android:id="@+id/item_home_ranking_rating_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="1"
+            android:rating="1"
+            android:stepSize="1"
+            android:isIndicator="false"
+            android:layout_marginStart="10dp"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            app:layout_constraintStart_toEndOf="@id/item_home_ranking_num_img_iv"
+            app:layout_constraintTop_toTopOf="@id/item_home_ranking_rating_avg_tv"
+            app:layout_constraintBottom_toBottomOf="@id/item_home_ranking_rating_avg_tv"/>
+
+        <TextView
+            android:id="@+id/item_home_ranking_rating_avg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="(5.0)"
+            android:textSize="10dp"
+
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/item_home_ranking_rating_rb"
+            app:layout_constraintTop_toBottomOf="@id/item_home_ranking_ophtha_location_tv"/>
+
+        <TextView
+            android:id="@+id/item_home_ranking_rating_cnt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="(2421)"
+            android:textSize="10dp"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@id/item_home_ranking_rating_avg_tv"
+            app:layout_constraintTop_toBottomOf="@id/item_home_ranking_ophtha_location_tv"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_home_ranking_ophtha_picture_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ophtha_ex_img"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

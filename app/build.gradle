@@ -35,9 +35,10 @@ android {
 }
 
 dependencies {
-    //둥근 이미지뷰
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'    //둥근 이미지뷰
+    implementation "androidx.viewpager2:viewpager2:1.0.0"   //ViewPager2
+    implementation 'com.tbuonomo:dotsindicator:4.2'//인디케이터
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
