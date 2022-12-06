@@ -57,6 +57,7 @@ class HomeAndaRankingSelectRVAdapter (private var andaRankingSelectList: ArrayLi
                 2 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_smile_img)
                 3 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_lens_img)
                 4 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_back_img)
+                5 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_normal_img)
             }
         }
     }

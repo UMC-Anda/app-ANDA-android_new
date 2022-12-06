@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.anda.R
+import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.FragmentHomeRankingBannerBinding
 
-class HomeRankingBannerFragment (val imgRes : Int) : Fragment() {
+class HomeAndaRankingBannerFragment (val homeAndaRankingDatas:ArrayList<HomeAndaRankingOphtha>) : Fragment() {
+
     lateinit var binding: FragmentHomeRankingBannerBinding
 
     override fun onCreateView(
@@ -17,8 +21,10 @@ class HomeRankingBannerFragment (val imgRes : Int) : Fragment() {
     ): View? {
         binding = FragmentHomeRankingBannerBinding.inflate(inflater, container, false)
 
-        binding.homeRankingBannerOphthaListRv.adapter
-        binding.homeRankingBannerOphthaListRv.layoutManager
+
+        val andaRankingRVAdapter = HomeAndaRankingRVAdapter(homeAndaRankingDatas)
+        binding.homeRankingBannerOphthaListRv.adapter = andaRankingRVAdapter
+        binding.homeRankingBannerOphthaListRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         return binding.root
     }

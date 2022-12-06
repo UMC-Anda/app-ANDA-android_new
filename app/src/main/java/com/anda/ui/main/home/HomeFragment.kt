@@ -6,7 +6,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -14,15 +13,18 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.data.entities.HomeAndaRankingSelect
 import com.anda.data.entities.HomeOphthaEvent
+import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.FragmentHomeBinding
 import com.anda.ui.main.map.MapFragment
-import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment() {
 
     private var isDoReviewClicked = false
     private var ophthaEventDatas = ArrayList<HomeOphthaEvent>()
     private var homeAndaRankingSelecDatas = ArrayList<HomeAndaRankingSelect>()
+    val homeAndaRankingP1Datas = ArrayList<HomeAndaRankingOphtha>()
+    val homeAndaRankingP2Datas = ArrayList<HomeAndaRankingOphtha>()
+    val homeAndaRankingP3Datas = ArrayList<HomeAndaRankingOphtha>()
     lateinit var binding: FragmentHomeBinding
     var currentPosition:Int = 0
     //핸들러 설정
@@ -43,6 +45,7 @@ class HomeFragment : Fragment() {
         addOphthaEvent()
         optionAdsBanner()
         optionAndaInfoBanner()
+        optionAndaRankingOphtha()
 
         val thread=Thread(PagerRunnable())
         thread.start()
@@ -70,6 +73,45 @@ class HomeFragment : Fragment() {
         }
     }
 
+
+
+    private fun optionAndaRankingOphtha() {
+        addAndaRankingOphtha()
+
+        //dotsIndicator
+        val pagerAdapter = HomeAndaRankingBannerVPAdapter(this)
+        binding.homeRankingVp.adapter = pagerAdapter
+        binding.homeRankingVp.setCurrentItem(1,true)
+        binding.homeRankingDotsIndicator.setViewPager2(binding.homeRankingVp)
+
+        val andaRankingBannerAdapter = HomeAndaRankingBannerVPAdapter(this)
+        andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP1Datas))
+        andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP2Datas))
+        andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP3Datas))
+        binding.homeRankingVp.adapter = andaRankingBannerAdapter
+        binding.homeRankingVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+
+    }
+
+    private fun addAndaRankingOphtha() {
+        homeAndaRankingP1Datas.apply {
+            add(HomeAndaRankingOphtha("김안과병원1","서울특별시 영등포구",1, R.drawable.ophtha_ex_img, 3.5, 12))
+            add(HomeAndaRankingOphtha("김안과병원2","서울특별시 영등포구",2, R.drawable.ophtha_ex_img, 4.5, 2))
+            add(HomeAndaRankingOphtha("김안과병원3","서울특별시 영등포구",3, R.drawable.ophtha_ex_img, 5.0, 8))
+        }
+        homeAndaRankingP2Datas.apply {
+            add(HomeAndaRankingOphtha("김안과병원4","서울특별시 영등포구",4, R.drawable.ophtha_ex_img, 3.5, 12))
+            add(HomeAndaRankingOphtha("김안과병원5","서울특별시 영등포구",5, R.drawable.ophtha_ex_img, 4.5, 2))
+            add(HomeAndaRankingOphtha("김안과병원6","서울특별시 영등포구",6, R.drawable.ophtha_ex_img, 5.0, 8))
+        }
+        homeAndaRankingP3Datas.apply {
+            add(HomeAndaRankingOphtha("김안과병원7","서울특별시 영등포구",7, R.drawable.ophtha_ex_img, 3.5, 12))
+            add(HomeAndaRankingOphtha("김안과병원8","서울특별시 영등포구",8, R.drawable.ophtha_ex_img, 4.5, 2))
+            add(HomeAndaRankingOphtha("김안과병원9","서울특별시 영등포구",9, R.drawable.ophtha_ex_img, 5.0, 8))
+        }
+    }
+
     private fun optionAdsBanner() {
         val adsBannerAdapter = HomeAdsBannerVPAdapter(this)
         adsBannerAdapter.addFragment(HomeAdsBannerFragment(R.drawable.ophtha_ex_img))
@@ -78,6 +120,7 @@ class HomeFragment : Fragment() {
         binding.homeAdsVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
     private fun optionAndaInfoBanner() {
+        //dotsIndicator
         val pagerAdapter = HomeAndaInfoBannerVPAdapter(this)
         binding.homeAndaInfoVp.adapter = pagerAdapter
         binding.homeAndaInfoVp.setCurrentItem(1,true)
@@ -113,16 +156,14 @@ class HomeFragment : Fragment() {
             add(HomeAndaRankingSelect(2, R.drawable.home_ranking_unselected_smile_img))
             add(HomeAndaRankingSelect(3, R.drawable.home_ranking_unselected_lens_img))
             add(HomeAndaRankingSelect(4, R.drawable.home_ranking_unselected_back_img))
+            add(HomeAndaRankingSelect(5, R.drawable.home_ranking_unselected_normal_img))
         }
         val andaRankingSelectRVAdapter = HomeAndaRankingSelectRVAdapter(homeAndaRankingSelecDatas)
         binding.homeRankingSelectRv.adapter = andaRankingSelectRVAdapter
         binding.homeRankingSelectRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         andaRankingSelectRVAdapter.setHomeandaRankingSelectItemClickListener(object : HomeAndaRankingSelectRVAdapter.homeandaRankingSelectItemClickListener{
-            override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) {
-
-            }
-        })
+            override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) { } })
     }
 
     private fun addOphthaEvent() {
