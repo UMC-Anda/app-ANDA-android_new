@@ -55,7 +55,7 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/home_do_review_btn"
+        android:id="@+id/compare_do_review_btn"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:src="@drawable/compare_do_review_btn"

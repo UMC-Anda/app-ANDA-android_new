@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.anda.MainActivity
 import com.anda.R
 import com.anda.data.entities.CompareOphtha
 import com.anda.data.entities.CompareOphthaReview
 import com.anda.data.entities.CompareSortSelect
 import com.anda.databinding.FragmentCompareBinding
 import com.anda.databinding.ItemCompareOphthaBinding
+import com.anda.ui.main.map.MapFragment
 
 class CompareFragment() : Fragment() {
 
@@ -29,13 +31,21 @@ class CompareFragment() : Fragment() {
         binding = FragmentCompareBinding.inflate(inflater, container, false)
         val compareSortSelectRVAdapter = initSortSelectButton()
         addOphtha()
-
+        ClickSetting()
         compareSortSelectRVAdapter.setCompareItemClickListener(object : CompareSortSelectRVAdapter.compareItemClickListener{
             override fun onItemClick() {
 
             }
         })
         return binding.root
+    }
+
+    private fun ClickSetting() {
+        binding.compareDoReviewBtn.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, MapFragment())
+                .commitAllowingStateLoss()
+        }
     }
 
 

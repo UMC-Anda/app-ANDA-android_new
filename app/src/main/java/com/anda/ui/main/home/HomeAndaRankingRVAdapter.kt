@@ -36,12 +36,12 @@ class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRa
                 1-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num1_img)
                 2-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num2_img)
                 3-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num3_img)
-                4-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
-                5-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
-                6-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
-                7-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
-                8-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
-                9-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.ex_img)
+                4-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num4_img)
+                5-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num5_img)
+                6-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num6_img)
+                7-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num7_img)
+                8-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num8_img)
+                9-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num9_img)
             }
         }
     }

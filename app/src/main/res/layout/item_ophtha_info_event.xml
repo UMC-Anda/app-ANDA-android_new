@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_ophtha_info_event_image_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ophtha_ex_img"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/item_ophtha_info_event_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이벤트 이름"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/white_black"
+        app:layout_constraintStart_toEndOf="@id/item_ophtha_info_event_image_iv"
+        app:layout_constraintTop_toTopOf="@id/item_ophtha_info_event_image_iv"/>
+
+    <TextView
+        android:layout_width=""
+        android:layout_height=""
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

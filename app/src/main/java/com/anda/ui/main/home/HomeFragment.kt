@@ -40,7 +40,17 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        ClickSetting()
+        //뷰페이저 내용물 바뀔때마다 호출
+        binding.homeAndaInfoVp.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                currentPosition = position
+            }
+        })
+
+
+
+        clickSetting()
         addAndaRankingSelect()
         addOphthaEvent()
         optionAdsBanner()
@@ -215,7 +225,7 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun ClickSetting() {
+    private fun clickSetting() {
         binding.homeDoReviewBtn.setOnClickListener {
             if (!isDoReviewClicked) {
                 binding.homeDoReviewTv.visibility = View.VISIBLE
