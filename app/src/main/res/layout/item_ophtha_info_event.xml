@@ -1,33 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/item_ophtha_info_event_image_iv"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/ophtha_ex_img"
-        android:layout_marginStart="10dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/round_background"
+        android:layout_marginStart="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <TextView
-        android:id="@+id/item_ophtha_info_event_name_tv"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_ophtha_info_event_informations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이벤트 이름"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@color/white_black"
+        android:layout_marginStart="18dp"
         app:layout_constraintStart_toEndOf="@id/item_ophtha_info_event_image_iv"
-        app:layout_constraintTop_toTopOf="@id/item_ophtha_info_event_image_iv"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:layout_width=""
-        android:layout_height=""
+        <TextView
+            android:id="@+id/item_ophtha_info_event_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이벤트 이름"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/white_black"
+            app:layout_constraintStart_toStartOf="@id/item_ophtha_info_event_informations"
+            app:layout_constraintTop_toTopOf="@id/item_ophtha_info_event_informations"/>
 
+        <ImageView
+            android:id="@+id/item_ophtha_info_event_category_iv"
+            android:layout_width="150dp"
+            android:layout_height="20dp"
+            android:scaleType="fitStart"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/item_ophtha_info_event_category_lasik"
+            app:layout_constraintStart_toStartOf="@id/item_ophtha_info_event_informations"
+            app:layout_constraintTop_toBottomOf="@id/item_ophtha_info_event_name_tv"/>
 
+        <TextView
+            android:id="@+id/item_home_ophtha_event_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="진행기간 ~ 진행기간"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/item_ophtha_info_event_informations"
+            app:layout_constraintTop_toBottomOf="@id/item_ophtha_info_event_category_iv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

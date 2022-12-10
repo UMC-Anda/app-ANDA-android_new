@@ -5,11 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
 import com.anda.data.entities.HomeAndaRankingOphtha
-import com.anda.data.entities.HomeOphthaEvent
 import com.anda.databinding.ItemHomeAndaRankingOphthaBinding
-import com.anda.databinding.ItemHomeOphthaEventBinding
 
 class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRankingOphtha>): RecyclerView.Adapter<HomeAndaRankingRVAdapter.ViewHolder>() {
+
+    private lateinit var mItemClickListener: homeandaRankingOphthaItemClickListener
+
+    interface homeandaRankingOphthaItemClickListener {
+        fun onItemClick(andaRankingOphtha: HomeAndaRankingOphtha) {
+
+        }
+    }
+    fun setHomeandaRankingOphthaItemClickListener(itemClickListener: HomeAndaRankingRVAdapter.homeandaRankingOphthaItemClickListener) {
+        mItemClickListener = itemClickListener
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): HomeAndaRankingRVAdapter.ViewHolder {
         val binding: ItemHomeAndaRankingOphthaBinding = ItemHomeAndaRankingOphthaBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)

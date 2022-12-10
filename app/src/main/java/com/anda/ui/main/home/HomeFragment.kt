@@ -14,6 +14,7 @@ import com.anda.R
 import com.anda.data.entities.HomeAndaRankingSelect
 import com.anda.data.entities.HomeOphthaEvent
 import com.anda.data.entities.HomeAndaRankingOphtha
+import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.FragmentHomeBinding
 import com.anda.ui.main.map.MapFragment
 
@@ -25,6 +26,8 @@ class HomeFragment : Fragment() {
     val homeAndaRankingP1Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP2Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP3Datas = ArrayList<HomeAndaRankingOphtha>()
+    val ophthaInfoEventList = ArrayList<OphthaInfoEvent>()
+
     lateinit var binding: FragmentHomeBinding
     var currentPosition:Int = 0
     //핸들러 설정
@@ -105,20 +108,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun addAndaRankingOphtha() {
+        addOphthaInfoEvent()
         homeAndaRankingP1Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원1","서울특별시 영등포구",1, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원2","서울특별시 영등포구",2, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원3","서울특별시 영등포구",3, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha("김안과병원1","서울특별시 영등포구",1, R.drawable.ophtha_ex_img, 3.5, 12, ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원2","서울특별시 영등포구",2, R.drawable.ophtha_ex_img, 4.5, 2,ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원3","서울특별시 영등포구",3, R.drawable.ophtha_ex_img, 5.0, 8,ophthaInfoEventList!!))
         }
         homeAndaRankingP2Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원4","서울특별시 영등포구",4, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원5","서울특별시 영등포구",5, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원6","서울특별시 영등포구",6, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha("김안과병원4","서울특별시 영등포구",4, R.drawable.ophtha_ex_img, 3.5, 12, ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원5","서울특별시 영등포구",5, R.drawable.ophtha_ex_img, 4.5, 2, ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원6","서울특별시 영등포구",6, R.drawable.ophtha_ex_img, 5.0, 8, ophthaInfoEventList!!))
         }
         homeAndaRankingP3Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원7","서울특별시 영등포구",7, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원8","서울특별시 영등포구",8, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원9","서울특별시 영등포구",9, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha("김안과병원7","서울특별시 영등포구",7, R.drawable.ophtha_ex_img, 3.5, 12, ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원8","서울특별시 영등포구",8, R.drawable.ophtha_ex_img, 4.5, 2, ophthaInfoEventList!!))
+            add(HomeAndaRankingOphtha("김안과병원9","서울특별시 영등포구",9, R.drawable.ophtha_ex_img, 5.0, 8, ophthaInfoEventList!!))
         }
     }
 
@@ -175,7 +179,83 @@ class HomeFragment : Fragment() {
         andaRankingSelectRVAdapter.setHomeandaRankingSelectItemClickListener(object : HomeAndaRankingSelectRVAdapter.homeandaRankingSelectItemClickListener{
             override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) { } })
     }
-
+   private fun addOphthaInfoEvent(){
+       ophthaInfoEventList.apply {
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름1", "라식", "2021.02.04 ~ 2021.03.01"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.real_ophtha_ex_img,
+                   "이벤트 이름2",
+                   "라섹",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(
+               OphthaInfoEvent(
+                   R.drawable.ophtha_ex_img,
+                   "이벤트 이름3",
+                   "기타진료",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름4", "라식", "2021.02.04 ~ 2021.03.01"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.real_ophtha_ex_img,
+                   "이벤트 이름5",
+                   "라섹",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름6", "백내장"))
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름7", "라식", "2021.02.04 ~ 2021.03.01"))
+           add(OphthaInfoEvent(R.drawable.real_ophtha_ex_img, "이벤트 이름8", "라섹"))
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름9", "기타진료"))
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름10", "라식", "2021.02.04 ~ 2021.03.01"))
+           add(OphthaInfoEvent(R.drawable.real_ophtha_ex_img, "이벤트 이름11", "라섹"))
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름12", "스마일라식"))
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름13", "라식"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.real_ophtha_ex_img,
+                   "이벤트 이름14",
+                   "라섹",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름15", "기타진료"))
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름16", "라식"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.real_ophtha_ex_img,
+                   "이벤트 이름17",
+                   "백내장",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름18", "백내장"))
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름19", "렌즈삽입술", "2021.02.04 ~ 2021.03.01"))
+           add(OphthaInfoEvent(R.drawable.real_ophtha_ex_img, "이벤트 이름20", "라섹"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.ophtha_ex_img,
+                   "이벤트 이름21",
+                   "기타진료",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름22", "라식", "2021.02.04 ~ 2021.03.01"))
+           add(
+               OphthaInfoEvent(
+                   R.drawable.real_ophtha_ex_img,
+                   "이벤트 이름23",
+                   "라섹",
+                   "2021.02.04 ~ 2021.03.01"
+               )
+           )
+           add(OphthaInfoEvent(R.drawable.ophtha_ex_img, "이벤트 이름24", "기타진료"))
+       }
+   }
     private fun addOphthaEvent() {
         ophthaEventDatas.apply {
             add(

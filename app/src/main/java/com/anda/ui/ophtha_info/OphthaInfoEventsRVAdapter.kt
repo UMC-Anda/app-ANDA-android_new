@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
 import com.anda.data.entities.OphthaInfoEvent
+import com.anda.databinding.ItemOphthaInfoEventBinding
 
 class OphthaInfoEventsRVAdapter  (private var ophthaInfoEventList: ArrayList<OphthaInfoEvent>): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
 
@@ -26,7 +27,7 @@ class OphthaInfoEventsRVAdapter  (private var ophthaInfoEventList: ArrayList<Oph
         viewType: Int
     ): OphthaInfoEventsRVAdapter.ViewHolder {
 
-        val binding: ItemHomeAndaRankingSelectBinding = ItemHomeAndaRankingSelectBinding.inflate(
+        val binding: ItemOphthaInfoEventBinding = ItemOphthaInfoEventBinding.inflate(
             LayoutInflater.from(viewGroup.context), viewGroup, false
         )
 
@@ -38,35 +39,25 @@ class OphthaInfoEventsRVAdapter  (private var ophthaInfoEventList: ArrayList<Oph
         position: Int
     ) {
         holder.bind(ophthaInfoEventList[position])
-        setData(holder)
-        holder.itemView.setOnClickListener {
-            mItemClickListener.onItemClick(ophthaInfoEventList[position])
-            notifyItemChanged(mPosition)
-            mPosition = holder.adapterPosition
-            notifyItemChanged(mPosition)
-            setData(holder)
-        }
     }
 
-    private fun setData(holder: ViewHolder) {
-        if (mPosition == holder.adapterPosition) {
-            when (mPosition) {
-                0 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_lasik_img)
-                1 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_lasek_img)
-                2 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_smile_img)
-                3 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_lens_img)
-                4 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_back_img)
-                5 -> holder.binding.itemHomeRankingSelectImgIv.setImageResource(R.drawable.home_ranking_selected_normal_img)
-            }
-        }
-    }
 
     override fun getItemCount(): Int = ophthaInfoEventList.size
 
-    inner class ViewHolder(val binding: ItemHomeAndaRankingSelectBinding) :
+    inner class ViewHolder(val binding: ItemOphthaInfoEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(andaRankingSelect: OphthaInfoEvent) {
-            binding.itemHomeRankingSelectImgIv.setImageResource(andaRankingSelect.andaRankingSelectImg!!)
+        fun bind(ophthaInfoEvent: OphthaInfoEvent) {
+            binding.itemOphthaInfoEventImageIv.setImageResource(ophthaInfoEvent.eventImg!!)
+            binding.itemOphthaInfoEventNameTv.text = ophthaInfoEvent.eventName
+            binding.itemHomeOphthaEventDateTv.text = ophthaInfoEvent.eventDate
+            when(ophthaInfoEvent.eventCategory){
+                "라식" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasik)
+                "라섹" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasek)
+                "스마일라식" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_smile)
+                "렌즈삽입술" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lens)
+                "백내장" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_back)
+                "기타진료" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_etc)
+            }
         }
     }
 
