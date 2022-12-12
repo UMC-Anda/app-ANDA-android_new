@@ -31,11 +31,14 @@ class HomeAndaRankingBannerFragment (val homeAndaRankingDatas:ArrayList<HomeAnda
         binding.homeRankingBannerOphthaListRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         andaRankingRVAdapter.setHomeandaRankingOphthaItemClickListener(object : HomeAndaRankingRVAdapter.homeandaRankingOphthaItemClickListener{
-            override fun onItemClick(andaRankingOphtha: HomeAndaRankingOphtha) {
-                (context as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoFragment(andaRankingOphtha))
+            override fun onItemClick() {
+                (activity as MainActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment_container, OphthaInfoFragment())
                     .commitAllowingStateLoss()
-            } })
+            }
+        })
+
+
         return binding.root
     }
 }

@@ -3,17 +3,19 @@ package com.anda.ui.main.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.anda.MainActivity
 import com.anda.R
 import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.ItemHomeAndaRankingOphthaBinding
+import com.anda.ui.main.map.MapFragment
+import com.anda.ui.ophtha_info.OphthaInfoFragment
 
 class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRankingOphtha>): RecyclerView.Adapter<HomeAndaRankingRVAdapter.ViewHolder>() {
 
     private lateinit var mItemClickListener: homeandaRankingOphthaItemClickListener
 
     interface homeandaRankingOphthaItemClickListener {
-        fun onItemClick(andaRankingOphtha: HomeAndaRankingOphtha) {
-
+        fun onItemClick() {
         }
     }
     fun setHomeandaRankingOphthaItemClickListener(itemClickListener: HomeAndaRankingRVAdapter.homeandaRankingOphthaItemClickListener) {
@@ -27,8 +29,8 @@ class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRa
     }
 
     override fun onBindViewHolder(holder: HomeAndaRankingRVAdapter.ViewHolder, position: Int) {
-
         holder.bind(andaRankingList[position])
+        holder.itemView.setOnClickListener{mItemClickListener.onItemClick()}
     }
 
     override fun getItemCount(): Int = andaRankingList.size

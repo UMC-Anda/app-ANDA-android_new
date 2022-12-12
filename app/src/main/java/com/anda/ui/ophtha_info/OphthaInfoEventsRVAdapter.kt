@@ -7,8 +7,9 @@ import com.anda.R
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.ItemOphthaInfoEventBinding
 
-class OphthaInfoEventsRVAdapter  (private var ophthaInfoEventList: ArrayList<OphthaInfoEvent>): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
+class OphthaInfoEventsRVAdapter(): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
 
+    private lateinit var ophthaInfoEventList: ArrayList<OphthaInfoEvent>
     private lateinit var mItemClickListener: ophthaInfoEventsItemClickListener
     var mPosition = 0
 

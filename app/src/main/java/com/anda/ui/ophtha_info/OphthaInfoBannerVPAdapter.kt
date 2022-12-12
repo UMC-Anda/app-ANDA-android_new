@@ -6,9 +6,16 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class OphthaInfoBannerVPAdapter(fragment:Fragment) : FragmentStateAdapter(fragment){
 
     private val fragmentList : ArrayList<Fragment> = ArrayList()
-    override fun getItemCount(): Int = fragmentList.size
+    override fun getItemCount(): Int = 3
 
-    override fun createFragment(position: Int): Fragment = fragmentList[position]
+    override fun createFragment(position: Int): Fragment {
+        return when(position) {
+            0 -> OphthaInfoEventsFragment()
+            1 -> OphthaInfoReviewsFragment()
+            else -> OphthaInfoRatingsFragment()
+
+        }
+    }
 
     fun addFragment(fragment: Fragment){
         fragmentList.add(fragment)

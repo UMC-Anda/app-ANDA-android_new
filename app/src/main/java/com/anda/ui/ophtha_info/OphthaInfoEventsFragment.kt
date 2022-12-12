@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.FragmentOphthaInfoEventsBinding
 
-class OphthaInfoEventsFragment (val ophthaInfoEventDatas:ArrayList<OphthaInfoEvent>?) : Fragment() {
+class OphthaInfoEventsFragment () : Fragment() {
 
     lateinit var binding: FragmentOphthaInfoEventsBinding
 
@@ -21,7 +21,7 @@ class OphthaInfoEventsFragment (val ophthaInfoEventDatas:ArrayList<OphthaInfoEve
         binding = FragmentOphthaInfoEventsBinding.inflate(inflater, container, false)
 
 
-        val ophthaINfoEventsRVAdapter = OphthaInfoEventsRVAdapter(ophthaInfoEventDatas!!)
+        val ophthaINfoEventsRVAdapter = OphthaInfoEventsRVAdapter()
         binding.ophthaInfoEventRv.adapter = ophthaINfoEventsRVAdapter
         binding.ophthaInfoEventRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
