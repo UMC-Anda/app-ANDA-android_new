@@ -6,20 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.ItemOphthaInfoEventBinding
+import com.anda.ui.main.home.HomeAndaRankingRVAdapter
 
-class OphthaInfoEventsRVAdapter(): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
+class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<OphthaInfoEvent>): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
 
-    private lateinit var ophthaInfoEventList: ArrayList<OphthaInfoEvent>
     private lateinit var mItemClickListener: ophthaInfoEventsItemClickListener
     var mPosition = 0
 
     interface ophthaInfoEventsItemClickListener {
-        fun onItemClick(andaRankingSelect: OphthaInfoEvent) {
+        fun onItemClick() {
 
         }
     }
 
-    fun ophthaInfoEventsItemClickListener(itemClickListener: ophthaInfoEventsItemClickListener) {
+    fun setOphthaInfoEventsItemClickListener(itemClickListener: ophthaInfoEventsItemClickListener) {
         mItemClickListener = itemClickListener
     }
 

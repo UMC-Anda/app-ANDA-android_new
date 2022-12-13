@@ -61,7 +61,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
                     1,
                     1,
                     0,
-                    0,
+                    true,
                     "원장님 꼼꼼하게 설명해주시고,\n어려운 용어도 알아듣기 쉽게 설명해주셔서 정말 좋았어요. 지인들에게도 항상 이 병원을 추천한답니다 ㅎ_ㅎ"
                 )
             )
@@ -78,7 +78,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
                     1,
                     1,
                     0,
-                    0,
+                    false,
                     "원장님 꼼꼼하게 설명해주시고,\n어려운 용어도 알아듣기 쉽게 설명해주셔서 정말 좋았어요. 지인들에게도 항상 이 병원을 추천한답니다 ㅎ_ㅎ"
                 )
             )
@@ -95,7 +95,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
                     1,
                     1,
                     0,
-                    0,
+                    false,
                     "원장님 꼼꼼하게 설명해주시고,\n어려운 용어도 알아듣기 쉽게 설명해주셔서 정말 좋았어요. 지인들에게도 항상 이 병원을 추천한답니다 ㅎ_ㅎ"
                 )
             )
@@ -112,7 +112,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
                     1,
                     1,
                     0,
-                    0,
+                    true,
                     "원장님 꼼꼼하게 설명해주시고,\n어려운 용어도 알아듣기 쉽게 설명해주셔서 정말 좋았어요. 지인들에게도 항상 이 병원을 추천한답니다 ㅎ_ㅎ"
                 )
             )
@@ -129,7 +129,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
                     1,
                     1,
                     0,
-                    0,
+                    false,
                     "원장님 꼼꼼하게 설명해주시고,\n어려운 용어도 알아듣기 쉽게 설명해주셔서 정말 좋았어요. 지인들에게도 항상 이 병원을 추천한답니다 ㅎ_ㅎ"
                 )
             )

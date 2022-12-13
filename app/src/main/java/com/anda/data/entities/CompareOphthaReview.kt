@@ -12,6 +12,6 @@ data class CompareOphthaReview(
     var ratingInfo: Int? = 0,
     var ratingRecommed: Int? = 0,
     var operateImg: Int? = 0,
-    var receiptImg: Int? = 0,
+    var idReceipted: Boolean? = null,
     var reviewTxt: String? = null
     )
