@@ -26,21 +26,28 @@ class OphthaInfoFragment() : Fragment() {
     ): View? {
         binding = FragmentOphthaInfoBinding.inflate(inflater, container, false)
 
-        optionDetails()
 
+
+
+        optionDetails()
 
 
         return binding.root
     }
 
+
     private fun optionDetails() {
         addDetailsEvents()
         addDetailsReviews()
 
-        val andaOphthaInfoAdapter = OphthaInfoBannerVPAdapter(this, ophthaInfoEventDatas, ophthaInfoReviewDatas)
+        val andaOphthaInfoAdapter =
+            OphthaInfoBannerVPAdapter(this, ophthaInfoEventDatas, ophthaInfoReviewDatas)
         binding.ophthaInfoDetailsVp.adapter = andaOphthaInfoAdapter
-        TabLayoutMediator(binding.ophthaInfoDetailsTb, binding.ophthaInfoDetailsVp){
-                tab, position -> tab.text = information[position]
+        TabLayoutMediator(
+            binding.ophthaInfoDetailsTb,
+            binding.ophthaInfoDetailsVp
+        ) { tab, position ->
+            tab.text = information[position]
         }.attach()
 
         andaOphthaInfoAdapter.addFragment(OphthaInfoEventsFragment(ophthaInfoEventDatas))

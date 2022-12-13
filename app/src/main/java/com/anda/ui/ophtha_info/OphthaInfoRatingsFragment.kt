@@ -17,6 +17,17 @@ class OphthaInfoRatingsFragment : Fragment() {
     ): View? {
         binding = FragmentOphthaInfoRatingsBinding.inflate(inflater, container, false)
 
+        setInfos()
+
         return binding.root
+    }
+
+    private fun setInfos() {
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.root.requestLayout()
     }
 }

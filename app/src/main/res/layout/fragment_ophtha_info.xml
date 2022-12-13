@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<com.amar.library.ui.StickyScrollView
+    android:id="@+id/ophtha_info_scrollView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    app:stickyHeader="@+id/title_tb">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -123,23 +125,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/ophtha_info_details_tb"
+        <LinearLayout
+            android:id="@+id/title_tb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/ophtha_info_details_tb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/ophtha_info_details_vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.0" />
 
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</com.amar.library.ui.StickyScrollView>

@@ -33,6 +33,9 @@ class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<OphthaInfo
         return binding.root
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        binding.root.requestLayout()
+    }
 }
 

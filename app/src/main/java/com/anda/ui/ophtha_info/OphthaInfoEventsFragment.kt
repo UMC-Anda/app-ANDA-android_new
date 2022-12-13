@@ -28,17 +28,23 @@ class OphthaInfoEventsFragment (val ophthaInfoEventsDatas:ArrayList<OphthaInfoEv
 
 
 
+
         val ophthaInfoEventsRVAdapter = OphthaInfoEventsRVAdapter(ophthaInfoEventsDatas!!)
         binding.ophthaInfoEventRv.adapter = ophthaInfoEventsRVAdapter
         binding.ophthaInfoEventRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         ophthaInfoEventsRVAdapter.setOphthaInfoEventsItemClickListener(object :OphthaInfoEventsRVAdapter.ophthaInfoEventsItemClickListener{
             override fun onItemClick() {
-
+                (activity as MainActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment_container, OphthaInfoEventDetailFragment())
+                    .commitAllowingStateLoss()
             }
         })
 
         return binding.root
     }
-
+    override fun onResume() {
+        super.onResume()
+        binding.root.requestLayout()
+    }
 }

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.home.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ophtha_info_event_detail_ophtha_img_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ex_img"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_event_category_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수술 카테고리"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/ophtha_info_event_detail_ophtha_img_iv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_ophtha_img_iv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_event_ophtha_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="안과 이름"
+                android:textSize="13dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="3dp"
+                app:layout_constraintStart_toStartOf="@id/ophtha_info_event_detail_event_category_tv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_event_category_tv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_divide_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  |  "
+                android:textSize="13dp"
+                android:textColor="@color/white_black"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_event_ophtha_location_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="안과 위치"
+                android:textSize="13dp"
+                android:textColor="@color/white_black"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_divide_tv"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"/>
+
+            <RatingBar
+                android:id="@+id/ophtha_info_event_detail_event_ophtha_rating_rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rating="1"
+                android:numStars="1"
+                android:layout_marginTop="3dp"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                app:layout_constraintStart_toStartOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_rating_avg_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(9.2)"
+                android:textSize="10dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"
+                app:layout_constraintBottom_toBottomOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_rating_cnt_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(2421)"
+                android:textSize="10dp"
+                android:textColor="@color/white_black"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_rating_avg_tv"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"
+                app:layout_constraintBottom_toBottomOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="59.4"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/ophtha_info_event_detail_event_ophtha_name_tv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_event_ophtha_rating_rb"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_price_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 만원"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_price_tv"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_event_detail_price_tv"/>
+
+            <ImageView
+                android:id="@+id/ophtha_info_event_detail_underbar_iv"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:src="@drawable/ophtha_info_event_detail_underbar"
+                android:scaleType="fitXY"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_price_tv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_date_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기간"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white_black"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/ophtha_info_event_detail_price_tv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_underbar_iv"/>
+
+            <TextView
+                android:id="@+id/ophtha_info_event_detail_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2022.12.25 ~ 2023.06.25"
+                android:textSize="10dp"
+                android:textColor="@color/white_black"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@id/ophtha_info_event_detail_date_info_tv"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_underbar_iv"/>
+
+            <ImageView
+                android:id="@+id/ophtha_info_event_detail_content_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/real_ophtha_ex_img"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ophtha_info_event_detail_date_info_tv"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+        <!--    상담 받으러 가기-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/ophtha_info_event_detail_go_ophtha_site__btn"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ophtha_info_event_detail_go_site"
+            android:scaleType="fitXY"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

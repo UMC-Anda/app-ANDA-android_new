@@ -13,11 +13,7 @@ class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<Ophth
     private lateinit var mItemClickListener: ophthaInfoEventsItemClickListener
     var mPosition = 0
 
-    interface ophthaInfoEventsItemClickListener {
-        fun onItemClick() {
-
-        }
-    }
+    interface ophthaInfoEventsItemClickListener { fun onItemClick() {} }
 
     fun setOphthaInfoEventsItemClickListener(itemClickListener: ophthaInfoEventsItemClickListener) {
         mItemClickListener = itemClickListener
@@ -40,8 +36,8 @@ class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<Ophth
         position: Int
     ) {
         holder.bind(ophthaInfoEventList[position])
+        holder.itemView.setOnClickListener { mItemClickListener.onItemClick() }
     }
-
 
     override fun getItemCount(): Int = ophthaInfoEventList.size
 
