@@ -41,6 +41,7 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Op
         position: Int
     ) {
         holder.bind(ophthaInfoReviewList[position])
+        holder.itemView.setOnClickListener { mItemClickListener.onItemClick() }
     }
 
 

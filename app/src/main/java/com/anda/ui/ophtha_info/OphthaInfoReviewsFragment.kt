@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.anda.MainActivity
+import com.anda.R
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.data.entities.OphthaInfoReview
 import com.anda.databinding.FragmentOphthaInfoEventsBinding
@@ -28,7 +30,11 @@ class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<OphthaInfo
         binding.ophthaInfoReviwesRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         ophthaInfoReviewsRVAdapter.setOphthaInfoReviewsItemClickListener(object :OphthaInfoReviewsRVAdapter.ophthaInfoReviewsItemClickListener{
-            override fun onItemClick() {} })
+            override fun onItemClick() {
+                (activity as MainActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment_container, OphthaInfoReviewDetailFragment())
+                    .commitAllowingStateLoss()
+            } })
 
         return binding.root
     }

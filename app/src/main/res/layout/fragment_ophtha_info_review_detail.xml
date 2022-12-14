@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        작성자 프로필-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ophtha_info_review_detail_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ophtha_info_review_detail_user_profile_img_cv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ex_img"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_user_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대만 붉은등발쥐"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_profile_img_cv"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_user_profile_img_cv"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_user_profile_img_cv"/>
+
+                <ImageView
+                    android:id="@+id/ophtha_info_review_detail_user_reviews_iv"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ophtha_info_review_detail_user_reviews"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_user_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_user_name_tv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_user_reviews_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_reviews_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_user_reviews_iv"/>
+
+
+                <ImageView
+                    android:id="@+id/ophtha_info_review_detail_user_likes_iv"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ophtha_info_review_detail_user_likes"
+                    android:scaleType="fitCenter"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_user_reviews_iv"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_reviews_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_user_name_tv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_user_likes_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_likes_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_user_likes_iv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_user_info_divide_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="|"
+                    android:textSize="13dp"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_user_likes_tv"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_likes_tv" />
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_revew_date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2021.11.24 "
+                    android:textSize="8dp"
+                    android:textColor="@color/white_black"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_user_info_divide_tv"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_user_info_divide_tv"/>
+                
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_revew_date_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 등록"
+                    android:textSize="8dp"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_revew_date_tv"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_revew_date_tv"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+<!--        리뷰 수술 정보-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ophtha_info_review_detail_operation_info"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ophtha_info_review_detail_operation_receipt_iv"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/item_ophtha_info_review_receipt"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_operation_category_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="받은진료 : "
+                    android:textSize="15dp"
+                    android:textColor="@color/white_black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_operation_receipt_iv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_operation_receipt_iv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_operation_category_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스마일 라식"
+                    android:textColor="@color/white_black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_operation_category_info_tv"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_operation_category_info_tv" />
+
+                <RatingBar
+                    android:id="@+id/ophtha_info_review_detail_operation_rating_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:max="5"
+                    android:rating="3.5"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_operation_category_info_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_operation_category_info_tv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_operation_rating_tb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(9.2)"
+                    android:textSize="10dp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_operation_rating_rb"
+                    app:layout_constraintBottom_toBottomOf="@id/ophtha_info_review_detail_operation_rating_rb"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_operation_doctor_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="의사: "
+                    android:layout_marginTop="5dp"
+                    android:textSize="8dp"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_operation_rating_rb"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_operation_rating_rb"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_operation_doctor_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="김의사"
+                    android:textSize="8dp"
+                    android:textColor="@color/white_black"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_operation_doctor_info_tv"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_operation_doctor_info_tv"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+<!--        리뷰 내용-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ophtha_info_review_detail_review_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_review_text_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="동해물과 백두산이 마르고 닳도록하느님이 보우하사 우리나라 만세무궁화 삼천리 화려 강산대한 사람 대한으로 길이 보전하세
+\n\n
+남산 위에 저 소나무 철갑을 두른 듯바람 서리 불변함은 우리 기상일세무궁화 삼천리 화려 강산대한 사람 대한으로 길이 보전하세
+\n\n
+가을 하늘 공활한데 높고 구름 없이밝은 달은 우리 가슴 일편단심일세무궁화 삼천리 화려 강산대한 사람 대한으로 길이 보전하세
+\n\n
+이 기상과 이 맘으로 충성을 다하여괴로우나 즐거우나 나라 사랑하세무궁화 삼천리 화려 강산대한 사람 대한으로 길이 보전하세
+\n\n
+예찬아 일단 느낌 보여주려고 애국가 씀!"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/ophtha_info_review_detail_review_img1_iv"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ex_img"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/radius_background"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_review_text_tv"
+                    app:layout_constraintEnd_toStartOf="@id/ophtha_info_review_detail_review_img2_iv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_review_text_tv"/>
+
+                <ImageView
+                    android:id="@+id/ophtha_info_review_detail_review_img2_iv"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ex_img"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/radius_background"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_review_img1_iv"
+                    app:layout_constraintEnd_toEndOf="@id/ophtha_info_review_detail_review_text_tv"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_review_img1_iv"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:src="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_review_img2_iv"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+<!--        리뷰 별점-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ophtha_info_review_detail_rating_info"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+<!--                친절정도-->
+                <LinearLayout
+                    android:id="@+id/ophtha_info_review_detail_rating_kind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ophtha_info_review_detail_rating_waiting"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/ophtha_info_review_detail_rating_effective"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/ophtha_info_review_detail_rating_kind_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="친절정도"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
+
+                    <RatingBar
+                        android:id="@+id/ophtha_info_review_detail_rating_kind_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="3"
+                        android:max="5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+<!--                대기시간-->
+                <LinearLayout
+                    android:id="@+id/ophtha_info_review_detail_rating_waiting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_rating_kind"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/ophtha_info_review_detail_rating_information"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/ophtha_info_review_detail_rating_waiting_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="대기시간"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
+
+                    <RatingBar
+                        android:id="@+id/ophtha_info_review_detail_rating_waiting_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="3"
+                        android:max="5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+<!--                수술효과-->
+                <LinearLayout
+                    android:id="@+id/ophtha_info_review_detail_rating_effective"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ophtha_info_review_detail_rating_information"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_rating_kind"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/ophtha_info_review_detail_rating_effective_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="수술효과"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
+
+                    <RatingBar
+                        android:id="@+id/ophtha_info_review_detail_rating_effective_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="3"
+                        android:max="5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+<!--                정보전달-->
+                <LinearLayout
+                    android:id="@+id/ophtha_info_review_detail_rating_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_rating_effective"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_rating_waiting"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/ophtha_info_review_detail_rating_information_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="정보전달"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"/>
+
+                    <RatingBar
+                        android:id="@+id/ophtha_info_review_detail_rating_information_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="3"
+                        android:max="5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+<!--        리뷰 수술 비용-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ophtha_info_review_detail_price_info"
+            android:layout_width="match_parent"
+            android:layout_height="117dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_price_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="수술 비용"
+                    android:textColor="@color/white_black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_price_category_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="라식"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_price_info_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_price_info_tv"/>
+
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_price_category_price_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 만원"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_price_category_tv"/>
+                <TextView
+                    android:id="@+id/ophtha_info_review_detail_price_category_price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/ophtha_info_review_detail_price_category_price_info_tv"
+                    app:layout_constraintTop_toTopOf="@id/ophtha_info_review_detail_price_category_tv"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</ScrollView>

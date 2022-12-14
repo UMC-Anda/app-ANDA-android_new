@@ -26,11 +26,7 @@ class OphthaInfoFragment() : Fragment() {
     ): View? {
         binding = FragmentOphthaInfoBinding.inflate(inflater, container, false)
 
-
-
-
         optionDetails()
-
 
         return binding.root
     }
