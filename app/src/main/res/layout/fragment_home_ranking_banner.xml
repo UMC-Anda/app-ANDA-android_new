@@ -18,6 +18,7 @@
         app:layout_constraintVertical_bias="0.498"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="3"
-        tools:listitem="@layout/item_home_anda_ranking_ophtha" />
+        tools:listitem="@layout/item_home_anda_ranking_ophtha"
+        android:overScrollMode="never"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

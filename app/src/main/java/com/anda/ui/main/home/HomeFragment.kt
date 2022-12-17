@@ -12,11 +12,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.anda.MainActivity
 import com.anda.R
 import com.anda.data.entities.HomeAndaRankingSelect
-import com.anda.data.entities.HomeOphthaEvent
 import com.anda.data.entities.HomeAndaRankingOphtha
-import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.FragmentHomeBinding
-import com.anda.ui.main.map.MapFragment
+import com.anda.ui.write_review.WriteCommunityWritingFragment
 
 class HomeFragment : Fragment() {
 
@@ -187,7 +185,7 @@ class HomeFragment : Fragment() {
         }
         binding.homeDoReviewTv.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, MapFragment())
+                .replace(R.id.nav_host_fragment_container, WriteCommunityWritingFragment())
                 .commitAllowingStateLoss()
         }
     }

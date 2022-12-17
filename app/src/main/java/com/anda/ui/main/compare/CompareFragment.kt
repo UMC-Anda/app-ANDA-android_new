@@ -15,6 +15,7 @@ import com.anda.data.entities.CompareSortSelect
 import com.anda.databinding.FragmentCompareBinding
 import com.anda.databinding.ItemCompareOphthaBinding
 import com.anda.ui.main.map.MapFragment
+import com.anda.ui.write_review.WriteCommunityWritingFragment
 
 class CompareFragment() : Fragment() {
 
@@ -43,7 +44,7 @@ class CompareFragment() : Fragment() {
     private fun ClickSetting() {
         binding.compareDoReviewBtn.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, MapFragment())
+                .replace(R.id.nav_host_fragment_container, WriteCommunityWritingFragment())
                 .commitAllowingStateLoss()
         }
     }
