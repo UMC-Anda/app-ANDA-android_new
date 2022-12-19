@@ -56,7 +56,7 @@ class CompareFragment() : Fragment() {
                 CompareOphtha(
                     "김안과병원",
                     "서울특별시 영등포구",
-                    R.drawable.ophtha_ex_img,
+                    R.drawable.ex_img,
                     3.5,
                     2435,
                 )
@@ -65,7 +65,7 @@ class CompareFragment() : Fragment() {
                 CompareOphtha(
                     "안다 병원",
                     "서울특별시 마포구",
-                    R.drawable.ophtha_ex_img,
+                    R.drawable.ex_img,
                     3.5,
                     2435,
                 )
@@ -74,7 +74,7 @@ class CompareFragment() : Fragment() {
                 CompareOphtha(
                     "모른다 병원",
                     "서울특별시 광진구",
-                    R.drawable.ophtha_ex_img,
+                    R.drawable.ex_img,
                     3.5,
                     2435,
                 )

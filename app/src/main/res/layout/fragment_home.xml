@@ -19,7 +19,6 @@
             android:layout_height="match_parent">
 
         <!--    안다 정보-->
-
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/home_anda_info_vp"
                 android:layout_width="match_parent"
@@ -38,9 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:background="@color/SUB"
-                app:selectedDotColor="@color/Rectangle_50"
-                app:dotsColor="@color/SUB"
+                android:background="@color/MAIN_10"
+                app:selectedDotColor="@color/Main"
+                app:dotsColor="@color/MAIN_10"
                 app:dotsCornerRadius="10dp"
                 app:dotsSize="10dp"
                 app:dotsSpacing="10dp"
