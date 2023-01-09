@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anda.MainActivity
 import com.anda.R
-import com.anda.data.entities.HomeAndaRankingOphtha
-import com.anda.data.entities.OphthaInfoEvent
+import com.anda.data.entities.ExOphthaInfoEvent
 import com.anda.databinding.FragmentOphthaInfoEventsBinding
-import com.anda.ui.main.home.HomeAndaRankingRVAdapter
 
-class OphthaInfoEventsFragment (val ophthaInfoEventsDatas:ArrayList<OphthaInfoEvent>?) : Fragment() {
+class OphthaInfoEventsFragment (val ophthaInfoEventsDatas:ArrayList<ExOphthaInfoEvent>?) : Fragment() {
 
 
     lateinit var binding: FragmentOphthaInfoEventsBinding
@@ -36,7 +34,7 @@ class OphthaInfoEventsFragment (val ophthaInfoEventsDatas:ArrayList<OphthaInfoEv
         ophthaInfoEventsRVAdapter.setOphthaInfoEventsItemClickListener(object :OphthaInfoEventsRVAdapter.ophthaInfoEventsItemClickListener{
             override fun onItemClick() {
                 (activity as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoEventDetailFragment())
+                    .replace(R.id.nav_host_fragment_container, OphthaInfoDetailEventFragment())
                     .commitAllowingStateLoss()
             }
         })

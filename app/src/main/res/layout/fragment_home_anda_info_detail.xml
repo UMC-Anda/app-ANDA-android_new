@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/home_anda_info_detail_back_iv"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/write_community_writing_back_img"
+        android:scaleType="fitXY"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/home_anda_info_detail_image_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ex_img"
+        android:scaleType="fitXY"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back_iv"/>
+
+    <ImageView
+        android:id="@+id/home_anda_info_detail_image_corner_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/home_anda_info_detail_corner_img"
+        android:scaleType="fitXY"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back_iv"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/anda_info_detail_person_plus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/anda_info_detail_person_plus_background_iv"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:src="@drawable/anda_info_detail_person_plus_background"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        
+        <ImageView
+            android:id="@+id/anda_info_detail_person_plus_icon_iv"
+            android:layout_width="44dp"
+            android:layout_height="34dp"
+            android:src="@drawable/anda_info_detail_person_plus_icon"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/anda_info_detail_my_person_plus_cnt_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내가 초대한 회원"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:textColorHint="@color/black"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintStart_toStartOf="@id/anda_info_detail_my_person_plus_cnt_tv"
+            app:layout_constraintBottom_toTopOf="@id/anda_info_detail_my_person_plus_cnt_tv"/>
+
+        <TextView
+            android:id="@+id/anda_info_detail_my_person_plus_cnt_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(전체 00명 | 미션완료 00명)"
+            android:textSize="13dp"
+            android:textColorHint="@color/white_black"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="-2dp"
+            app:layout_constraintStart_toEndOf="@id/anda_info_detail_person_plus_icon_iv"
+            app:layout_constraintBottom_toBottomOf="@id/anda_info_detail_person_plus_icon_iv"/>
+
+        <ImageView
+            android:id="@+id/anda_info_detail_person_plus_suggest_iv"
+            android:layout_width="51dp"
+            android:layout_height="10dp"
+            android:src="@drawable/anda_info_detail_person_plus_suggest"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="@id/anda_info_detail_my_person_plus_cnt_tv"
+            app:layout_constraintBottom_toTopOf="@id/anda_info_detail_my_person_plus_cnt_info_tv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

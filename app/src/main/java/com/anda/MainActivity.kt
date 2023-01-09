@@ -1,6 +1,7 @@
 package com.anda
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.anda.databinding.ActivityMainBinding
 import com.anda.ui.main.community.CommunityFragment
@@ -21,7 +22,14 @@ class MainActivity : AppCompatActivity() {
         initBottomNavigation()
     }
 
+    public fun bottomNavigationControl() {
+        if (binding.mainBottomNavigation.visibility == View.VISIBLE) {
+            binding.mainBottomNavigation.visibility = View.GONE
 
+        } else {
+            binding.mainBottomNavigation.visibility = View.VISIBLE
+        }
+    }
     private fun initBottomNavigation(){
 
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, HomeFragment()).commitAllowingStateLoss()

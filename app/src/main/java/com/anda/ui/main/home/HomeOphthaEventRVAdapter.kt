@@ -44,6 +44,7 @@ class HomeOphthaEventRVAdapter (private var ophthaEventList: ArrayList<HomeOphth
             binding.itemHomeOphthaEventOphthaLocationTv.text = ophthaEvent.ophthaLocation
             binding.itemHomeOphthaEventNameTv.text = ophthaEvent.eventName
             binding.itemHomeOphthaEventOphthaPictureIv.setImageResource(ophthaEvent.eventImg!!)
+            binding.itemHomeOphthaEventOphthaPictureIv.clipToOutline = true
         }
     }
 

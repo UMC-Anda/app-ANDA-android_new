@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:background="@color/MAIN_10"
+                android:background="@drawable/spring_dot_stroke_background"
                 app:selectedDotColor="@color/Main"
                 app:dotsColor="@color/MAIN_10"
                 app:dotsCornerRadius="10dp"
@@ -72,8 +72,8 @@
                 android:layout_height="450dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/home_ranking_select_rv" />
 

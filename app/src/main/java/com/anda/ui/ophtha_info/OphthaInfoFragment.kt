@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.anda.R
+import com.anda.data.entities.ExOphthaInfoEvent
+import com.anda.data.entities.ExOphthaInfoReview
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.data.entities.OphthaInfoReview
 import com.anda.databinding.FragmentOphthaInfoBinding
@@ -14,8 +16,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class OphthaInfoFragment() : Fragment() {
 
-    val ophthaInfoEventDatas = ArrayList<OphthaInfoEvent>()
-    val ophthaInfoReviewDatas = ArrayList<OphthaInfoReview>()
+    val ophthaInfoEventDatas = ArrayList<ExOphthaInfoEvent>()
+    val ophthaInfoReviewDatas = ArrayList<ExOphthaInfoReview>()
     lateinit var binding: FragmentOphthaInfoBinding
     private val information = arrayListOf("이벤트", "리뷰", "별점요약")
 
@@ -57,7 +59,7 @@ class OphthaInfoFragment() : Fragment() {
         ophthaInfoReviewDatas.apply {
 
             add(
-                OphthaInfoReview(
+                ExOphthaInfoReview(
                     "라식",
                     5000,
                     "의사A",
@@ -67,7 +69,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoReview(
+                ExOphthaInfoReview(
                     "라식",
                     5000,
                     "의사B",
@@ -77,7 +79,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoReview(
+                ExOphthaInfoReview(
                     "라식",
                     5000,
                     "의사C",
@@ -87,7 +89,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoReview(
+                ExOphthaInfoReview(
                     "라식",
                     5000,
                     "의사D",
@@ -97,7 +99,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoReview(
+                ExOphthaInfoReview(
                     "라식",
                     5000,
                     "의사E",
@@ -113,7 +115,7 @@ class OphthaInfoFragment() : Fragment() {
     private fun addDetailsEvents() {
         ophthaInfoEventDatas.apply {
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름1",
                     "라식",
@@ -121,7 +123,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름2",
                     "라섹",
@@ -129,16 +131,16 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름3",
                     "기타진료",
                     "2021.02.04 ~ 2021.03.01"
                 )
             )
-            add(OphthaInfoEvent(R.drawable.ex_img, "이벤트 이름4", "라식", "2021.02.04 ~ 2021.03.01"))
+            add(ExOphthaInfoEvent(R.drawable.ex_img, "이벤트 이름4", "라식", "2021.02.04 ~ 2021.03.01"))
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름5",
                     "라섹",
@@ -146,14 +148,14 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름6",
                     "백내장"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름7",
                     "라식",
@@ -161,21 +163,21 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름8",
                     "라섹"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름9",
                     "기타진료"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름10",
                     "라식",
@@ -183,28 +185,28 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름11",
                     "라섹"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름12",
                     "스마일라식"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름13",
                     "라식"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름14",
                     "라섹",
@@ -212,21 +214,21 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                 R.drawable.ophtha_ex_img,
                 "이벤트 이름15",
                 "기타진료"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                 R.drawable.ex_img,
                 "이벤트 이름16",
                 "라식"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름17",
                     "백내장",
@@ -234,12 +236,12 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름18",
                     "백내장"))
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름19",
                     "렌즈삽입술",
@@ -247,14 +249,14 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름20",
                     "라섹"
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름21",
                     "기타진료",
@@ -262,7 +264,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ex_img,
                     "이벤트 이름22",
                     "라식",
@@ -270,7 +272,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.real_ophtha_ex_img,
                     "이벤트 이름23",
                     "라섹",
@@ -278,7 +280,7 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
             add(
-                OphthaInfoEvent(
+                ExOphthaInfoEvent(
                     R.drawable.ophtha_ex_img,
                     "이벤트 이름24",
                     "기타진료"

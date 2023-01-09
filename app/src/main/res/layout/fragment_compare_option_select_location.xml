@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--    강남구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gangnam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+            <ImageView
+                android:id="@+id/compare_option_select_location_gangnam_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gangnam_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="강남구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@id/compare_option_select_location_gangnam_checkcircle_iv"
+                app:layout_constraintStart_toEndOf="@id/compare_option_select_location_gangnam_checkcircle_iv"
+                app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangnam_checkcircle_iv" />
+        </LinearLayout>
+
+
+
+        <!--    동대문구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_dongdaemun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toTopOf="parent" >
+            <ImageView
+                android:id="@+id/compare_option_select_location_dongdaemun_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_dongdaemun_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="동대문구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    용산구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_yongsan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_dongdaemun"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_dongdaemun">
+            <ImageView
+                android:id="@+id/compare_option_select_location_yongsan_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_yongsan_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="용산구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    강동구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gangdong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gangnam">
+            <ImageView
+                android:id="@+id/compare_option_select_location_gangdong_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gangdong_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="강동구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    동작구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_dongjak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangdong"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangdong">
+            <ImageView
+                android:id="@+id/compare_option_select_location_dongjak_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_dongjak_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="동작구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    은평구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_eunpyeong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_dongjak"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangdong">
+            <ImageView
+                android:id="@+id/compare_option_select_location_eunpyeong_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_eunpyeong_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="은평구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    강북구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gangbuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gangdong">
+            <ImageView
+                android:id="@+id/compare_option_select_location_gangbuk_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gangbuk_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="강북구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <!--    마포구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_mapo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangbuk"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangbuk">
+            <ImageView
+                android:id="@+id/compare_option_select_location_mapo_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_mapo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="마포구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    종로구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_jongno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_mapo"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangbuk">
+            <ImageView
+                android:id="@+id/compare_option_select_location_jongno_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_jongno_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="종로구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    강서구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gangseo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gangbuk">
+            <ImageView
+                android:id="@+id/compare_option_select_location_gangseo_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gangseo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="강서구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    서대문구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_seodaemun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangseo"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangseo">
+            <ImageView
+                android:id="@+id/compare_option_select_location_seodaemun_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_seodaemun_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="서대문구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    중구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_jung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_seodaemun"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangseo">
+            <ImageView
+                android:id="@+id/compare_option_select_location_jung_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_jung_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="중구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    관악구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gwanak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gangseo">
+            <ImageView
+                android:id="@+id/compare_option_select_location_gwanak_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gwanak_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="관악구"
+                android:checked="false"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    서초구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_seocho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gwanak"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gwanak">
+            <ImageView
+                android:id="@+id/compare_option_select_location_seocho_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_seocho_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginStart="15dp"
+                android:text="서초구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <!--    중랑구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_jungnang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_seocho"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gwanak">
+            <ImageView
+                android:id="@+id/compare_option_select_location_jungnang_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_jungnang_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="중랑구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    광진구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_gwangjin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gwanak">
+            <ImageView
+                android:id="@+id/compare_option_select_location_gwangjin_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_gwangjin_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="광진구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+<!--        성동구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_seongdong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gwangjin"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gwangjin">
+            <ImageView
+                android:id="@+id/compare_option_select_location_seongdong_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_seongdong_tv"
+                android:layout_width="wrap_content"
+                android:checked="false"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="성동구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    구로구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_guro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_gwangjin"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam">
+            <ImageView
+                android:id="@+id/compare_option_select_location_guro_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_guro_tv"
+                android:layout_width="wrap_content"
+                android:checked="false"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="구로구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--        성북구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_seongbuk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_guro"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_guro">
+            <ImageView
+                android:id="@+id/compare_option_select_location_seongbuk_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_seongbuk_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="성북구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--    금천구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_geumcheon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_guro">
+            <ImageView
+                android:id="@+id/compare_option_select_location_geumcheon_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_geumcheon_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="금천구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--        송파구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_songpa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_geumcheon"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_geumcheon">
+            <ImageView
+                android:id="@+id/compare_option_select_location_songpa_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_songpa_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="송파구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <!--    노원구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_nowon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_geumcheon">
+            <ImageView
+                android:id="@+id/compare_option_select_location_nowon_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_nowon_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginStart="15dp"
+                android:text="노원구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--        양천구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_yangcheon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_nowon"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_nowon">
+            <ImageView
+                android:id="@+id/compare_option_select_location_yangcheon_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_yangcheon_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:layout_marginStart="15dp"
+                android:text="양천구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+
+        <!--    도봉구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_dobong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_gangnam"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_nowon">
+            <ImageView
+                android:id="@+id/compare_option_select_location_dobong_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_dobong_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="도봉구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--        영등포구-->
+        <LinearLayout
+            android:id="@+id/compare_option_select_location_yeongdeungpo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            app:layout_constraintStart_toStartOf="@id/compare_option_select_location_dobong"
+            app:layout_constraintTop_toTopOf="@id/compare_option_select_location_dobong">
+            <ImageView
+                android:id="@+id/compare_option_select_location_yeongdeungpo_checkcircle_iv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@color/white"
+                android:src="@drawable/checkcircle_unchecked"/>
+            <CheckedTextView
+                android:id="@+id/compare_option_select_location_yeongdeungpo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:checked="false"
+                android:text="영등포구"
+                android:textColor="@color/white_black"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

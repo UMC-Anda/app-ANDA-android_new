@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
+import com.anda.data.entities.ExOphthaInfoEvent
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.databinding.ItemOphthaInfoEventBinding
-import com.anda.ui.main.home.HomeAndaRankingRVAdapter
 
-class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<OphthaInfoEvent>): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
+class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<ExOphthaInfoEvent>): RecyclerView.Adapter<OphthaInfoEventsRVAdapter.ViewHolder>() {
 
     private lateinit var mItemClickListener: ophthaInfoEventsItemClickListener
     var mPosition = 0
@@ -43,11 +43,11 @@ class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<Ophth
 
     inner class ViewHolder(val binding: ItemOphthaInfoEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(ophthaInfoEvent: OphthaInfoEvent) {
-            binding.itemOphthaInfoEventImageIv.setImageResource(ophthaInfoEvent.eventImg!!)
-            binding.itemOphthaInfoEventNameTv.text = ophthaInfoEvent.eventName
-            binding.itemHomeOphthaEventDateTv.text = ophthaInfoEvent.eventDate
-            when(ophthaInfoEvent.eventCategory){
+        fun bind(ophthaInfoEvent: ExOphthaInfoEvent) {
+            binding.itemOphthaInfoEventImageIv.setImageResource(ophthaInfoEvent.ophthaEventImg!!)
+            binding.itemOphthaInfoEventNameTv.text = ophthaInfoEvent.ophthaEventName
+            binding.itemHomeOphthaEventDateTv.text = ophthaInfoEvent.ophthaEventDate
+            when(ophthaInfoEvent.ophthaEventCategory){
                 "라식" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasik)
                 "라섹" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasek)
                 "스마일라식" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_smile)

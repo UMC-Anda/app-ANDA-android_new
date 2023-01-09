@@ -1,23 +1,30 @@
 package com.anda.ui.main.compare
 
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.anda.MainActivity
 import com.anda.R
 import com.anda.data.entities.CompareOphtha
-import com.anda.data.entities.CompareOphthaReview
 import com.anda.data.entities.CompareSortSelect
 import com.anda.databinding.FragmentCompareBinding
-import com.anda.databinding.ItemCompareOphthaBinding
-import com.anda.ui.main.map.MapFragment
-import com.anda.ui.write_review.WriteCommunityWritingFragment
+import com.anda.ui.main.compare.option.CompareOptionSelectLocationFragment
+import com.anda.ui.main.compare.option.CompareOptionSelectOperationFragment
+import com.anda.ui.main.compare.option.CompareOptionSelectSortFragment
+import com.anda.ui.main.compare.option.CompareOptionVPAdapter
 
-class CompareFragment() : Fragment() {
+
+class CompareFragment() : Fragment(), View.OnClickListener {
 
     //바인딩
     lateinit var binding: FragmentCompareBinding
@@ -30,25 +37,44 @@ class CompareFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCompareBinding.inflate(inflater, container, false)
+
         val compareSortSelectRVAdapter = initSortSelectButton()
         addOphtha()
-        ClickSetting()
-        compareSortSelectRVAdapter.setCompareItemClickListener(object : CompareSortSelectRVAdapter.compareItemClickListener{
-            override fun onItemClick() {
 
+        compareSortSelectRVAdapter.setCompareItemClickListener(object : CompareSortSelectRVAdapter.compareSortItemClickListener{
+            override fun onItemClick(position : Int, ItemCnt : Int) {
+                binding.compareOptionVp.setCurrentItem(position - (ItemCnt - 3), false)
+                binding.compareOption.visibility = View.VISIBLE
+                val amimationEmailSelect: ValueAnimator = ObjectAnimator
+                    .ofFloat(binding.compareOption, "translationY", 1000f, 0f)
+                amimationEmailSelect.duration = 50
+                amimationEmailSelect.start()
+                binding.compareOptionCancelIv.visibility = View.VISIBLE
+                (activity as MainActivity).bottomNavigationControl()
             }
         })
+
+        binding.compareOptionVp.isUserInputEnabled = false
+        binding.compareOptionCancelIv.setOnClickListener(this)
+        binding.compareOptionBackgroundIv.setOnClickListener(this)
+        binding.compareOptionSelectOperationTv.setOnClickListener(this)
+        binding.compareOptionSelectSortStandardTv.setOnClickListener(this)
+        binding.compareOptionSelectLocationTv.setOnClickListener(this)
+
+        val andaOphthaInfoAdapter = CompareOptionVPAdapter(this)
+
+        andaOphthaInfoAdapter.addFragment(CompareOptionSelectOperationFragment())
+        andaOphthaInfoAdapter.addFragment(CompareOptionSelectSortFragment())
+        andaOphthaInfoAdapter.addFragment(CompareOptionSelectLocationFragment())
+        binding.compareOptionVp.adapter = andaOphthaInfoAdapter
+        binding.compareOptionVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        binding.compareOptionVp.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) { setData(position) }
+        })
+
         return binding.root
     }
-
-    private fun ClickSetting() {
-        binding.compareDoReviewBtn.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, WriteCommunityWritingFragment())
-                .commitAllowingStateLoss()
-        }
-    }
-
 
     private fun addOphtha() {
         compareOphthaDatas.apply {
@@ -98,4 +124,46 @@ class CompareFragment() : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         return compareSortSelectRVAdapter
     }
+
+
+    private fun setData(mPosition : Int) {
+        when (mPosition) {
+            0 -> {
+                binding.compareOptionSelectOperationTv.setTextColor(resources.getColor(R.color.Main))
+                binding.compareOptionSelectSortStandardTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.compareOptionSelectLocationTv.setTextColor(resources.getColor(R.color.MAIN_50))
+            }
+            1 -> {
+                binding.compareOptionSelectOperationTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.compareOptionSelectSortStandardTv.setTextColor(resources.getColor(R.color.Main))
+                binding.compareOptionSelectLocationTv.setTextColor(resources.getColor(R.color.MAIN_50))
+            }
+            2 -> {
+                binding.compareOptionSelectOperationTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.compareOptionSelectSortStandardTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.compareOptionSelectLocationTv.setTextColor(resources.getColor(R.color.Main))
+            }
+        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v == null) return
+        when (v) {
+            binding.compareOptionCancelIv -> {
+                binding.compareOptionCancelIv.visibility = View.GONE
+                val amimationEmailSelect: ValueAnimator = ObjectAnimator
+                    .ofFloat(binding.compareOption, "translationY", 0f, 1000f)
+                amimationEmailSelect.duration = 50
+                amimationEmailSelect.start()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.compareOption.visibility = View.GONE
+                    (activity as MainActivity).bottomNavigationControl()
+                }, 50)
+            }
+            binding.compareOptionSelectOperationTv -> binding.compareOptionVp.setCurrentItem(0, false)
+            binding.compareOptionSelectSortStandardTv -> binding.compareOptionVp.setCurrentItem(1, false)
+            binding.compareOptionSelectLocationTv -> binding.compareOptionVp.setCurrentItem(2, false)
+        }
+    }
+
 }

@@ -21,4 +21,6 @@
     <color name="Rectangle_100">#8AB446</color>
     <color name="Rectangle_70">#ACC864</color>
     <color name="Rectangle_50">#D3E29D</color>
+    <color name="form_error">#FF0303</color>
+    <color name="form_right">#00B43D</color>
 </resources>

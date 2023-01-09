@@ -3,6 +3,7 @@ package com.anda.ui.main.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +15,19 @@ import com.anda.R
 import com.anda.data.entities.HomeAndaRankingSelect
 import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.FragmentHomeBinding
-import com.anda.ui.write_review.WriteCommunityWritingFragment
+import com.anda.ui.main.compare.option.CompareOptionSelectSortFragment
+import com.anda.ui.main.home.ads.HomeAdsBannerFragment
+import com.anda.ui.main.home.ads.HomeAdsBannerVPAdapter
+import com.anda.ui.main.home.andaInfo.AndaInfoService
+import com.anda.ui.main.home.andaInfo.AndaInfoView
+import com.anda.ui.main.home.andaInfo.HomeAndaInfoBannerFragment
+import com.anda.ui.main.home.andaInfo.HomeAndaInfoBannerVPAdapter
+import com.anda.ui.main.home.andaInfo.model.AndaInfoResponse
+import com.anda.ui.main.home.ranking.HomeAndaRankingBannerFragment
+import com.anda.ui.main.home.ranking.HomeAndaRankingBannerVPAdapter
+import com.anda.ui.main.home.ranking.HomeAndaRankingSelectRVAdapter
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), AndaInfoView {
 
     private var isDoReviewClicked = false
     private var homeAndaRankingSelecDatas = ArrayList<HomeAndaRankingSelect>()
@@ -46,20 +57,18 @@ class HomeFragment : Fragment() {
                 currentPosition = position
             }
         })
-
-
-
         clickSetting()
         addAndaRankingSelect()
         optionAdsBanner()
-        optionAndaInfoBanner()
         optionAndaRankingOphtha()
 
+        //안다정보 GET
+        val service = AndaInfoService(this)
+        service.tryAndaInfo()
+
+        //2초마다 안다정보 VP 넘기기
         val thread=Thread(PagerRunnable())
         thread.start()
-
-
-
 
         return binding.root
     }
@@ -87,12 +96,12 @@ class HomeFragment : Fragment() {
         addAndaRankingOphtha()
 
         //dotsIndicator
-        val pagerAdapter = HomeAndaRankingBannerVPAdapter(this)
-        binding.homeRankingVp.adapter = pagerAdapter
+        val andaRankingBannerAdapter = HomeAndaRankingBannerVPAdapter(this)
+        binding.homeRankingVp.adapter = andaRankingBannerAdapter
         binding.homeRankingVp.setCurrentItem(1,true)
         binding.homeRankingDotsIndicator.setViewPager2(binding.homeRankingVp)
 
-        val andaRankingBannerAdapter = HomeAndaRankingBannerVPAdapter(this)
+        //vp
         andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP1Datas))
         andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP2Datas))
         andaRankingBannerAdapter.addFragment(HomeAndaRankingBannerFragment(homeAndaRankingP3Datas))
@@ -127,36 +136,6 @@ class HomeFragment : Fragment() {
         binding.homeAdsVp.adapter = adsBannerAdapter
         binding.homeAdsVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
-    private fun optionAndaInfoBanner() {
-        //dotsIndicator
-        val pagerAdapter = HomeAndaInfoBannerVPAdapter(this)
-        binding.homeAndaInfoVp.adapter = pagerAdapter
-        binding.homeAndaInfoVp.setCurrentItem(1,true)
-        binding.homeAndaInfoDotsIndicator.setViewPager2(binding.homeAndaInfoVp)
-
-        //다음 배너 미리 보기
-        /* 여백, 너비에 대한 정의 */
-        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
-        val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
-        val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
-        val offsetPx = screenWidth - pageMarginPx - pagerWidth
-
-        binding.homeAndaInfoVp.setPageTransformer { page, position ->
-            page.translationX = position * -offsetPx
-        }
-        //배너 추가 및 생성
-        val andaInfoBannerAdapter = HomeAndaInfoBannerVPAdapter(this)
-        andaInfoBannerAdapter.itemCount
-        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
-        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
-        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
-        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
-        andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(R.drawable.ex_img))
-        binding.homeAndaInfoVp.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
-        binding.homeAndaInfoVp.adapter = andaInfoBannerAdapter
-        binding.homeAndaInfoVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-    }
-
     private fun addAndaRankingSelect() {
         homeAndaRankingSelecDatas.apply {
             add(HomeAndaRankingSelect(0, R.drawable.home_ranking_unselected_lasik_img))
@@ -185,8 +164,43 @@ class HomeFragment : Fragment() {
         }
         binding.homeDoReviewTv.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, WriteCommunityWritingFragment())
+                .replace(R.id.nav_host_fragment_container, CompareOptionSelectSortFragment())
                 .commitAllowingStateLoss()
         }
     }
+
+
+
+    //안다정보
+    override fun onAndaInfoSuccess(response: AndaInfoResponse) {
+        //배너 추가 및 생성
+        val andaInfoBannerAdapter = HomeAndaInfoBannerVPAdapter(this)
+        andaInfoBannerAdapter.itemCount
+        for (i: Int in 0..response.result?.andaInfoBanners!!.size - 1){
+            andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(response.result?.andaInfoBanners!![i]))
+            Log.d("안다정보정보", response.result?.andaInfoBanners!![i].andaInfoName.toString())
+        }
+        binding.homeAndaInfoVp.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
+        binding.homeAndaInfoVp.adapter = andaInfoBannerAdapter
+        binding.homeAndaInfoVp.setCurrentItem(1,true)
+        binding.homeAndaInfoVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        Log.d("안다정보", "성공!")
+        //dotsIndicator
+        binding.homeAndaInfoDotsIndicator.setViewPager2(binding.homeAndaInfoVp)
+        //다음 배너 미리 보기
+        /* 여백, 너비에 대한 정의 */
+        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.
+        val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth) // dimen 파일이 없으면 생성해야함
+        val screenWidth = resources.displayMetrics.widthPixels // 스마트폰의 너비 길이를 가져옴
+        val offsetPx = screenWidth - pageMarginPx - pagerWidth
+
+        binding.homeAndaInfoVp.setPageTransformer { page, position ->
+            page.translationX = position * -offsetPx
+        }
+    }
+
+    override fun onAndaInfoFailure(code: Int, message: String) {
+        Log.d("안다정보", "실패!")
+    }
+
 }

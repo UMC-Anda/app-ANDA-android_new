@@ -10,7 +10,6 @@
         android:layout_height="15dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/round_background"
         android:scaleType="fitXY"
         android:src="@drawable/item_ophtha_info_review_receipt"
         app:layout_constraintStart_toStartOf="parent"

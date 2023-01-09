@@ -15,6 +15,9 @@ class CompareOphthaReviewRVAdapter  (private var compareOphthaReviewsList: Array
         }
     }
 
+
+
+
     private lateinit var mItemClickListener : compareReviewItemClickListener
     fun setCompareItemClickListener(itemClickListener : compareReviewItemClickListener){
         mItemClickListener = itemClickListener

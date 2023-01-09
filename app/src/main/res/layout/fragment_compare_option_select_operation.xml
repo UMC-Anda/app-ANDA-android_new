@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    라식 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_lasik_iv"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_selected_lasik_img"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--    라섹 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_lasek_iv"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_unselected_lasek_img"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/compare_option_select_operation_lasik_iv"
+        app:layout_constraintTop_toTopOf="@id/compare_option_select_operation_lasik_iv"/>
+
+    <!--    스마일라식 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_smile_iv"
+        android:layout_width="89dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_unselected_smile_img"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/compare_option_select_operation_lasek_iv"
+        app:layout_constraintTop_toTopOf="@id/compare_option_select_operation_lasik_iv"/>
+
+    <!--    렌즈삽입술 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_lens_iv"
+        android:layout_width="89dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_unselected_lens_img"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/compare_option_select_operation_smile_iv"
+        app:layout_constraintTop_toTopOf="@id/compare_option_select_operation_lasik_iv"/>
+
+    <!--    백내장 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_back_iv"
+        android:layout_width="68dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_unselected_back_img"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/compare_option_select_operation_lasik_iv"
+        app:layout_constraintTop_toBottomOf="@id/compare_option_select_operation_lasik_iv"/>
+
+    <!--    기본진료 버튼-->
+    <ImageView
+        android:id="@+id/compare_option_select_operation_normal_iv"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:src="@drawable/home_ranking_unselected_normal_img"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@id/compare_option_select_operation_back_iv"
+        app:layout_constraintTop_toTopOf="@id/compare_option_select_operation_back_iv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

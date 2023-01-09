@@ -4,14 +4,12 @@
     android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_ophtha_info_event_image_iv"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="19dp"
-        android:background="@drawable/round_background"
-        android:scaleType="fitXY"
         android:src="@drawable/ophtha_ex_img"
+        android:layout_marginStart="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

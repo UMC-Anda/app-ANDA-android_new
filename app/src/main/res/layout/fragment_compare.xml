@@ -19,19 +19,45 @@
 
 <!--            선택된 것들-->
 
-<!--            정렬 선택-->
+
+<!--            수술-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/compare_select_sort_selected_operation_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_compare_sort_select"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never"
+                android:orientation="horizontal" />
+
+<!--            정렬기준-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/compare_select_sort_selected_sort_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_compare_sort_select"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_operation_rv"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_selected_operation_rv"
+                android:overScrollMode="never"
+                android:orientation="horizontal" />
+            <!--            정렬 선택-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/compare_select_sort_rv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_compare_sort_select"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:overScrollMode="never"/>
+                app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_sort_rv"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_selected_operation_rv"
+                android:overScrollMode="never"
+                android:orientation="horizontal" />
 
 
 <!--            안과 정렬-->
@@ -61,4 +87,104 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <!--    compare화면 옵션-->
+    <ImageView
+        android:id="@+id/compare_option_cancel_iv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@color/white_black"
+        android:alpha="0.01"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/compare_option"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/compare_option"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/compare_option_background"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/compare_option_background_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/compare_option_background"
+            android:layout_marginStart="0.1dp"
+            android:layout_marginEnd="0.1dp"
+            android:layout_marginBottom="0.1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/compare_option_top_bar_iv"
+            android:layout_width="100dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/compare_option_top_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/compare_option_select_operation_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수술 선택"
+            android:textColor="@color/MAIN_50"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_top_bar_iv"/>
+
+        <TextView
+            android:id="@+id/compare_option_select_sort_standard_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정렬 선택"
+            android:textColor="@color/MAIN_50"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/compare_option_select_operation_tv"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_top_bar_iv"/>
+
+        <TextView
+            android:id="@+id/compare_option_select_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치 선택"
+            android:textColor="@color/MAIN_50"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/compare_option_select_sort_standard_tv"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_top_bar_iv"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/compare_option_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/compare_option_select_location_tv"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

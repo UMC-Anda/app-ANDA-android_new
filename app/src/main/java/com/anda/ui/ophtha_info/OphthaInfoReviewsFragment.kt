@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anda.MainActivity
 import com.anda.R
-import com.anda.data.entities.OphthaInfoEvent
-import com.anda.data.entities.OphthaInfoReview
-import com.anda.databinding.FragmentOphthaInfoEventsBinding
+import com.anda.data.entities.ExOphthaInfoReview
 import com.anda.databinding.FragmentOphthaInfoReviewsBinding
 
-class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<OphthaInfoReview>?) : Fragment() {
+class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<ExOphthaInfoReview>?) : Fragment() {
 
 
     lateinit var binding: FragmentOphthaInfoReviewsBinding
@@ -32,7 +30,7 @@ class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<OphthaInfo
         ophthaInfoReviewsRVAdapter.setOphthaInfoReviewsItemClickListener(object :OphthaInfoReviewsRVAdapter.ophthaInfoReviewsItemClickListener{
             override fun onItemClick() {
                 (activity as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoReviewDetailFragment())
+                    .replace(R.id.nav_host_fragment_container, OphthaInfoDetailReviewFragment())
                     .commitAllowingStateLoss()
             } })
 

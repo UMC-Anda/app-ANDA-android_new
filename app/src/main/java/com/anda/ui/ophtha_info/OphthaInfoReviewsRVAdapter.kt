@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
+import com.anda.data.entities.ExOphthaInfoReview
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.data.entities.OphthaInfoReview
 import com.anda.databinding.ItemOphthaInfoEventBinding
 import com.anda.databinding.ItemOphthaInfoReviewBinding
 
-class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<OphthaInfoReview>): RecyclerView.Adapter<OphthaInfoReviewsRVAdapter.ViewHolder>() {
+class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<ExOphthaInfoReview>): RecyclerView.Adapter<OphthaInfoReviewsRVAdapter.ViewHolder>() {
 
     private lateinit var mItemClickListener: ophthaInfoReviewsItemClickListener
     var mPosition = 0
@@ -49,7 +50,7 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Op
 
     inner class ViewHolder(val binding: ItemOphthaInfoReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(ophthaInfoReview: OphthaInfoReview) {
+        fun bind(ophthaInfoReview: ExOphthaInfoReview) {
             if(ophthaInfoReview.isReceipted == true){
                 binding.itemOphthaInfoReviewRecieptIv.setImageResource(R.drawable.item_ophtha_info_review_receipt)
             }
