@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.myInfo.MyInfoFragment">
+
+
+    <ImageView
+        android:id="@+id/community_ask_doctor_back_img_iv"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:src="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toEndOf="@id/community_ask_doctor_back_img_iv"
+        app:layout_constraintTop_toTopOf="@id/community_ask_doctor_back_img_iv"
+        app:layout_constraintBottom_toBottomOf="@id/community_ask_doctor_back_img_iv"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/community_ask_doctor_btns"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/community_ask_doctor_my_writing_img_iv"
+            android:layout_width="92dp"
+            android:layout_height="89dp"
+            android:src="@drawable/community_community_my_writing_img_iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/community_ask_doctor_my_like_img_iv"
+            android:layout_width="92dp"
+            android:layout_height="89dp"
+            android:src="@drawable/community_community_my_like_img_iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/community_ask_doctor_my_scrap_img_iv"
+            android:layout_width="92dp"
+            android:layout_height="89dp"
+            android:src="@drawable/community_community_my_scrap_img_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="28dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_ask_doctor_btns">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_side_effect_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="부작용 관리"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_lasik_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="라식"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_lasek_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="라섹"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_smile_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스마일 라식"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_lens_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="렌즈 삽입술"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_back_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="백내장"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+        <TextView
+            android:id="@+id/community_ask_doctor_normal_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기타 진료"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/background"
+            android:layout_marginTop="18dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

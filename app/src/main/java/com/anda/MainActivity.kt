@@ -3,6 +3,7 @@ package com.anda
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.anda.data.entities.CompareSortSelectedOption
 import com.anda.databinding.ActivityMainBinding
 import com.anda.ui.main.community.CommunityFragment
 import com.anda.ui.main.compare.CompareFragment
@@ -13,6 +14,8 @@ import com.anda.ui.main.myInfo.MyInfoFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    public var compareSortSelectedLocation = arrayListOf<String>("강남구")
+    public var compareSortSelectedOption = CompareSortSelectedOption("라식", "별점순", compareSortSelectedLocation)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

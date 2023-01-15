@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentCompareOptionSelectLocationBinding
 
@@ -65,326 +66,376 @@ class CompareOptionSelectLocationFragment() : Fragment(), View.OnClickListener {
             //강남구
             binding.compareOptionSelectLocationGangnam ->{
                 if(binding.compareOptionSelectLocationGangnamTv.isChecked){
-                    binding.compareOptionSelectLocationGangnamTv.elevation = 0f
+                    binding.compareOptionSelectLocationGangnamCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGangnamCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGangnamTv.isChecked = !binding.compareOptionSelectLocationGangnamTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("강남구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGangnamTv.elevation = 11f
+                    binding.compareOptionSelectLocationGangnamCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGangnamCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGangnamTv.isChecked = !binding.compareOptionSelectLocationGangnamTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("강남구")
                 }
             }
             //동대문구
             binding.compareOptionSelectLocationDongdaemun ->{
                 if(binding.compareOptionSelectLocationDongdaemunTv.isChecked){
-                    binding.compareOptionSelectLocationDongdaemunTv.elevation = 0f
+                    binding.compareOptionSelectLocationDongdaemunCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationDongdaemunCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationDongdaemunTv.isChecked = !binding.compareOptionSelectLocationDongdaemunTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("동대문구")
                 }
                 else{
-                    binding.compareOptionSelectLocationDongdaemunTv.elevation = 11f
+                    binding.compareOptionSelectLocationDongdaemunCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationDongdaemunCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationDongdaemunTv.isChecked = !binding.compareOptionSelectLocationDongdaemunTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("동대문구")
                 }
             }
             //용산구
             binding.compareOptionSelectLocationYongsan ->{
                 if(binding.compareOptionSelectLocationYongsanTv.isChecked){
-                    binding.compareOptionSelectLocationYongsanTv.elevation = 0f
+                    binding.compareOptionSelectLocationYongsanCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationYongsanCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationYongsanTv.isChecked = !binding.compareOptionSelectLocationYongsanTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("용산구")
                 }
                 else{
-                    binding.compareOptionSelectLocationYongsanTv.elevation = 11f
+                    binding.compareOptionSelectLocationYongsanCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationYongsanCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationYongsanTv.isChecked = !binding.compareOptionSelectLocationYongsanTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("용산구")
                 }
             }
             //강동구
             binding.compareOptionSelectLocationGangdong ->{
                 if(binding.compareOptionSelectLocationGangdongTv.isChecked){
-                    binding.compareOptionSelectLocationGangdongTv.elevation = 0f
+                    binding.compareOptionSelectLocationGangdongCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGangdongCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGangdongTv.isChecked = !binding.compareOptionSelectLocationGangdongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("강동구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGangdongTv.elevation = 11f
+                    binding.compareOptionSelectLocationGangdongCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGangdongCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGangdongTv.isChecked = !binding.compareOptionSelectLocationGangdongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("강동구")
                 }
             }
             //동작구
             binding.compareOptionSelectLocationDongjak ->{
                 if(binding.compareOptionSelectLocationDongjakTv.isChecked){
-                    binding.compareOptionSelectLocationDongjakTv.elevation = 0f
+                    binding.compareOptionSelectLocationDongjakCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationDongjakCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationDongjakTv.isChecked = !binding.compareOptionSelectLocationDongjakTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("동작구")
                 }
                 else{
-                    binding.compareOptionSelectLocationDongjakTv.elevation = 11f
+                    binding.compareOptionSelectLocationDongjakCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationDongjakCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationDongjakTv.isChecked = !binding.compareOptionSelectLocationDongjakTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("동작구")
                 }
             }
             //은평구
             binding.compareOptionSelectLocationEunpyeong ->{
                 if(binding.compareOptionSelectLocationEunpyeongTv.isChecked){
-                    binding.compareOptionSelectLocationEunpyeongTv.elevation = 0f
+                    binding.compareOptionSelectLocationEunpyeongCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationEunpyeongCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationEunpyeongTv.isChecked = !binding.compareOptionSelectLocationEunpyeongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("은평구")
                 }
                 else{
-                    binding.compareOptionSelectLocationEunpyeongTv.elevation = 11f
+                    binding.compareOptionSelectLocationEunpyeongCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationEunpyeongCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationEunpyeongTv.isChecked = !binding.compareOptionSelectLocationEunpyeongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("은평구")
                 }
             }
             //강북구
             binding.compareOptionSelectLocationGangbuk ->{
                 if(binding.compareOptionSelectLocationGangbukTv.isChecked){
-                    binding.compareOptionSelectLocationGangbukTv.elevation = 0f
+                    binding.compareOptionSelectLocationGangbukCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGangbukCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGangbukTv.isChecked = !binding.compareOptionSelectLocationGangbukTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("강북구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGangbukTv.elevation = 11f
+                    binding.compareOptionSelectLocationGangbukCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGangbukCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGangbukTv.isChecked = !binding.compareOptionSelectLocationGangbukTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("강북구")
                 }
             }
             //마포구
             binding.compareOptionSelectLocationMapo ->{
                 if(binding.compareOptionSelectLocationMapoTv.isChecked){
-                    binding.compareOptionSelectLocationMapoTv.elevation = 0f
+                    binding.compareOptionSelectLocationMapoCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationMapoCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationMapoTv.isChecked = !binding.compareOptionSelectLocationMapoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("마포구")
                 }
                 else{
-                    binding.compareOptionSelectLocationMapoTv.elevation = 11f
+                    binding.compareOptionSelectLocationMapoCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationMapoCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationMapoTv.isChecked = !binding.compareOptionSelectLocationMapoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("마포구")
                 }
             }
             //종로구
             binding.compareOptionSelectLocationJongno ->{
                 if(binding.compareOptionSelectLocationJongnoTv.isChecked){
-                    binding.compareOptionSelectLocationJongnoTv.elevation = 0f
+                    binding.compareOptionSelectLocationJongnoCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationJongnoCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationJongnoTv.isChecked = !binding.compareOptionSelectLocationJongnoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("종로구")
                 }
                 else{
-                    binding.compareOptionSelectLocationJongnoTv.elevation = 11f
+                    binding.compareOptionSelectLocationJongnoCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationJongnoCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationJongnoTv.isChecked = !binding.compareOptionSelectLocationJongnoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("종로구")
                 }
             }
             //강서구
             binding.compareOptionSelectLocationGangseo ->{
                 if(binding.compareOptionSelectLocationGangseoTv.isChecked){
-                    binding.compareOptionSelectLocationGangseoTv.elevation = 0f
+                    binding.compareOptionSelectLocationGangseoCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGangseoCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGangseoTv.isChecked = !binding.compareOptionSelectLocationGangseoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("강서구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGangseoTv.elevation = 11f
+                    binding.compareOptionSelectLocationGangseoCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGangseoCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGangseoTv.isChecked = !binding.compareOptionSelectLocationGangseoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("강서구")
                 }
             }
             //서대문구
             binding.compareOptionSelectLocationSeodaemun ->{
                 if(binding.compareOptionSelectLocationSeodaemunTv.isChecked){
-                    binding.compareOptionSelectLocationSeodaemunTv.elevation = 0f
+                    binding.compareOptionSelectLocationSeodaemunCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationSeodaemunCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationSeodaemunTv.isChecked = !binding.compareOptionSelectLocationSeodaemunTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("서대문구")
                 }
                 else{
-                    binding.compareOptionSelectLocationSeodaemunTv.elevation = 11f
+                    binding.compareOptionSelectLocationSeodaemunCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationSeodaemunCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationSeodaemunTv.isChecked = !binding.compareOptionSelectLocationSeodaemunTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("서대문구")
                 }
             }
             //중구
             binding.compareOptionSelectLocationJung ->{
                 if(binding.compareOptionSelectLocationJungTv.isChecked){
-                    binding.compareOptionSelectLocationJungTv.elevation = 0f
+                    binding.compareOptionSelectLocationJungCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationJungCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationJungTv.isChecked = !binding.compareOptionSelectLocationJungTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("중구")
                 }
                 else{
-                    binding.compareOptionSelectLocationJungTv.elevation = 11f
+                    binding.compareOptionSelectLocationJungCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationJungCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationJungTv.isChecked = !binding.compareOptionSelectLocationJungTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("중구")
                 }
             }
             //관악구
             binding.compareOptionSelectLocationGwanak ->{
                 if(binding.compareOptionSelectLocationGwanakTv.isChecked){
-                    binding.compareOptionSelectLocationGwanakTv.elevation = 0f
+                    binding.compareOptionSelectLocationGwanakCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGwanakCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGwanakTv.isChecked = !binding.compareOptionSelectLocationGwanakTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("관악구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGwanakTv.elevation = 11f
+                    binding.compareOptionSelectLocationGwanakCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGwanakCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGwanakTv.isChecked = !binding.compareOptionSelectLocationGwanakTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("관악구")
                 }
             }
             //서초구
             binding.compareOptionSelectLocationSeocho ->{
                 if(binding.compareOptionSelectLocationSeochoTv.isChecked){
-                    binding.compareOptionSelectLocationSeochoTv.elevation = 0f
+                    binding.compareOptionSelectLocationSeochoCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationSeochoCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationSeochoTv.isChecked = !binding.compareOptionSelectLocationSeochoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("서초구")
                 }
                 else{
-                    binding.compareOptionSelectLocationSeochoTv.elevation = 11f
+                    binding.compareOptionSelectLocationSeochoCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationSeochoCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationSeochoTv.isChecked = !binding.compareOptionSelectLocationSeochoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("서초구")
                 }
             }
             //중랑구
             binding.compareOptionSelectLocationJungnang ->{
                 if(binding.compareOptionSelectLocationJungnangTv.isChecked){
-                    binding.compareOptionSelectLocationJungnangTv.elevation = 0f
+                    binding.compareOptionSelectLocationJungnangCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationJungnangCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationJungnangTv.isChecked = !binding.compareOptionSelectLocationJungnangTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("중랑구")
                 }
                 else{
-                    binding.compareOptionSelectLocationJungnangTv.elevation = 11f
+                    binding.compareOptionSelectLocationJungnangCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationJungnangCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationJungnangTv.isChecked = !binding.compareOptionSelectLocationJungnangTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("중랑구")
                 }
             }
             //광진구
             binding.compareOptionSelectLocationGwangjin ->{
                 if(binding.compareOptionSelectLocationGwangjinTv.isChecked){
-                    binding.compareOptionSelectLocationGwangjinTv.elevation = 0f
+                    binding.compareOptionSelectLocationGwangjinCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGwangjinCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGwangjinTv.isChecked = !binding.compareOptionSelectLocationGwangjinTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("광진구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGwangjinTv.elevation = 11f
+                    binding.compareOptionSelectLocationGwangjinCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGwangjinCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGwangjinTv.isChecked = !binding.compareOptionSelectLocationGwangjinTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("광진구")
                 }
             }
             //성동구
             binding.compareOptionSelectLocationSeongdong ->{
                 if(binding.compareOptionSelectLocationSeongdongTv.isChecked){
-                    binding.compareOptionSelectLocationSeongdongTv.elevation = 0f
+                    binding.compareOptionSelectLocationSeongdongCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationSeongdongCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationSeongdongTv.isChecked = !binding.compareOptionSelectLocationSeongdongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("성동구")
                 }
                 else{
-                    binding.compareOptionSelectLocationSeongdongTv.elevation = 11f
+                    binding.compareOptionSelectLocationSeongdongCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationSeongdongCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationSeongdongTv.isChecked = !binding.compareOptionSelectLocationSeongdongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("성동구")
                 }
             }
             //구로구
             binding.compareOptionSelectLocationGuro ->{
                 if(binding.compareOptionSelectLocationGuroTv.isChecked){
-                    binding.compareOptionSelectLocationGuroTv.elevation = 0f
+                    binding.compareOptionSelectLocationGuroCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGuroCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGuroTv.isChecked = !binding.compareOptionSelectLocationGuroTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("구로구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGuroTv.elevation = 11f
+                    binding.compareOptionSelectLocationGuroCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGuroCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGuroTv.isChecked = !binding.compareOptionSelectLocationGuroTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("구로구")
                 }
             }
             //성북구
             binding.compareOptionSelectLocationSeongbuk ->{
                 if(binding.compareOptionSelectLocationSeongbukTv.isChecked){
-                    binding.compareOptionSelectLocationSeongbukTv.elevation = 0f
+                    binding.compareOptionSelectLocationSeongbukCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationSeongbukCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationSeongbukTv.isChecked = !binding.compareOptionSelectLocationSeongbukTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("성북구")
                 }
                 else{
-                    binding.compareOptionSelectLocationSeongbukTv.elevation = 11f
+                    binding.compareOptionSelectLocationSeongbukCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationSeongbukCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationSeongbukTv.isChecked = !binding.compareOptionSelectLocationSeongbukTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("성북구")
                 }
             }
             //금천구
             binding.compareOptionSelectLocationGeumcheon ->{
                 if(binding.compareOptionSelectLocationGeumcheonTv.isChecked){
-                    binding.compareOptionSelectLocationGeumcheonTv.elevation = 0f
+                    binding.compareOptionSelectLocationGeumcheonCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationGeumcheonCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationGeumcheonTv.isChecked = !binding.compareOptionSelectLocationGeumcheonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("금천구")
                 }
                 else{
-                    binding.compareOptionSelectLocationGeumcheonTv.elevation = 11f
+                    binding.compareOptionSelectLocationGeumcheonCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationGeumcheonCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationGeumcheonTv.isChecked = !binding.compareOptionSelectLocationGeumcheonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("금천구")
                 }
             }
             //송파구
             binding.compareOptionSelectLocationSongpa ->{
                 if(binding.compareOptionSelectLocationSongpaTv.isChecked){
-                    binding.compareOptionSelectLocationSongpaTv.elevation = 0f
+                    binding.compareOptionSelectLocationSongpaCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationSongpaCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationSongpaTv.isChecked = !binding.compareOptionSelectLocationSongpaTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("송파구")
                 }
                 else{
-                    binding.compareOptionSelectLocationSongpaTv.elevation = 11f
+                    binding.compareOptionSelectLocationSongpaCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationSongpaCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationSongpaTv.isChecked = !binding.compareOptionSelectLocationSongpaTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("송파구")
                 }
             }
             //노원구
             binding.compareOptionSelectLocationNowon ->{
                 if(binding.compareOptionSelectLocationNowonTv.isChecked){
-                    binding.compareOptionSelectLocationNowonTv.elevation = 0f
+                    binding.compareOptionSelectLocationNowonCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationNowonCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationNowonTv.isChecked = !binding.compareOptionSelectLocationNowonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("노원구")
                 }
                 else{
-                    binding.compareOptionSelectLocationNowonTv.elevation = 11f
+                    binding.compareOptionSelectLocationNowonCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationNowonCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationNowonTv.isChecked = !binding.compareOptionSelectLocationNowonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("노원구")
                 }
             }
             //양천구
             binding.compareOptionSelectLocationYangcheon ->{
                 if(binding.compareOptionSelectLocationYangcheonTv.isChecked){
-                    binding.compareOptionSelectLocationYangcheonTv.elevation = 0f
+                    binding.compareOptionSelectLocationYangcheonCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationYangcheonCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationYangcheonTv.isChecked = !binding.compareOptionSelectLocationYangcheonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("양천구")
                 }
                 else{
-                    binding.compareOptionSelectLocationYangcheonTv.elevation = 11f
+                    binding.compareOptionSelectLocationYangcheonCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationYangcheonCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationYangcheonTv.isChecked = !binding.compareOptionSelectLocationYangcheonTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("양천구")
                 }
             }
             //도봉구
             binding.compareOptionSelectLocationDobong ->{
                 if(binding.compareOptionSelectLocationDobongTv.isChecked){
-                    binding.compareOptionSelectLocationDobongTv.elevation = 0f
+                    binding.compareOptionSelectLocationDobongCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationDobongCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationDobongTv.isChecked = !binding.compareOptionSelectLocationDobongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("도봉구")
                 }
                 else{
-                    binding.compareOptionSelectLocationDobongTv.elevation = 11f
+                    binding.compareOptionSelectLocationDobongCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationDobongCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationDobongTv.isChecked = !binding.compareOptionSelectLocationDobongTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("도봉구")
                 }
             }
             //영등포구
             binding.compareOptionSelectLocationYeongdeungpo ->{
                 if(binding.compareOptionSelectLocationYeongdeungpoTv.isChecked){
-                    binding.compareOptionSelectLocationYeongdeungpoTv.elevation = 0f
+                    binding.compareOptionSelectLocationYeongdeungpoCheckcircleIv.elevation = 0f
                     binding.compareOptionSelectLocationYeongdeungpoCheckcircleIv.setImageResource(R.drawable.checkcircle_unchecked)
                     binding.compareOptionSelectLocationYeongdeungpoTv.isChecked = !binding.compareOptionSelectLocationYeongdeungpoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.remove("영등포구")
                 }
                 else{
-                    binding.compareOptionSelectLocationYeongdeungpoTv.elevation = 11f
+                    binding.compareOptionSelectLocationYeongdeungpoCheckcircleIv.elevation = 11f
                     binding.compareOptionSelectLocationYeongdeungpoCheckcircleIv.setImageResource(R.drawable.checkcircle_checked)
                     binding.compareOptionSelectLocationYeongdeungpoTv.isChecked = !binding.compareOptionSelectLocationYeongdeungpoTv.isChecked
+                    (activity as MainActivity).compareSortSelectedOption.selectedLocation!!.add("영등포구")
                 }
             }
         }

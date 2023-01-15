@@ -50,6 +50,8 @@ class CompareOptionSelectSortFragment() : Fragment(), View.OnClickListener {
                     binding.compareOptionSelectSortReviewCntCheckboxIv.elevation = 11f
                     isRatingChecked = false
                     isReviewCntChecked = true
+                    (activity as MainActivity).compareSortSelectedOption.selectedSortStandard = "리뷰순"
+
                 } else {
                     binding.compareOptionSelectSortRatingCheckboxIv.setImageResource(R.drawable.checkbox_checked)
                     binding.compareOptionSelectSortRatingCheckboxIv.elevation = 11f
@@ -57,6 +59,7 @@ class CompareOptionSelectSortFragment() : Fragment(), View.OnClickListener {
                     binding.compareOptionSelectSortReviewCntCheckboxIv.elevation = 0f
                     isRatingChecked = true
                     isReviewCntChecked = false
+                    (activity as MainActivity).compareSortSelectedOption.selectedSortStandard = "별점순"
                 }
             }
             binding.compareOptionSelectSortReviewCnt -> {
@@ -67,6 +70,7 @@ class CompareOptionSelectSortFragment() : Fragment(), View.OnClickListener {
                     binding.compareOptionSelectSortReviewCntCheckboxIv.elevation = 0f
                     isRatingChecked = true
                     isReviewCntChecked = false
+                    (activity as MainActivity).compareSortSelectedOption.selectedSortStandard = "별점순"
                 } else {
                     binding.compareOptionSelectSortRatingCheckboxIv.setImageResource(R.drawable.checkbox_unchecked)
                     binding.compareOptionSelectSortRatingCheckboxIv.elevation = 0f
@@ -74,6 +78,7 @@ class CompareOptionSelectSortFragment() : Fragment(), View.OnClickListener {
                     binding.compareOptionSelectSortReviewCntCheckboxIv.elevation = 11f
                     isRatingChecked = false
                     isReviewCntChecked = true
+                    (activity as MainActivity).compareSortSelectedOption.selectedSortStandard = "리뷰순"
                 }
 
             }

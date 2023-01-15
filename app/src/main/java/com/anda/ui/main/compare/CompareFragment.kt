@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -30,6 +31,9 @@ class CompareFragment() : Fragment(), View.OnClickListener {
     lateinit var binding: FragmentCompareBinding
     private var compareSortSelectDatas = ArrayList<CompareSortSelect>()
     private var compareOphthaDatas = ArrayList<CompareOphtha>()
+    private var compareSortSelectedOperationDatas = ArrayList<String>()
+    private var compareSortSelectedSortStandardDatas = ArrayList<String>()
+    private var compareSortSelectedLocationDatas = ArrayList<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -124,7 +128,34 @@ class CompareFragment() : Fragment(), View.OnClickListener {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         return compareSortSelectRVAdapter
     }
+    private fun setSelectedOperation():CompareSortSelectedOperationRVAdapter{
+        val compareSortSelectedOperationRVAdapter = CompareSortSelectedOperationRVAdapter(compareSortSelectedOperationDatas)
+        binding.compareSelectSortSelectedOperationRv.adapter = compareSortSelectedOperationRVAdapter
+        binding.compareSelectSortSelectedOperationRv.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+        binding.compareSelectSortSelectedOperationRv.visibility = View.VISIBLE
+        return compareSortSelectedOperationRVAdapter
+    }
+    private fun setSelectedSortStandard():CompareSortSelectedSortStandardRVAdapter{
+        val compareSortSelectedSortStandardRVAdapter = CompareSortSelectedSortStandardRVAdapter(compareSortSelectedSortStandardDatas)
+        binding.compareSelectSortSelectedSortStandardRv.adapter = compareSortSelectedSortStandardRVAdapter
+        binding.compareSelectSortSelectedSortStandardRv.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        binding.compareSelectSortSelectedSortStandardRv.visibility = View.VISIBLE
+        return compareSortSelectedSortStandardRVAdapter
+    }
+
+    private fun setSelectedLocation():CompareSortSelectedLocationRVAdapter{
+        val compareSortSelectedLocationRVAdapter = CompareSortSelectedLocationRVAdapter(compareSortSelectedLocationDatas)
+        binding.compareSelectSortSelectedLocationRv.adapter = compareSortSelectedLocationRVAdapter
+        binding.compareSelectSortSelectedLocationRv.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        binding.compareSelectSortSelectedLocationRv.visibility = View.VISIBLE
+        return compareSortSelectedLocationRVAdapter
+    }
 
     private fun setData(mPosition : Int) {
         when (mPosition) {
@@ -150,7 +181,54 @@ class CompareFragment() : Fragment(), View.OnClickListener {
         if (v == null) return
         when (v) {
             binding.compareOptionCancelIv -> {
+                //수술선택 클릭한 것 적용
+                val selectedOperation = (activity as MainActivity).compareSortSelectedOption.selectedOperation
+                compareSortSelectedOperationDatas.clear()
+                if(selectedOperation != null) compareSortSelectedOperationDatas.add(selectedOperation!!)
+                //정렬선택 클릭한 것 적용
+                val selectedSortStandard = (activity as MainActivity).compareSortSelectedOption.selectedSortStandard
+                compareSortSelectedSortStandardDatas.clear()
+                compareSortSelectedSortStandardDatas.add(selectedSortStandard!!)
+                //정렬선택 클릭한 것 적용
+                compareSortSelectedLocationDatas = (activity as MainActivity).compareSortSelectedOption.selectedLocation!!
+                compareSortSelectedLocationDatas.sort()
+                //모두 선택했는지 확인
+                if(compareSortSelectedOperationDatas.size == 0 || compareSortSelectedSortStandardDatas.size == 0 || compareSortSelectedLocationDatas.size == 0) {
+                    Toast.makeText(context, "옵션을 모두 선택해주세요", Toast.LENGTH_SHORT).show()
+                    return
+                }
+                //수술선택 RVAdapter 적용
+                val compareSortSelectedOperationRVAdapter = setSelectedOperation()
+                compareSortSelectedOperationRVAdapter.setCompareSortSelectedOperationItemClickListener(
+                    object : CompareSortSelectedOperationRVAdapter.compareSortedOperationItemClickListener{
+                        override fun onItemClick(position : Int) {
+                            binding.compareSelectSortSelectedOperationRv.visibility = View.GONE
+                            if(binding.compareSelectSortSelectedOperationRv.visibility == View.GONE && binding.compareSelectSortSelectedSortStandardRv.visibility == View.GONE && binding.compareSelectSortSelectedLocationRv.visibility == View.GONE ){
+                                binding.compareSelectedOptionRerollBtnIv.visibility = View.GONE
+                            }
+                        } })
+                //정렬선택 RVAdapter 적용
+                val compareSortSelectedSortStandardRVAdapter = setSelectedSortStandard()
+                compareSortSelectedSortStandardRVAdapter.setCompareSortSelectedSortStandardItemClickListener(
+                    object : CompareSortSelectedSortStandardRVAdapter.compareSortedSortStandardItemClickListener{
+                        override fun onItemClick(position : Int) {
+                            binding.compareSelectSortSelectedSortStandardRv.visibility = View.GONE
+                            if(binding.compareSelectSortSelectedOperationRv.visibility == View.GONE && binding.compareSelectSortSelectedSortStandardRv.visibility == View.GONE && binding.compareSelectSortSelectedLocationRv.visibility == View.GONE ){
+                                binding.compareSelectedOptionRerollBtnIv.visibility = View.GONE
+                            }
+                        } })
+                //위치선택 RVAdapter 적용
+                val compareSortSelectedLocationRVAdapter = setSelectedLocation()
+                compareSortSelectedLocationRVAdapter.setCompareSortSelectedLocationItemClickListener(
+                    object : CompareSortSelectedLocationRVAdapter.compareSortedLocationItemClickListener{
+                        override fun onItemClick(position : Int) {
+                            binding.compareSelectSortSelectedLocationRv.visibility = View.GONE
+                            if(binding.compareSelectSortSelectedOperationRv.visibility == View.GONE && binding.compareSelectSortSelectedSortStandardRv.visibility == View.GONE && binding.compareSelectSortSelectedLocationRv.visibility == View.GONE ){
+                                binding.compareSelectedOptionRerollBtnIv.visibility = View.GONE
+                            }
+                        } })
                 binding.compareOptionCancelIv.visibility = View.GONE
+                binding.compareSelectedOptionRerollBtnIv.visibility = View.VISIBLE
                 val amimationEmailSelect: ValueAnimator = ObjectAnimator
                     .ofFloat(binding.compareOption, "translationY", 0f, 1000f)
                 amimationEmailSelect.duration = 50

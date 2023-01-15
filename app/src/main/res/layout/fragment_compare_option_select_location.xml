@@ -26,7 +26,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:background="@color/white"
-                android:src="@drawable/checkcircle_unchecked"/>
+                android:elevation="11dp"
+                android:src="@drawable/checkcircle_checked"/>
             <CheckedTextView
                 android:id="@+id/compare_option_select_location_gangnam_tv"
                 android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
                 android:text="강남구"
                 android:textColor="@color/white_black"
                 android:textStyle="bold"
-                android:checked="false"
+                android:checked="true"
                 app:layout_constraintBottom_toBottomOf="@id/compare_option_select_location_gangnam_checkcircle_iv"
                 app:layout_constraintStart_toEndOf="@id/compare_option_select_location_gangnam_checkcircle_iv"
                 app:layout_constraintTop_toTopOf="@id/compare_option_select_location_gangnam_checkcircle_iv" />

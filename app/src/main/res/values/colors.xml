@@ -23,4 +23,6 @@
     <color name="Rectangle_50">#D3E29D</color>
     <color name="form_error">#FF0303</color>
     <color name="form_right">#00B43D</color>
+    <color name="background">#BABABA</color>
+
 </resources>

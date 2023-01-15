@@ -53,11 +53,9 @@ class CompareSortSelectRVAdapter(private var compareSortSelectList: ArrayList<Co
             binding.itemCompareSortSelectImgIv.setImageResource(compareSortSelect.image!!)
             if(compareSortSelect.isSelected!!){
                 binding.itemCompareSortSelectImgIv.visibility = View.GONE
-                binding.itemCompareSelectedTv.visibility = View.VISIBLE
             }
             else{
                 binding.itemCompareSortSelectImgIv.visibility = View.VISIBLE
-                binding.itemCompareSelectedTv.visibility = View.GONE
             }
         }
     }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anda.databinding.FragmentMyInfoMyPointBinding
 
-class MyINfoMyPointFragment : Fragment() {
+class MyInfoMyPointFragment : Fragment() {
 
     lateinit var binding: FragmentMyInfoMyPointBinding
     override fun onCreateView(

@@ -14,24 +14,11 @@
         android:src="@drawable/compare_select_sort_btn"
         android:visibility="visible"
         android:elevation="10dp"
-        android:background="@drawable/invisible_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <TextView
-        android:id="@+id/item_compare_selected_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="라식"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:visibility="gone"
-        android:background="@drawable/compare_selected_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

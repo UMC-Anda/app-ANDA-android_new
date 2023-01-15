@@ -18,32 +18,52 @@
             android:layout_height="match_parent">
 
 <!--            선택된 것들-->
-
-
-<!--            수술-->
+<!--            리롤버튼-->
+            <ImageView
+                android:id="@+id/compare_selected_option_reroll_btn_iv"
+                android:layout_width="35dp"
+                android:layout_height="33dp"
+                android:src="@drawable/compare_selected_option_reroll_btn"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_rv"
+                app:layout_constraintBottom_toBottomOf="@id/compare_select_sort_rv"/>
+            <!--            수술-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/compare_select_sort_selected_operation_rv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_compare_sort_select"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_compare_sort_selected_operation"
+                app:layout_constraintStart_toEndOf="@id/compare_selected_option_reroll_btn_iv"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_rv"
+                app:layout_constraintBottom_toBottomOf="@id/compare_select_sort_rv"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:overScrollMode="never"
                 android:orientation="horizontal" />
-
-<!--            정렬기준-->
+            <!--            정렬기준-->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/compare_select_sort_selected_sort_rv"
+                android:id="@+id/compare_select_sort_selected_sort_standard_rv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_compare_sort_select"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_compare_sort_selected_sort_standard"
                 app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_operation_rv"
-                app:layout_constraintTop_toTopOf="@id/compare_select_sort_selected_operation_rv"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_rv"
+                app:layout_constraintBottom_toBottomOf="@id/compare_select_sort_rv"                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never"
+                android:orientation="horizontal" />
+            <!--            위치-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/compare_select_sort_selected_location_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_compare_sort_selected_location"
+                app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_sort_standard_rv"
+                app:layout_constraintTop_toTopOf="@id/compare_select_sort_rv"
+                app:layout_constraintBottom_toBottomOf="@id/compare_select_sort_rv"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:overScrollMode="never"
                 android:orientation="horizontal" />
             <!--            정렬 선택-->
@@ -54,8 +74,9 @@
                 tools:itemCount="3"
                 tools:listitem="@layout/item_compare_sort_select"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_sort_rv"
-                app:layout_constraintTop_toTopOf="@id/compare_select_sort_selected_operation_rv"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toEndOf="@id/compare_select_sort_selected_location_rv"
+                app:layout_constraintTop_toTopOf="parent"
                 android:overScrollMode="never"
                 android:orientation="horizontal" />
 
@@ -74,7 +95,8 @@
                 app:layout_constraintTop_toBottomOf="@id/compare_select_sort_rv"
                 app:layout_constraintVertical_bias="0.0"
                 tools:itemCount="5"
-                tools:listitem="@layout/item_compare_ophtha" />
+                tools:listitem="@layout/item_compare_ophtha"
+                android:overScrollMode="never"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

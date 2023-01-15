@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_info_my_ophtha_title"
+            android:id="@+id/my_info_my_point_goods_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -37,10 +37,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/my_info_my_ophtha_title_tv"
+                    android:id="@+id/my_info_my_point_goods_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/my_info_my_ophtha"
+                    android:text="@string/my_info_my_point_goods"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold"
@@ -51,13 +51,14 @@
                     app:layout_constraintTop_toTopOf="@id/my_info_back_img_iv" />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_info_my_ophtha_there_is_no_like_ophtha"
+            android:id="@+id/my_info_my_point_goods_there_is_no_poing_goods"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="gone">
             <ImageView
                 android:layout_width="143dp"
                 android:layout_height="112dp"
-                android:src="@drawable/compare_my_info_my_ophtha_no_like"
+                android:src="@drawable/compare_my_info_my_point_goods_no_goods"
                 android:layout_marginBottom="100dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,36 +66,23 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/my_info_my_ophtha_there_is_like_ophtha"
+            android:id="@+id/my_info_my_ophtha_there_is_point_goods"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/my_info_my_ophtha_info_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="좋아요 표시한 병원을 보아뒀어요"
-                    android:textColor="@color/white_black"
-                    android:textSize="10dp"
-                    android:layout_marginStart="65dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/my_info_my_ophtha_rv"
+                    android:id="@+id/my_info_my_point_goods_rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/my_info_my_ophtha_info_tv"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:overScrollMode="never"/>
 
