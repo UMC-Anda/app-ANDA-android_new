@@ -59,13 +59,13 @@
             <TextView
                 android:id="@+id/ophtha_info_ophtha_name_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="안과이름"
-                android:textSize="30dp"
+                android:textSize="35dp"
                 android:textColor="@color/Main"
                 android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="23dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/ophtha_info_ophtha_txt_background_iv"/>
 
@@ -74,10 +74,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="#친절한 #경험이_많은 #리뷰가 증명하는"
-                android:textSize="10dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
                 android:textColor="@color/Main"
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="4dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ophtha_info_ophtha_name_tv"/>
 
@@ -86,20 +86,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="서울특별시 영등포구"
-                android:textSize="7dp"
-                android:textStyle="bold"
+                android:textSize="12dp"
                 android:textColor="@color/white_black"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginStart="27dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ophtha_info_ophtha_tags_tv"/>
             <ImageView
                 android:id="@+id/ophtha_info_rating_image_iv"
-                android:layout_width="7dp"
-                android:layout_height="7dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/main_color_star"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 app:layout_constraintStart_toStartOf="@id/ophtha_info_ophtha_location_tv"
                 app:layout_constraintTop_toBottomOf="@id/ophtha_info_ophtha_location_tv"/>
 
@@ -108,25 +107,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(5.0)"
-                android:textSize="7dp"
+                android:textSize="10dp"
                 android:textColor="@color/black"
                 android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
                 app:layout_constraintStart_toEndOf="@id/ophtha_info_rating_image_iv"
-                app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_image_iv"
-                app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_image_iv"/>
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_image_iv"/>
 
             <TextView
                 android:id="@+id/ophtha_info_ophtha_rating_cnt_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(2421)"
-                android:textSize="7dp"
+                android:textSize="10dp"
                 android:textColor="#737373"
+                android:layout_marginTop="1dp"
                 android:layout_marginStart="2dp"
                 app:layout_constraintStart_toEndOf="@id/ophtha_info_ophtha_rating_avg_tv"
-                app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_image_iv"
-                app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_image_iv"/>
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_image_iv"/>
 
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ophtha_info_unchecked_heart"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="18dp"
+                app:layout_constraintEnd_toEndOf="@id/ophtha_info_ophtha_txt_background_iv"
+                app:layout_constraintTop_toTopOf="@id/ophtha_info_ophtha_txt_background_iv"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

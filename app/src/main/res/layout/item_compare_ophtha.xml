@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
+    android:layout_marginTop="18dp"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="광고"
-            android:textSize="10dp"
-            android:layout_marginStart="5dp"
+            android:textSize="8dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/item_compare_ophtha_name_tv"/>
@@ -29,10 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="병원 이름"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@id/item_compare_ophtha_ad_tv"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,9 +42,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="병원 위치"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginStart="5dp"
+            android:textSize="12dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/item_compare_ophtha_name_tv"
             app:layout_constraintTop_toTopOf="@id/item_compare_ophtha_name_tv"
@@ -53,8 +52,8 @@
 
         <RatingBar
             android:id="@+id/item_compare_ophtha_rating_rb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
             android:numStars="1"
             android:rating="1"
             android:stepSize="1"
@@ -68,11 +67,11 @@
             android:id="@+id/item_compare_ophtha_total_rating_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="별점"
-            android:textSize="12dp"
+            android:text="(5.0)"
+            android:textSize="10dp"
             android:textColor="@color/black"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
             app:layout_constraintStart_toEndOf="@id/item_compare_ophtha_rating_rb"
             app:layout_constraintTop_toBottomOf="@id/item_compare_ophtha_location_tv"
             app:layout_constraintBottom_toBottomOf="@id/item_compare_ophtha_name_tv"/>
@@ -81,9 +80,10 @@
             android:id="@+id/item_compare_ophtha_review_cnt_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰개수"
-            android:textSize="12dp"
-            android:layout_marginStart="5dp"
+            android:text="(2,214)"
+            android:textSize="10dp"
+            android:textColor="#737373"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@id/item_compare_ophtha_total_rating_tv"
             app:layout_constraintBottom_toBottomOf="@id/item_compare_ophtha_total_rating_tv"/>
@@ -127,12 +127,12 @@
             android:id="@+id/item_compare_ophtha_more_review_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="7dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="리뷰 더보기 →"
-            android:textSize="12dp"/>
+            android:textSize="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
