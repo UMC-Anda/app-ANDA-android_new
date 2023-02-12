@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.myInfo.myPoint.history.MyInfoMyPointHistoryFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_info_my_point_history_back_img"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/my_info_my_point_history_back_img_iv"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/write_community_writing_back_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="포인트 내역"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="13dp"
+            app:layout_constraintStart_toEndOf="@id/my_info_my_point_history_back_img_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_info_my_point_history_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_my_point_history_back_img">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/my_info_my_point_history_category_get_point_iv"
+                android:layout_width="157dp"
+                android:layout_height="38dp"
+                android:src="@drawable/my_info_my_point_history_category_background_selected_img"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toStartOf="@id/my_info_my_point_history_category_use_point_iv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView
+                android:id="@+id/my_info_my_point_history_category_get_point_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="적립내역"
+                android:textColor="@color/Main"
+                app:layout_constraintStart_toStartOf="@id/my_info_my_point_history_category_get_point_iv"
+                app:layout_constraintEnd_toEndOf="@id/my_info_my_point_history_category_get_point_iv"
+                app:layout_constraintTop_toTopOf="@id/my_info_my_point_history_category_get_point_iv"
+                app:layout_constraintBottom_toBottomOf="@id/my_info_my_point_history_category_get_point_iv"/>
+            <ImageView
+                android:id="@+id/my_info_my_point_history_category_use_point_iv"
+                android:layout_width="157dp"
+                android:layout_height="38dp"
+                android:src="@drawable/my_info_my_point_history_category_background_unselected_img"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@id/my_info_my_point_history_category_get_point_iv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView
+                android:id="@+id/my_info_my_point_history_category_use_point_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용내역"
+                android:textColor="@color/MAIN_50"
+                app:layout_constraintStart_toStartOf="@id/my_info_my_point_history_category_use_point_iv"
+                app:layout_constraintEnd_toEndOf="@id/my_info_my_point_history_category_use_point_iv"
+                app:layout_constraintTop_toTopOf="@id/my_info_my_point_history_category_use_point_iv"
+                app:layout_constraintBottom_toBottomOf="@id/my_info_my_point_history_category_use_point_iv"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/my_info_my_point_history_contents_cv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/edittext_round_background"
+        app:cardCornerRadius="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="-4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_my_point_history_btns"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_info_my_point_history_contents_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:itemCount="5"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_my_info_my_point_history_get_content"
+                android:overScrollMode="never"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

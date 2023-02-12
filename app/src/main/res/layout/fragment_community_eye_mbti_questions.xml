@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/community_eye_mbti_questions_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Q1."
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/community_eye_mbti_questions_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="질문 내용\n쏼라쏼라~~~~~어쩌고저쩌고"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_questions_num_tv"/>
+
+    <LinearLayout
+        android:id="@+id/eye_mbti_select_circles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_questions_content_tv">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_yes3_civ"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main"
+            android:layout_marginEnd="18dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_yes2_civ"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main_70"
+            android:layout_marginEnd="19dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_yes1_civ"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main_50"
+            android:layout_marginEnd="20dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_soso_civ"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main_10"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_no1_civ"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main_50"
+            android:layout_marginStart="20dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_no2_civ"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main_70"
+            android:layout_marginStart="19dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/eye_mbti_select_circle_no3_civ"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@color/white"
+            android:foreground="@drawable/eye_mbti_select_circle_main"
+            android:layout_marginStart="18dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="동의"
+        android:textColor="@color/Main"
+        android:textSize="12dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="@id/eye_mbti_select_circles"
+        app:layout_constraintTop_toBottomOf="@id/eye_mbti_select_circles"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비동의"
+        android:textColor="@color/Main"
+        android:textSize="12dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="@id/eye_mbti_select_circles"
+        app:layout_constraintTop_toBottomOf="@id/eye_mbti_select_circles"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

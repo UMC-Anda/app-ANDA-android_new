@@ -5,16 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/home_anda_info_detail_back_iv"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:src="@drawable/write_community_writing_back_img"
-        android:scaleType="fitXY"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="18dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home_anda_info_detail_back"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/home_anda_info_detail_back_iv"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/write_community_writing_back_img"
+            android:scaleType="fitXY"
+            android:layout_marginStart="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageView
         android:id="@+id/home_anda_info_detail_image_iv"
@@ -28,7 +38,7 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back_iv"/>
+        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back"/>
 
     <ImageView
         android:id="@+id/home_anda_info_detail_image_corner_iv"
@@ -42,7 +52,7 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back_iv"/>
+        app:layout_constraintTop_toBottomOf="@id/home_anda_info_detail_back"/>
 
 
 

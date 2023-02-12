@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.anda.R
 import com.anda.databinding.FragmentCommunityBinding
-import com.anda.ui.main.home.ranking.HomeAndaRankingBannerFragment
-import com.anda.ui.main.home.ranking.HomeAndaRankingBannerVPAdapter
+import com.anda.ui.main.community.askDoctor.CommunityAskDoctorFragment
+import com.anda.ui.main.community.community.CommunityCommunityFragment
+import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
 
-class CommunityFragment : Fragment(), OnClickListener {
+class CommunityFragment: Fragment(), OnClickListener {
     private val MIN_SCALE = 0.5f // 뷰가 몇퍼센트로 줄어들 것인지
     private val MIN_ALPHA = 0.5f // 어두워지는 정도를 나타낸 듯 하다.
     lateinit var binding: FragmentCommunityBinding
@@ -35,8 +36,11 @@ class CommunityFragment : Fragment(), OnClickListener {
         val communityVPAdapter = CommunityVPAdapter(this)
         communityVPAdapter.addFragment(CommunityCommunityFragment())
         communityVPAdapter.addFragment(CommunityAskDoctorFragment())
+        communityVPAdapter.addFragment(CommunityEyeMbtiFragment())
         binding.communityContentVp.adapter = communityVPAdapter
         binding.communityContentVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.communityContentVp.isUserInputEnabled = false
+
 //        binding.communityContentVp.setPageTransformer(ZoomOutPageTransformer())
 
         return binding.root

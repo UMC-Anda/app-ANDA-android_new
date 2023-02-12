@@ -19,22 +19,23 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/my_info_my_point_goods_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:background="@color/white"
+            android:layout_gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/my_info_back_img_iv"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="18dp"
-                    android:layout_marginTop="8dp"
+                    android:elevation="11dp"
                     android:src="@drawable/write_community_writing_back_img"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/my_info_my_point_goods_title_tv"
@@ -45,10 +46,9 @@
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:layout_marginStart="13dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="@id/my_info_back_img_iv"
-                    app:layout_constraintStart_toEndOf="@id/my_info_back_img_iv"
-                    app:layout_constraintTop_toTopOf="@id/my_info_back_img_iv" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/my_info_back_img_iv"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/my_info_my_point_goods_there_is_no_poing_goods"
@@ -84,6 +84,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    tools:listitem="@layout/item_my_info_my_point_goods"
                     android:overScrollMode="never"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,8 @@
-package com.anda.ui.main.myInfo.myPoint
+package com.anda.ui.main.myInfo.myPoint.goods
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.anda.data.entities.ExMyOphtha
 import com.anda.data.entities.ExMyPointGoods
 import com.anda.databinding.ItemMyInfoMyPointGoodsBinding
 
@@ -12,7 +11,7 @@ class MyInfoMyPointGoodsRVAdapter(private val myInfoMyPointGoodsList: ArrayList<
     private lateinit var mItemClickListener: myInfoMyPointGoodsItemClickListener
     var mPosition = 0
 
-    interface myInfoMyPointGoodsItemClickListener { fun onItemClick() {} }
+    interface myInfoMyPointGoodsItemClickListener { fun onItemClick(myInfoMyPointGoods : ExMyPointGoods) {} }
 
     fun setMyInfoMyOphthaItemClickListener(itemClickListener: myInfoMyPointGoodsItemClickListener) {
         mItemClickListener = itemClickListener
@@ -21,7 +20,7 @@ class MyInfoMyPointGoodsRVAdapter(private val myInfoMyPointGoodsList: ArrayList<
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
-    ): MyInfoMyPointGoodsRVAdapter.ViewHolder {
+    ): ViewHolder {
 
         val binding: ItemMyInfoMyPointGoodsBinding = ItemMyInfoMyPointGoodsBinding.inflate(
             LayoutInflater.from(viewGroup.context), viewGroup, false
@@ -31,11 +30,11 @@ class MyInfoMyPointGoodsRVAdapter(private val myInfoMyPointGoodsList: ArrayList<
     }
 
     override fun onBindViewHolder(
-        holder: MyInfoMyPointGoodsRVAdapter.ViewHolder,
+        holder: ViewHolder,
         position: Int
     ) {
         holder.bind(myInfoMyPointGoodsList[position])
-        holder.itemView.setOnClickListener { mItemClickListener.onItemClick() }
+        holder.itemView.setOnClickListener { mItemClickListener.onItemClick(myInfoMyPointGoodsList[position]) }
     }
 
     override fun getItemCount(): Int = myInfoMyPointGoodsList.size

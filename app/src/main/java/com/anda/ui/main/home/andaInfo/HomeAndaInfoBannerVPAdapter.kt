@@ -10,7 +10,7 @@ class HomeAndaInfoBannerVPAdapter(fragment: Fragment) : FragmentStateAdapter(fra
 
     private val fragmentList : ArrayList<Fragment> = ArrayList()
 
-    override fun getItemCount(): Int = fragmentList.size
+    override fun getItemCount(): Int = 2000
 
     override fun createFragment(position: Int): Fragment = fragmentList[position]
 

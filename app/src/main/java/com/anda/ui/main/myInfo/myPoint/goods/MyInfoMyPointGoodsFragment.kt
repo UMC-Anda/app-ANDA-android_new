@@ -1,4 +1,4 @@
-package com.anda.ui.main.myInfo.myPoint
+package com.anda.ui.main.myInfo.myPoint.goods
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,17 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.anda.MainActivity
 import com.anda.R
-import com.anda.data.entities.ExMyOphtha
 import com.anda.data.entities.ExMyPointGoods
-import com.anda.databinding.FragmentMyInfoMyOphthaBinding
 import com.anda.databinding.FragmentMyInfoMyPointGoodsBinding
-import com.anda.ui.ophtha_info.OphthaInfoEventsRVAdapter
-import com.anda.ui.ophtha_info.OphthaInfoReviewsRVAdapter
 
 class MyInfoMyPointGoodsFragment : Fragment() {
 
-    var isExist : Boolean = false
+    var isExist : Boolean = true
     lateinit var binding: FragmentMyInfoMyPointGoodsBinding
     var myInfoMyPointGoodsDatas = ArrayList<ExMyPointGoods>()
     override fun onCreateView(
@@ -59,6 +56,14 @@ class MyInfoMyPointGoodsFragment : Fragment() {
         val myinfoMyPointGoodsRVAdapter = MyInfoMyPointGoodsRVAdapter(myInfoMyPointGoodsDatas)
         binding.myInfoMyPointGoodsRv.adapter = myinfoMyPointGoodsRVAdapter
         binding.myInfoMyPointGoodsRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        myinfoMyPointGoodsRVAdapter.setMyInfoMyOphthaItemClickListener(object :
+            MyInfoMyPointGoodsRVAdapter.myInfoMyPointGoodsItemClickListener {
+            override fun onItemClick(myInfoMyPointGoods : ExMyPointGoods) {
+                (activity as MainActivity).supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment_container, MyInfoMyPointGoodsDetailFragment(myInfoMyPointGoods))
+                    .commitAllowingStateLoss()
+            }
+        })
         return binding.root
     }
 }

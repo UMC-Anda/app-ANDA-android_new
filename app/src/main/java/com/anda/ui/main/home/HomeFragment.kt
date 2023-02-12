@@ -1,5 +1,7 @@
 package com.anda.ui.main.home
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,15 +24,19 @@ import com.anda.ui.main.home.andaInfo.AndaInfoService
 import com.anda.ui.main.home.andaInfo.AndaInfoView
 import com.anda.ui.main.home.andaInfo.HomeAndaInfoBannerFragment
 import com.anda.ui.main.home.andaInfo.HomeAndaInfoBannerVPAdapter
+import com.anda.ui.main.home.andaInfo.model.AndaInfoBanners
 import com.anda.ui.main.home.andaInfo.model.AndaInfoResponse
 import com.anda.ui.main.home.ranking.HomeAndaRankingBannerFragment
 import com.anda.ui.main.home.ranking.HomeAndaRankingBannerVPAdapter
 import com.anda.ui.main.home.ranking.HomeAndaRankingSelectRVAdapter
+import com.anda.ui.main.home.ranking.selectLocation.HomeSelectLocationFragment
 
 class HomeFragment : Fragment(), AndaInfoView {
 
     private var isDoReviewClicked = false
     private var homeAndaRankingSelecDatas = ArrayList<HomeAndaRankingSelect>()
+    val homeAndaInfoDatas = ArrayList<AndaInfoBanners>()
+    private var homeAndaInfoDatasSize : Int = 0
     val homeAndaRankingP1Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP2Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP3Datas = ArrayList<HomeAndaRankingOphtha>()
@@ -43,6 +49,7 @@ class HomeFragment : Fragment(), AndaInfoView {
         setPage()
         true
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,6 +61,17 @@ class HomeFragment : Fragment(), AndaInfoView {
         binding.homeAndaInfoVp.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                //dotsindicator 이동
+                val dpFloat : Float = binding.homeAndaInfoDotsIndicatorBackgroundIv.width.toFloat() / 6
+                val amimationAndaInfoDotsIndicator: ValueAnimator = ObjectAnimator
+                    .ofFloat(
+                        binding.homeAndaInfoDotsIndicator,
+                        "translationX",
+                        (currentPosition % homeAndaInfoDatasSize) * dpFloat,
+                        (position % homeAndaInfoDatasSize) * dpFloat
+                    )
+                amimationAndaInfoDotsIndicator.duration = 100
+                amimationAndaInfoDotsIndicator.start()
                 currentPosition = position
             }
         })
@@ -164,7 +182,13 @@ class HomeFragment : Fragment(), AndaInfoView {
         }
         binding.homeDoReviewTv.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, CompareOptionSelectSortFragment())
+            .replace(R.id.nav_host_fragment_container, CompareOptionSelectSortFragment())
+            .commitAllowingStateLoss()
+
+        }
+        binding.homeRankingSelectLocation.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, HomeSelectLocationFragment())
                 .commitAllowingStateLoss()
         }
     }
@@ -175,18 +199,23 @@ class HomeFragment : Fragment(), AndaInfoView {
     override fun onAndaInfoSuccess(response: AndaInfoResponse) {
         //배너 추가 및 생성
         val andaInfoBannerAdapter = HomeAndaInfoBannerVPAdapter(this)
-        andaInfoBannerAdapter.itemCount
+        homeAndaInfoDatasSize = response.result?.andaInfoBanners!!.size
         for (i: Int in 0..response.result?.andaInfoBanners!!.size - 1){
-            andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(response.result?.andaInfoBanners!![i]))
+//            andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(response.result?.andaInfoBanners!![i]))
+            homeAndaInfoDatas.add(response.result?.andaInfoBanners!![i])
             Log.d("안다정보정보", response.result?.andaInfoBanners!![i].andaInfoName.toString())
+        }
+        for (i: Int in 0..2000){
+            andaInfoBannerAdapter.addFragment(HomeAndaInfoBannerFragment(homeAndaInfoDatas[i % response.result?.andaInfoBanners!!.size]))
         }
         binding.homeAndaInfoVp.offscreenPageLimit = 1 // 몇 개의 페이지를 미리 로드 해둘것인지
         binding.homeAndaInfoVp.adapter = andaInfoBannerAdapter
-        binding.homeAndaInfoVp.setCurrentItem(1,true)
+        binding.homeAndaInfoVp.setCurrentItem(1000,true)
         binding.homeAndaInfoVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         Log.d("안다정보", "성공!")
-        //dotsIndicator
-        binding.homeAndaInfoDotsIndicator.setViewPager2(binding.homeAndaInfoVp)
+        //dotsIndicator 모양 둥글게
+        binding.homeAndaInfoDotsIndicator.clipToOutline = true
+        binding.homeAndaInfoDotsIndicatorBackgroundIv.clipToOutline = true
         //다음 배너 미리 보기
         /* 여백, 너비에 대한 정의 */
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin) // dimen 파일 안에 크기를 정의해두었다.

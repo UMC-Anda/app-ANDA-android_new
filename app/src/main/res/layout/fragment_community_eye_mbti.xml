@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+
+    <ImageView
+        android:id="@+id/community_eye_mbti_back_img_iv"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:src="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toEndOf="@id/community_eye_mbti_back_img_iv"
+        app:layout_constraintTop_toTopOf="@id/community_eye_mbti_back_img_iv"
+        app:layout_constraintBottom_toBottomOf="@id/community_eye_mbti_back_img_iv"/>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/community_eye_mbti_warning_cv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:elevation="20dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/community_eye_mbti_back_img_iv">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/community_community_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/community_eye_mbti_warning_icon_iv"
+                android:layout_width="29dp"
+                android:layout_height="26dp"
+                android:src="@drawable/warning_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/community_eye_mbti_warning_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="경고문"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_warning_icon_iv"/>
+            <TextView
+                android:id="@+id/community_eye_mbti_warning_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="본 테스트는 수술의 추천을 위해 만들어진 것이 아닙니다.\n수술의 결정 및 정보를 얻는 것은 의사와 \n직접 상담을 하는 것을 권장합니다. "
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_warning_title_tv"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+   <androidx.viewpager2.widget.ViewPager2
+       android:id="@+id/community_eye_mbti_questions_vp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="14dp"
+       android:layout_marginEnd="14dp"
+       android:layout_marginTop="16dp"
+       android:layout_marginBottom="16dp"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_warning_cv"
+       android:overScrollMode="never"/>
+
+    <ProgressBar
+        android:id="@+id/community_eye_mbti_questions_progressbar_pb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:scaleY="3"
+        android:background="@drawable/radius_background"
+        android:progressTint="@color/Main"
+        android:progress="10"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_questions_vp"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/community_eye_mbti_questions_current_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_questions_progressbar_pb">
+
+        <TextView
+            android:id="@+id/community_eye_mbti_questions_current_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/community_eye_mbti_questions_total_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / 10"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <ImageView
+        android:id="@+id/community_eye_mbti_questions_next_btn_iv"
+        android:layout_width="50dp"
+        android:layout_height="27dp"
+        android:src="@drawable/next_btn_unable"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/community_eye_mbti_questions_current_num"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

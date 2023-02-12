@@ -24,5 +24,7 @@
     <color name="form_error">#FF0303</color>
     <color name="form_right">#00B43D</color>
     <color name="background">#BABABA</color>
+    <color name="home_select_location_txt">#525252</color>
+
 
 </resources>

@@ -6,11 +6,11 @@
 
 <!--    제목-->
     <string name="app_name">Anda</string>
-    <string name="title_home">홈 화면</string>
-    <string name="title_map">지도 화면</string>
-    <string name="title_compare">안과비교 화면</string>
-    <string name="title_community">커뮤니티 화면</string>
-    <string name="title_myInfo">내정보 화면</string>
+    <string name="title_home">홈</string>
+    <string name="title_map">지도</string>
+    <string name="title_compare">안과비교</string>
+    <string name="title_community">커뮤니티</string>
+    <string name="title_myInfo">내정보</string>
     <string name="title_login">로그인</string>
 
 

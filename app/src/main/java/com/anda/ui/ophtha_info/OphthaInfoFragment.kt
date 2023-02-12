@@ -28,6 +28,9 @@ class OphthaInfoFragment() : Fragment() {
     ): View? {
         binding = FragmentOphthaInfoBinding.inflate(inflater, container, false)
 
+
+        binding.ophthaInfoDetailsTb.clipToOutline = true
+        binding.ophthaInfoDetailsVp.clipToOutline = true
         optionDetails()
 
         return binding.root

@@ -10,8 +10,7 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentMyInfoBinding
 import com.anda.ui.main.myInfo.myOphtha.MyInfoMyOphthaFragment
-import com.anda.ui.main.myInfo.myPoint.MyInfoMyPointGoodsFragment
-import com.anda.ui.ophtha_info.OphthaInfoFragment
+import com.anda.ui.main.myInfo.myPoint.MyInfoMyPointFragment
 
 class MyInfoFragment : Fragment(), OnClickListener{
 
@@ -39,7 +38,7 @@ class MyInfoFragment : Fragment(), OnClickListener{
             }
             binding.myInfoMyPointImgIv ->{
                 (activity as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, MyInfoMyPointGoodsFragment())
+                    .replace(R.id.nav_host_fragment_container, MyInfoMyPointFragment())
                     .commitAllowingStateLoss()
             }
         }
