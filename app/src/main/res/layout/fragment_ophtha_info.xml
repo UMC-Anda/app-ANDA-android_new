@@ -137,7 +137,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/title_tb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 app:tabPaddingStart="10dp"
                 app:tabIndicatorFullWidth="false"
                 android:background="@drawable/edittext_round_background"/>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/ophtha_info_details_vp"

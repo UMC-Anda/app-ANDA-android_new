@@ -45,10 +45,9 @@ class CompareOphthaReviewRVAdapter  (private var compareOphthaReviewsList: Array
         RecyclerView.ViewHolder(binding.root) {
         fun bind(compareOphthaReviews: CompareOphthaReview) {
             //            안과 정보 넣기
-
-            binding.itemCompareOphthaReviewUserProfileIv.setImageResource(R.drawable.ophtha_ex_img)
+            binding.itemCompareOphthaReviewUserProfileIv.setImageResource(compareOphthaReviews.profileImg!!)
             binding.itemCompareOphthaReviewUserNameTv.text = compareOphthaReviews.userName
-            binding.itemCompareOphthaReviewUserLevelTv.text = compareOphthaReviews.userLevel.toString()
+            binding.itemCompareOphthaReviewUserLevelTv.text = "Level " + compareOphthaReviews.userLevel.toString()
             binding.itemCompareOphthaReviewRatingRb.rating = compareOphthaReviews.totalRating!!.toFloat()
             binding.itemCompareOphthaReviewTextTv.text = compareOphthaReviews.reviewTxt
         }
