@@ -1,8 +1,11 @@
 package com.anda.ui.ophtha_info
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -14,12 +17,12 @@ import com.anda.data.entities.OphthaInfoReview
 import com.anda.databinding.FragmentOphthaInfoBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class OphthaInfoFragment() : Fragment() {
+class OphthaInfoFragment() : Fragment(), OnClickListener {
 
     val ophthaInfoEventDatas = ArrayList<ExOphthaInfoEvent>()
     val ophthaInfoReviewDatas = ArrayList<ExOphthaInfoReview>()
     lateinit var binding: FragmentOphthaInfoBinding
-    private val information = arrayListOf("이벤트", "리뷰", "별점요약")
+    var isLikeChecked : Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +32,14 @@ class OphthaInfoFragment() : Fragment() {
         binding = FragmentOphthaInfoBinding.inflate(inflater, container, false)
 
 
-        binding.ophthaInfoDetailsTb.clipToOutline = true
+        binding.ophthaInfoDetailsEventBackgroundIv.setOnClickListener(this)
+        binding.ophthaInfoDetailsEventTxtTv.setOnClickListener(this)
+        binding.ophthaInfoDetailsReviewBackgroundIv.setOnClickListener(this)
+        binding.ophthaInfoDetailsReviewTxtTv.setOnClickListener(this)
+        binding.ophthaInfoDetailsRatingSortBackgroundIv.setOnClickListener(this)
+        binding.ophthaInfoDetailsRatingSortTxtTv.setOnClickListener(this)
+        binding.ophthaInfoOphthaLikeIv.setOnClickListener(this)
+
         binding.ophthaInfoDetailsVp.clipToOutline = true
         optionDetails()
 
@@ -44,12 +54,6 @@ class OphthaInfoFragment() : Fragment() {
         val andaOphthaInfoAdapter =
             OphthaInfoBannerVPAdapter(this, ophthaInfoEventDatas, ophthaInfoReviewDatas)
         binding.ophthaInfoDetailsVp.adapter = andaOphthaInfoAdapter
-        TabLayoutMediator(
-            binding.ophthaInfoDetailsTb,
-            binding.ophthaInfoDetailsVp
-        ) { tab, position ->
-            tab.text = information[position]
-        }.attach()
 
         andaOphthaInfoAdapter.addFragment(OphthaInfoEventsFragment(ophthaInfoEventDatas))
         andaOphthaInfoAdapter.addFragment(OphthaInfoReviewsFragment(ophthaInfoReviewDatas))
@@ -290,5 +294,67 @@ class OphthaInfoFragment() : Fragment() {
                 )
             )
         }
+    }
+
+    override fun onClick(v: View?) {
+        if (v == null) return
+        when(v){
+            binding.ophthaInfoDetailsEventBackgroundIv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsEventBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsEventTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(0, true)
+            }
+            binding.ophthaInfoDetailsEventTxtTv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsEventBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsEventTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(0, true)
+            }
+            binding.ophthaInfoDetailsReviewBackgroundIv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsReviewBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsReviewTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(1, true)
+            }
+            binding.ophthaInfoDetailsReviewTxtTv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsReviewBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsReviewTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(1, true)
+            }
+            binding.ophthaInfoDetailsRatingSortBackgroundIv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsRatingSortBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsRatingSortTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(2, true)
+            }
+            binding.ophthaInfoDetailsRatingSortTxtTv ->{
+                resetTbSetting()
+                binding.ophthaInfoDetailsRatingSortBackgroundIv.setImageResource(R.drawable.ophtha_info_details_tb_background)
+                binding.ophthaInfoDetailsRatingSortTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+                binding.ophthaInfoDetailsVp.setCurrentItem(2,true)
+            }
+
+            binding.ophthaInfoOphthaLikeIv ->{
+                if(isLikeChecked){
+                    isLikeChecked = false
+                    binding.ophthaInfoOphthaLikeIv.setImageResource(R.drawable.ophtha_info_unchecked_heart)
+
+                } else{
+                    isLikeChecked = true
+                    binding.ophthaInfoOphthaLikeIv.setImageResource(R.drawable.ophtha_info_checked_heart)
+                }
+            }
+        }
+    }
+
+    private fun resetTbSetting() {
+        binding.ophthaInfoDetailsEventTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+        binding.ophthaInfoDetailsReviewTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+        binding.ophthaInfoDetailsRatingSortTxtTv.setTextColor(resources.getColor(R.color.MAIN_50))
+        binding.ophthaInfoDetailsEventBackgroundIv.setImageResource(R.color.gray)
+        binding.ophthaInfoDetailsReviewBackgroundIv.setImageResource(R.color.gray)
+        binding.ophthaInfoDetailsRatingSortBackgroundIv.setImageResource(R.color.gray)
     }
 }
