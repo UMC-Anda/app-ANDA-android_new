@@ -44,9 +44,10 @@ class OphthaInfoEventsRVAdapter(private val ophthaInfoEventList: ArrayList<ExOph
     inner class ViewHolder(val binding: ItemOphthaInfoEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(ophthaInfoEvent: ExOphthaInfoEvent) {
-            binding.itemOphthaInfoEventImageIv.setImageResource(ophthaInfoEvent.ophthaEventImg!!)
+            binding.itemOphthaInfoEventImageIv.setImageResource(R.color.black)
             binding.itemOphthaInfoEventNameTv.text = ophthaInfoEvent.ophthaEventName
             binding.itemHomeOphthaEventDateTv.text = ophthaInfoEvent.ophthaEventDate
+            binding.itemOphthaInfoEventImageIv.clipToOutline = true
             when(ophthaInfoEvent.ophthaEventCategory){
                 "라식" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasik)
                 "라섹" -> binding.itemOphthaInfoEventCategoryIv.setImageResource(R.drawable.item_ophtha_info_event_category_lasek)

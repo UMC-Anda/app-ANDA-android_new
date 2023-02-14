@@ -17,6 +17,13 @@ class OphthaInfoRatingsFragment : Fragment() {
     ): View? {
         binding = FragmentOphthaInfoRatingsBinding.inflate(inflater, container, false)
 
+
+        binding.ophthaInfoRatingKindRatingProgressbarPb.clipToOutline = true
+        binding.ophthaInfoRatingWaitingRatingProgressbarPb.clipToOutline = true
+        binding.ophthaInfoRatingPriceRatingProgressbarPb.clipToOutline = true
+        binding.ophthaInfoRatingInformationRatingProgressbarPb.clipToOutline = true
+        binding.ophthaInfoRatingRecommandRatingProgressbarPb.clipToOutline = true
+        binding.ophthaInfoRatingKindRatingProgressbarPb.clipToOutline = true
         setInfos()
 
         return binding.root

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -13,9 +14,9 @@
         android:text="총 "
         android:textColor="@color/white_black"
         android:textStyle="bold"
-        android:textSize="8dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="27dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -26,7 +27,7 @@
         android:text="N"
         android:textColor="@color/white_black"
         android:textStyle="bold"
-        android:textSize="8dp"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/ophtha_info_ratings_review_cnt_info1_tv"
         app:layout_constraintTop_toTopOf="@id/ophtha_info_ratings_review_cnt_info1_tv"/>
 
@@ -37,19 +38,19 @@
         android:text="개의 평가"
         android:textColor="@color/white_black"
         android:textStyle="bold"
-        android:textSize="8dp"
+        android:textSize="12dp"
         app:layout_constraintStart_toEndOf="@id/ophtha_info_ratings_review_cnt_tv"
         app:layout_constraintTop_toTopOf="@id/ophtha_info_ratings_review_cnt_info1_tv"/>
 
     <ImageView
         android:id="@+id/ophtha_info_ratings_summary_background_iv"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="100dp"
         android:src="@drawable/ophtha_info_ratings_summary_background_img"
         android:scaleType="fitXY"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_ratings_review_cnt_info1_tv"/>
@@ -69,23 +70,21 @@
             android:layout_height="wrap_content"
             android:text="7.2"
             android:textStyle="bold"
-            android:textSize="50dp"
+            android:textSize="60dp"
             android:textColor="@color/Main"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  / "
-            android:textStyle="bold"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textColor="@color/white_black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10"
-            android:textStyle="bold"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textColor="@color/white_black"/>
     </LinearLayout>
 
@@ -93,7 +92,7 @@
         android:id="@+id/ophtha_info_rating_kind_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_ratings_summary_background_iv">
@@ -103,8 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="친절도"
-            android:textSize="10dp"
-            android:layout_marginEnd="50dp"
+            android:textSize="12dp"
+            android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_kind_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_kind_avg"
@@ -116,12 +115,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(1.2/2)"
-            android:textSize="5dp"
-            android:layout_marginEnd="20dp"
+            android:textSize="8dp"
+            android:layout_marginEnd="3dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_kind_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_kind_avg"
             app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_kind_txt_tv" />
+
 
         <ProgressBar
             android:id="@+id/ophtha_info_rating_kind_rating_progressbar_pb"
@@ -133,6 +133,7 @@
             android:progressBackgroundTint="@color/MAIN_10"
             android:layout_marginEnd="30dp"
             android:scaleY="10"
+            android:background="@drawable/round_background"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_kind_txt_tv"
@@ -143,7 +144,7 @@
         android:id="@+id/ophtha_info_rating_waiting_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_kind_avg">
@@ -153,8 +154,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="대기시간"
-            android:textSize="10dp"
-            android:layout_marginEnd="50dp"
+            android:textSize="12dp"
+            android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_waiting_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_waiting_avg"
@@ -165,13 +166,13 @@
             android:id="@+id/ophtha_info_rating_waiting_rating_txt_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
             android:text="(0.8/2)"
-            android:textSize="5dp"
-            android:layout_marginEnd="20dp"
             android:textColor="@color/white_black"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_waiting_txt_tv"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_waiting_rating_progressbar_pb"
-            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_waiting_avg"
-            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_waiting_txt_tv" />
+            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_waiting_avg" />
 
         <ProgressBar
             android:id="@+id/ophtha_info_rating_waiting_rating_progressbar_pb"
@@ -183,6 +184,7 @@
             android:progressBackgroundTint="@color/MAIN_10"
             android:layout_marginEnd="30dp"
             android:scaleY="10"
+            android:background="@drawable/edittext_round_background"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_waiting_txt_tv"
@@ -193,7 +195,7 @@
         android:id="@+id/ophtha_info_rating_price_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_waiting_avg">
@@ -203,8 +205,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가격"
-            android:textSize="10dp"
-            android:layout_marginEnd="50dp"
+            android:textSize="12dp"
+            android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_price_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_price_avg"
@@ -216,8 +218,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(1.5/2)"
-            android:textSize="5dp"
-            android:layout_marginEnd="20dp"
+            android:textSize="8dp"
+            android:layout_marginEnd="3dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_price_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_price_avg"
@@ -233,6 +235,7 @@
             android:progressBackgroundTint="@color/MAIN_10"
             android:layout_marginEnd="30dp"
             android:scaleY="10"
+            android:background="@drawable/edittext_round_background"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_price_txt_tv"
@@ -243,7 +246,7 @@
         android:id="@+id/ophtha_info_rating_information_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_price_avg">
@@ -253,8 +256,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="정보전달"
-            android:textSize="10dp"
-            android:layout_marginEnd="50dp"
+            android:textSize="12dp"
+            android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_information_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_information_avg"
@@ -265,9 +268,9 @@
             android:id="@+id/ophtha_info_rating_information_rating_txt_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(2/2)"
-            android:textSize="5dp"
-            android:layout_marginEnd="20dp"
+            android:text="(2.0/2)"
+            android:textSize="8dp"
+            android:layout_marginEnd="3dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_information_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_information_avg"
@@ -283,6 +286,7 @@
             android:progressBackgroundTint="@color/MAIN_10"
             android:layout_marginEnd="30dp"
             android:scaleY="10"
+            android:background="@drawable/edittext_round_background"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_information_txt_tv"
@@ -293,7 +297,7 @@
         android:id="@+id/ophtha_info_rating_recommand_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_information_avg">
@@ -303,8 +307,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="지인추천"
-            android:textSize="10dp"
-            android:layout_marginEnd="50dp"
+            android:textSize="12dp"
+            android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_recommand_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_recommand_avg"
@@ -316,8 +320,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(1.8/2)"
-            android:textSize="5dp"
-            android:layout_marginEnd="20dp"
+            android:textSize="8dp"
+            android:layout_marginEnd="3dp"
             android:textColor="@color/white_black"
             app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_recommand_rating_progressbar_pb"
             app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_recommand_avg"

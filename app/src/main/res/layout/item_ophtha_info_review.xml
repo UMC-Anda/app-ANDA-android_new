@@ -19,13 +19,13 @@
         android:id="@+id/item_ophtha_info_review_category_info_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="5dp"
         android:text="받은 진료 : "
         android:textColor="@color/white_black"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/item_ophtha_info_review_reciept_iv"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_ophtha_info_review_reciept_iv" />
 
     <TextView
@@ -90,11 +90,12 @@
         android:id="@+id/item_ophtha_info_review_doctor_info_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="의사: "
         android:textColor="@color/white_black"
         android:textSize="8dp"
-        app:layout_constraintStart_toStartOf="@id/item_ophtha_info_review_category_info_tv"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_ophtha_info_review_total_rating_rb" />
 
 
@@ -108,23 +109,25 @@
         app:layout_constraintStart_toEndOf="@id/item_ophtha_info_review_doctor_info_tv"
         app:layout_constraintTop_toTopOf="@id/item_ophtha_info_review_doctor_info_tv" />
 
+
     <TextView
         android:id="@+id/item_ophtha_info_review_text_review_tv"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="속이 더부룩하고 신물 올라와서 방문했는데 병원도 나름 깔끔하고 버스 정류장도 가까워서 더운날에 멀지않아 좋았어요
-아픈데 거리도 있으면 너무 힘들것같아 가까운곳으로 찾아봤는데 직"
+아픈데 거리도 있으면 너무 힘들것같아 가까운곳으로 찾아봤는데 직..."
         android:textColor="@color/white_black"
         android:textSize="10dp"
-        app:layout_constraintStart_toStartOf="@id/item_ophtha_info_review_doctor_info_tv"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_ophtha_info_review_doctor_info_tv" />
-
 
     <ImageView
         android:id="@+id/item_ophtha_info_review_price_info_background_iv"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:src="@color/SUB"
         app:layout_constraintEnd_toEndOf="@id/item_ophtha_info_review_text_review_tv"
@@ -135,11 +138,11 @@
         android:id="@+id/item_ophtha_info_review_price_category_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:text="000"
         android:textColor="@color/Main"
         android:textSize="10dp"
         android:textStyle="bold"
+        android:layout_marginStart="11dp"
         app:layout_constraintBottom_toBottomOf="@id/item_ophtha_info_review_price_info_background_iv"
         app:layout_constraintStart_toStartOf="@id/item_ophtha_info_review_price_info_background_iv"
         app:layout_constraintTop_toTopOf="@id/item_ophtha_info_review_price_info_background_iv" />
@@ -148,10 +151,10 @@
         android:id="@+id/item_ophtha_info_review_price_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:text="5,000원"
         android:textColor="@color/Main"
         android:textSize="10dp"
+        android:layout_marginEnd="11dp"
         app:layout_constraintBottom_toBottomOf="@id/item_ophtha_info_review_price_info_background_iv"
         app:layout_constraintEnd_toEndOf="@id/item_ophtha_info_review_price_info_background_iv"
         app:layout_constraintTop_toTopOf="@id/item_ophtha_info_review_price_info_background_iv" />
