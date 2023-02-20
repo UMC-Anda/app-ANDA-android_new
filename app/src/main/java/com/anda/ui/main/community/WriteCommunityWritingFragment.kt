@@ -1,4 +1,4 @@
-package com.anda.ui.write_review
+package com.anda.ui.main.community
 
 import android.os.Bundle
 import android.view.LayoutInflater

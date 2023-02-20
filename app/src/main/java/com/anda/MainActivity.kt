@@ -10,6 +10,7 @@ import com.anda.ui.main.compare.CompareFragment
 import com.anda.ui.main.home.HomeFragment
 import com.anda.ui.main.map.MapFragment
 import com.anda.ui.main.myInfo.MyInfoFragment
+import com.anda.ui.write_review.WriteReview1Fragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +46,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.mapFragment->{
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container,MapFragment()).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container,
+                        WriteReview1Fragment()
+                    ).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
                 R.id.compareFragment->{

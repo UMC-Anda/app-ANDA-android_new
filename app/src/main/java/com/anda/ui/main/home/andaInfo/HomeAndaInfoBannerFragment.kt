@@ -9,8 +9,6 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentHomeAndaInfoBannerBinding
 import com.anda.ui.main.home.andaInfo.model.AndaInfoBanners
-import com.anda.ui.main.home.andaInfo.model.AndaInfoResult
-import com.anda.ui.write_review.WriteCommunityWritingFragment
 import com.bumptech.glide.Glide
 
 class HomeAndaInfoBannerFragment (val andaInfoBanners: AndaInfoBanners?) : Fragment() {

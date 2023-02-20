@@ -5,18 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.anda.MainActivity
 import com.anda.R
-import com.anda.data.entities.CompareOphtha
-import com.anda.data.entities.CompareOphthaReview
-import com.anda.data.entities.CompareSortSelect
-import com.anda.databinding.FragmentCompareBinding
 import com.anda.databinding.FragmentCompareOptionSelectSortBinding
-import com.anda.databinding.ItemCompareOphthaBinding
-import com.anda.ui.main.map.MapFragment
-import com.anda.ui.write_review.WriteCommunityWritingFragment
 
 class CompareOptionSelectSortFragment() : Fragment(), View.OnClickListener {
 
