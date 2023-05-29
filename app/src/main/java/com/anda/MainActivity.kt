@@ -1,5 +1,6 @@
 package com.anda
 
+import ManagementBeforeOperationFragment
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.communityFragment->{
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container,CommunityFragment()).commitAllowingStateLoss()
+                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container,ManagementBeforeOperationFragment()).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
                 R.id.myInfoFragment->{
