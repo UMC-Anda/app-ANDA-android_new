@@ -1,7 +1,11 @@
 package com.anda.ui.write_review
 
+
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,16 +14,21 @@ import androidx.fragment.app.Fragment
 import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentWriteReview3Binding
+import com.anda.ui.main.home.HomeFragment
 
 class WriteReview3Fragment : Fragment() {
 
-    lateinit var binding: FragmentWriteReview3Binding
+    private lateinit var binding: FragmentWriteReview3Binding
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWriteReview3Binding.inflate(inflater, container, false)
+
+        sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         val thinTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_thin)
         val regularTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_regular)
@@ -33,11 +42,25 @@ class WriteReview3Fragment : Fragment() {
         binding.writeReview3ReviewCertificationExampleImg2Iv.clipToOutline = true
         binding.writeReview3ReviewCertificationExampleImg3Iv.clipToOutline = true
 
-        clickSetting()
+        setupClickListeners()
+
         return binding.root
     }
-    private fun clickSetting() {
 
+    private fun setupClickListeners() {
+        binding.writeReview3NextBtnIv.setOnClickListener {
+            // 저장된 SharedPreferences 수정
+            sharedPreferences.edit()
+                .putBoolean("isReviewRegistered", true)
+                .apply()
 
+            (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, HomeFragment())
+                .commitAllowingStateLoss()
+
+            // SharedPreferences에서 "isReviewRegistered" 값을 읽어와 로그로 표시
+            val isReviewRegistered = sharedPreferences.getBoolean("isReviewRegistered", false)
+            (requireActivity() as MainActivity).isReviewRegistered = isReviewRegistered
+        }
     }
 }

@@ -1,8 +1,7 @@
-package com.anda.ui.main.management.before
+package com.anda.ui.main.management.after
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Color.blue
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,19 +11,14 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.CalendarView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.anda.MainActivity
 import com.anda.R
-import com.anda.databinding.FragmentManagementBeforeOperationBinding
-import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
-import com.anda.ui.write_review.WriteReview1Fragment
+import com.anda.databinding.FragmentCheckedinBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ManagementBeforeOperationFragment : Fragment() {
-
-    private lateinit var binding: FragmentManagementBeforeOperationBinding
+class CheckedinFragment : Fragment() {
+    private lateinit var binding: FragmentCheckedinBinding
     private lateinit var sharedPreferences: SharedPreferences
     private val items = listOf("5 point", "6 point", "7 point", "8 point", "9 point", "10 point")
     private var isSpinning = false
@@ -38,7 +32,7 @@ class ManagementBeforeOperationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentManagementBeforeOperationBinding.inflate(inflater, container, false)
+        binding = FragmentCheckedinBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,8 +42,6 @@ class ManagementBeforeOperationFragment : Fragment() {
         sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.buttonCheckin.setOnClickListener { onCheckInButtonClick() }
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
-        binding.bannerMbti.setOnClickListener { onBannerMbtiClick() }
-        binding.bannerReview.setOnClickListener { onBannerReviewClick() }
 
         // 버튼 초기 상태 설정
         val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
@@ -88,17 +80,6 @@ class ManagementBeforeOperationFragment : Fragment() {
         saveCheckedInDates(startDate, endDate)
     }
 
-    private fun onBannerMbtiClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
-            .commitAllowingStateLoss()
-    }
-
-    private fun onBannerReviewClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, WriteReview1Fragment())
-            .commitAllowingStateLoss()
-    }
 
     private fun onCheckInButtonClick() {
         val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
@@ -221,3 +202,4 @@ class ManagementBeforeOperationFragment : Fragment() {
         binding.getPointView.visibility = View.VISIBLE
     }
 }
+
