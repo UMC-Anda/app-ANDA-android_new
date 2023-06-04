@@ -59,27 +59,59 @@
             android:text="도전과제 달성률"
             android:textSize="20dp"
             android:layout_marginTop="50dp"
-            app:layout_constraintStart_toStartOf="@id/progressBar"
+            app:layout_constraintStart_toStartOf="@id/currentProgressBackground"
             app:layout_constraintTop_toBottomOf="@id/toDoLists"/>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:progressBackgroundTint="@color/white"
-            android:progressTint="@color/Main"
-            android:scaleY="10"
-            android:max="100"
-            android:progress="10"
-            android:secondaryProgress="100"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@color/MAIN_70"
+            app:layout_constraintStart_toStartOf="@id/currentProgressBackground"
+            app:layout_constraintEnd_toEndOf="@id/currentProgressBackground"
+            app:layout_constraintTop_toTopOf="@id/currentProgressBackground"
+            app:layout_constraintBottom_toBottomOf="@id/currentProgressBackground"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/currentProgressBackground"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@color/MAIN_10"
+            android:layout_marginTop="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressText" />
+            app:layout_constraintTop_toBottomOf="@id/progressText"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/currentProgressBackground"
+            app:layout_constraintBottom_toBottomOf="@id/currentProgressBackground"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/currentProgressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="75%"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textColor="@color/Main"/>
+            <TextView
+                android:id="@+id/progressDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10일간 진행 중"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/Main"/>
+
+        </LinearLayout>
+
+
 
         <Button
             android:layout_width="150dp"
@@ -89,7 +121,7 @@
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressBar"/>
+            app:layout_constraintTop_toBottomOf="@id/currentProgressBackground"/>
 
 
 
@@ -155,21 +187,40 @@
                 android:background="@color/MAIN_50"
                 android:padding="3dp"/>
         </LinearLayout>
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <ImageView
+        android:id="@+id/pop_up_background_img"
+        android:layout_width="300dp"
+        android:layout_height="430dp"
+        android:src="@color/MAIN_50"
+        android:visibility="gone"
+        android:layout_marginTop="-30dp"
+        app:layout_constraintStart_toStartOf="@id/pop_up_vp"
+        app:layout_constraintEnd_toEndOf="@id/pop_up_vp"
+        app:layout_constraintTop_toTopOf="@id/pop_up_vp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pop_up_vp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_height="450dp"
         android:clickable="false"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pop_up_close_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/x_icon"
+        android:visibility="gone"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="@id/pop_up_background_img"
+        app:layout_constraintEnd_toEndOf="@id/pop_up_background_img"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

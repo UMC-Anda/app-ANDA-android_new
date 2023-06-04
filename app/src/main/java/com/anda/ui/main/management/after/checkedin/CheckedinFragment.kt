@@ -1,19 +1,20 @@
-package com.anda.ui.main.management.after
+package com.anda.ui.main.management.after.checkedin
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.CalendarView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentCheckedinBinding
+import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
+import com.anda.ui.write_review.WriteReview1Fragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,8 +24,7 @@ class CheckedinFragment : Fragment() {
     private val items = listOf("5 point", "6 point", "7 point", "8 point", "9 point", "10 point")
     private var isSpinning = false
     private var rotateAnimation: RotateAnimation? = null
-
-    private val CHECKED_IN_DATE_KEY = "checked_in_date"
+    private val currentDate = getCurrentDate()
     private val KEY_LAST_SPIN_TIME = "last_spin_time"
 
     override fun onCreateView(
@@ -35,11 +35,10 @@ class CheckedinFragment : Fragment() {
         binding = FragmentCheckedinBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("CheckedInDates", Context.MODE_PRIVATE)
         binding.buttonCheckin.setOnClickListener { onCheckInButtonClick() }
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
 
@@ -50,25 +49,27 @@ class CheckedinFragment : Fragment() {
         if (currentTime - lastSpinTime < twentyFourHoursInMillis) {
             disableButton()
         }
-
+        if(sharedPreferences.contains(currentDate)) {
+            binding.getPointView.text = sharedPreferences.getString(currentDate, "")
+            binding.getPointView.visibility = View.VISIBLE
+        }
         val calendarView = view.findViewById<CalendarView>(R.id.calendar_view)
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val selectedDate = Calendar.getInstance().apply {
                 set(year, month, dayOfMonth)
             }
-            val checkedDates = sharedPreferences.getStringSet(CHECKED_IN_DATE_KEY, mutableSetOf()) ?: mutableSetOf()
-            Log.d("출첵된 날짜들", checkedDates.toString())
             val formattedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
-            val checkedInDates = sharedPreferences.getStringSet(CHECKED_IN_DATE_KEY, mutableSetOf()) ?: mutableSetOf()
-            if (checkedInDates.contains(formattedDate)) {
-                val earnedPoints = getEarnedPoints(formattedDate)
-                Log.d("출첵포인트",earnedPoints)
+
+            val fileExists = sharedPreferences.contains(formattedDate)
+            if (fileExists) {
+                val earnedPoints = sharedPreferences.getString(formattedDate, "")
                 showEarnedPointsDialog(earnedPoints)
-            }else{
+            } else {
                 showEarnedPointsDialog("")
             }
-
         }
+
+
 
         // 5월 13일부터 5월 20일까지 출석체크한 것으로 가정하고 출석 날짜 저장
         val startDate = Calendar.getInstance().apply {
@@ -79,7 +80,21 @@ class CheckedinFragment : Fragment() {
         }
         saveCheckedInDates(startDate, endDate)
     }
+    private fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return dateFormat.format(Date())
+    }
+    private fun onBannerMbtiClick() {
+        (context as MainActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
+            .commitAllowingStateLoss()
+    }
 
+    private fun onBannerReviewClick() {
+        (context as MainActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_container, WriteReview1Fragment())
+            .commitAllowingStateLoss()
+    }
 
     private fun onCheckInButtonClick() {
         val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
@@ -95,8 +110,11 @@ class CheckedinFragment : Fragment() {
         val midnightTime = calendar.timeInMillis
 
         if (!isSpinning && currentTime >= midnightTime && (currentTime - lastSpinTime >= 0)) {
-            spinRoulette()
+            binding.getPointView.visibility = View.GONE
+            val point = spinRoulette()
             sharedPreferences.edit().putLong(KEY_LAST_SPIN_TIME, currentTime).apply()
+
+            sharedPreferences.edit().putString("${currentDate}", point).apply()
             disableButton()
         }
     }
@@ -104,10 +122,12 @@ class CheckedinFragment : Fragment() {
     private fun onResultTextViewClick() {
         binding.resultTextView.visibility = View.GONE
         binding.rouletteImage.visibility = View.GONE
+        binding.getPointView.visibility = View.VISIBLE
+        binding.getPointView.text = sharedPreferences.getString(currentDate, "")
         resetAnimation()
     }
 
-    private fun spinRoulette() {
+    private fun spinRoulette(): String {
         val randomIndex = Random().nextInt(items.size)
         val selectedItem = items[randomIndex]
 
@@ -139,6 +159,7 @@ class CheckedinFragment : Fragment() {
         })
 
         binding.rouletteImage.startAnimation(rotateAnimation)
+        return selectedItem
     }
 
     private fun resetAnimation() {
@@ -148,28 +169,15 @@ class CheckedinFragment : Fragment() {
     }
 
     private fun saveCheckedInDates(startDate: Calendar, endDate: Calendar) {
-        val checkedInDates = mutableSetOf<String>()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val calendar = startDate.clone() as Calendar
-        while (!calendar.after(endDate)) {
-            val formattedDate = dateFormat.format(calendar.time)
-            checkedInDates.add(formattedDate)
-
-
-            // 출석체크된 날짜에 해당하는 TextView 가져오기
-            val dayOfMonthTextViewId = resources.getIdentifier(
-                "calendar_day_" + calendar.get(Calendar.DAY_OF_MONTH),
-                "id",
-                requireActivity().packageName
-            )
-            val dayOfMonthTextView = view?.findViewById<TextView>(dayOfMonthTextViewId)
-            dayOfMonthTextView?.setBackgroundColor(resources.getColor(R.color.Main))
-
-
-
-            calendar.add(Calendar.DATE, 1)
-        }
-        sharedPreferences.edit().putStringSet(CHECKED_IN_DATE_KEY, checkedInDates).apply()
+        sharedPreferences.edit().putString("2023-05-13", "5 point").apply()
+        sharedPreferences.edit().putString("2023-05-14", "10 point").apply()
+        sharedPreferences.edit().putString("2023-05-15", "9 point").apply()
+        sharedPreferences.edit().putString("2023-05-16", "7 point").apply()
+        sharedPreferences.edit().putString("2023-05-17", "6 point").apply()
+        sharedPreferences.edit().putString("2023-05-18", "5 point").apply()
+        sharedPreferences.edit().putString("2023-05-19", "10 point").apply()
+        sharedPreferences.edit().putString("2023-05-20", "9 point").apply()
+        sharedPreferences.edit().putString("2023-05-21", "8 point").apply()
     }
 
 
@@ -183,22 +191,8 @@ class CheckedinFragment : Fragment() {
         binding.buttonCheckin.setBackgroundColor(resources.getColor(R.color.Main))
     }
 
-    private fun getEarnedPoints(date: String): String {
-        return when (date) {
-            "2023-05-13" -> "5 point"
-            "2023-05-14" -> "6 point"
-            "2023-05-15" -> "7 point"
-            "2023-05-16" -> "8 point"
-            "2023-05-17" -> "9 point"
-            "2023-05-18" -> "10 point"
-            "2023-05-19" -> "5 point"
-            "2023-05-20" -> "6 point"
-            else -> "0 point"
-        }
-    }
-
-    private fun showEarnedPointsDialog(earnedPoints: String){
-        binding.getPointView.text = earnedPoints
+    private fun showEarnedPointsDialog(earnedPoints: String?){
+        binding.getPointView.text = earnedPoints ?: "" // null이면 빈 문자열로 대체
         binding.getPointView.visibility = View.VISIBLE
     }
 }

@@ -2,6 +2,8 @@ package com.anda.ui.main.management.after
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.anda.ui.main.management.after.checkedin.CheckedinFragment
+import com.anda.ui.main.management.after.operation.OperationMbtiFragment
 
 class ManagementAfterVPAdapter(fragment: Fragment) : FragmentStateAdapter(fragment){
 

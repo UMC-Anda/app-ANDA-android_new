@@ -18,6 +18,7 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentManagementBeforeOperationBinding
 import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
+import com.anda.ui.main.management.after.operation.OperationMbtiFragment
 import com.anda.ui.write_review.WriteReview1Fragment
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,11 +27,14 @@ class ManagementBeforeOperationFragment : Fragment() {
 
     private lateinit var binding: FragmentManagementBeforeOperationBinding
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var myOperationsharedPreferences: SharedPreferences
+
+
     private val items = listOf("5 point", "6 point", "7 point", "8 point", "9 point", "10 point")
     private var isSpinning = false
     private var rotateAnimation: RotateAnimation? = null
+    private val currentDate = getCurrentDate()
 
-    private val CHECKED_IN_DATE_KEY = "checked_in_date"
     private val KEY_LAST_SPIN_TIME = "last_spin_time"
 
     override fun onCreateView(
@@ -39,13 +43,16 @@ class ManagementBeforeOperationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentManagementBeforeOperationBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("CheckedInDates", Context.MODE_PRIVATE)
+        myOperationsharedPreferences = requireContext().getSharedPreferences("MyOperation", Context.MODE_PRIVATE)
+
         binding.buttonCheckin.setOnClickListener { onCheckInButtonClick() }
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
         binding.bannerMbti.setOnClickListener { onBannerMbtiClick() }
@@ -59,39 +66,56 @@ class ManagementBeforeOperationFragment : Fragment() {
             disableButton()
         }
 
+        //수술 추천 설정
+        if(myOperationsharedPreferences.getBoolean("isRecommended", false)){
+            myOperationsharedPreferences.edit().putBoolean("isRecommended", false).apply()
+            var myOperation = myOperationsharedPreferences.getString("myOperation", "")
+            binding.bannerMbti.text = "내 추천 수술은 ${myOperation}입니다"
+        } else{
+            myOperationsharedPreferences.edit().putBoolean("isRecommended", false).apply()
+            binding.bannerMbti.text = "눈 유형 검사로 시력교정술 추천"
+        }
+
+        //출석체크 설정
+        if(sharedPreferences.contains(currentDate)) {
+            binding.getPointView.text = sharedPreferences.getString(currentDate, "")
+            binding.getPointView.visibility = View.VISIBLE
+        }
         val calendarView = view.findViewById<CalendarView>(R.id.calendar_view)
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             val selectedDate = Calendar.getInstance().apply {
                 set(year, month, dayOfMonth)
             }
-            val checkedDates = sharedPreferences.getStringSet(CHECKED_IN_DATE_KEY, mutableSetOf()) ?: mutableSetOf()
-            Log.d("출첵된 날짜들", checkedDates.toString())
             val formattedDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
-            val checkedInDates = sharedPreferences.getStringSet(CHECKED_IN_DATE_KEY, mutableSetOf()) ?: mutableSetOf()
-            if (checkedInDates.contains(formattedDate)) {
-                val earnedPoints = getEarnedPoints(formattedDate)
-                Log.d("출첵포인트",earnedPoints)
+
+            val fileExists = sharedPreferences.contains(formattedDate)
+            if (fileExists) {
+                val earnedPoints = sharedPreferences.getString(formattedDate, "")
                 showEarnedPointsDialog(earnedPoints)
-            }else{
+            } else {
                 showEarnedPointsDialog("")
             }
-
         }
 
-        // 5월 13일부터 5월 20일까지 출석체크한 것으로 가정하고 출석 날짜 저장
-        val startDate = Calendar.getInstance().apply {
-            set(2023, Calendar.MAY, 13)
-        }
-        val endDate = Calendar.getInstance().apply {
-            set(2023, Calendar.MAY, 20)
-        }
-        saveCheckedInDates(startDate, endDate)
+
+
+
+        saveCheckedInDates()
     }
-
+    private fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        return dateFormat.format(Date())
+    }
     private fun onBannerMbtiClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
-            .commitAllowingStateLoss()
+        if (myOperationsharedPreferences.getBoolean("isRecommended", false)) {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, OperationMbtiFragment())
+                .commitAllowingStateLoss()
+        } else {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
+                .commitAllowingStateLoss()
+        }
     }
 
     private fun onBannerReviewClick() {
@@ -114,8 +138,11 @@ class ManagementBeforeOperationFragment : Fragment() {
         val midnightTime = calendar.timeInMillis
 
         if (!isSpinning && currentTime >= midnightTime && (currentTime - lastSpinTime >= 0)) {
-            spinRoulette()
+            binding.getPointView.visibility = View.GONE
+            val point = spinRoulette()
             sharedPreferences.edit().putLong(KEY_LAST_SPIN_TIME, currentTime).apply()
+
+            sharedPreferences.edit().putString("${currentDate}", point).apply()
             disableButton()
         }
     }
@@ -123,10 +150,12 @@ class ManagementBeforeOperationFragment : Fragment() {
     private fun onResultTextViewClick() {
         binding.resultTextView.visibility = View.GONE
         binding.rouletteImage.visibility = View.GONE
+        binding.getPointView.visibility = View.VISIBLE
+        binding.getPointView.text = sharedPreferences.getString(currentDate, "")
         resetAnimation()
     }
 
-    private fun spinRoulette() {
+    private fun spinRoulette(): String {
         val randomIndex = Random().nextInt(items.size)
         val selectedItem = items[randomIndex]
 
@@ -158,6 +187,7 @@ class ManagementBeforeOperationFragment : Fragment() {
         })
 
         binding.rouletteImage.startAnimation(rotateAnimation)
+        return selectedItem
     }
 
     private fun resetAnimation() {
@@ -166,29 +196,16 @@ class ManagementBeforeOperationFragment : Fragment() {
         binding.rouletteImage.clearAnimation()
     }
 
-    private fun saveCheckedInDates(startDate: Calendar, endDate: Calendar) {
-        val checkedInDates = mutableSetOf<String>()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val calendar = startDate.clone() as Calendar
-        while (!calendar.after(endDate)) {
-            val formattedDate = dateFormat.format(calendar.time)
-            checkedInDates.add(formattedDate)
-
-
-            // 출석체크된 날짜에 해당하는 TextView 가져오기
-            val dayOfMonthTextViewId = resources.getIdentifier(
-                "calendar_day_" + calendar.get(Calendar.DAY_OF_MONTH),
-                "id",
-                requireActivity().packageName
-            )
-            val dayOfMonthTextView = view?.findViewById<TextView>(dayOfMonthTextViewId)
-            dayOfMonthTextView?.setBackgroundColor(resources.getColor(R.color.Main))
-
-
-
-            calendar.add(Calendar.DATE, 1)
-        }
-        sharedPreferences.edit().putStringSet(CHECKED_IN_DATE_KEY, checkedInDates).apply()
+    private fun saveCheckedInDates() {
+        sharedPreferences.edit().putString("2023-05-13", "5 point").apply()
+        sharedPreferences.edit().putString("2023-05-14", "10 point").apply()
+        sharedPreferences.edit().putString("2023-05-15", "9 point").apply()
+        sharedPreferences.edit().putString("2023-05-16", "7 point").apply()
+        sharedPreferences.edit().putString("2023-05-17", "6 point").apply()
+        sharedPreferences.edit().putString("2023-05-18", "5 point").apply()
+        sharedPreferences.edit().putString("2023-05-19", "10 point").apply()
+        sharedPreferences.edit().putString("2023-05-20", "9 point").apply()
+        sharedPreferences.edit().putString("2023-05-21", "8 point").apply()
     }
 
 
@@ -202,22 +219,9 @@ class ManagementBeforeOperationFragment : Fragment() {
         binding.buttonCheckin.setBackgroundColor(resources.getColor(R.color.Main))
     }
 
-    private fun getEarnedPoints(date: String): String {
-        return when (date) {
-            "2023-05-13" -> "5 point"
-            "2023-05-14" -> "6 point"
-            "2023-05-15" -> "7 point"
-            "2023-05-16" -> "8 point"
-            "2023-05-17" -> "9 point"
-            "2023-05-18" -> "10 point"
-            "2023-05-19" -> "5 point"
-            "2023-05-20" -> "6 point"
-            else -> "0 point"
-        }
-    }
-
-    private fun showEarnedPointsDialog(earnedPoints: String){
-        binding.getPointView.text = earnedPoints
+    private fun showEarnedPointsDialog(earnedPoints: String?){
+        binding.getPointView.text = earnedPoints ?: "" // null이면 빈 문자열로 대체
         binding.getPointView.visibility = View.VISIBLE
     }
+
 }

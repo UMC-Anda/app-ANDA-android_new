@@ -9,7 +9,11 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentCommunityEyeMbtiQuestionsBinding
 
-class CommunityEyeMbtiQuestionsFragment (val eyeMbtiQuestion: String?, val currentQuestion : Int) : Fragment() {
+class CommunityEyeMbtiQuestionsFragment(
+    val eyeMbtiQuestion: String?,
+    val currentQuestion: Int,
+    val listener: OnOptionSelectedListener) : Fragment() {
+
     lateinit var binding: FragmentCommunityEyeMbtiQuestionsBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,42 +31,45 @@ class CommunityEyeMbtiQuestionsFragment (val eyeMbtiQuestion: String?, val curre
         clickSetting()
         return binding.root
     }
+    interface OnOptionSelectedListener {
+        fun onOptionSelected(isChecked: Boolean)
+    }
 
     private fun clickSetting() {
         binding.eyeMbtiSelectCircleYes3Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleYes3Civ.setImageResource(R.color.Main)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleYes2Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleYes2Civ.setImageResource(R.color.MAIN_70)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleYes1Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleYes1Civ.setImageResource(R.color.MAIN_50)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleSosoCiv.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleSosoCiv.setImageResource(R.color.MAIN_10)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleNo1Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleNo1Civ.setImageResource(R.color.MAIN_50)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleNo2Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleNo2Civ.setImageResource(R.color.MAIN_70)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
         binding.eyeMbtiSelectCircleNo3Civ.setOnClickListener {
             resetSelectCircle()
             binding.eyeMbtiSelectCircleNo3Civ.setImageResource(R.color.Main)
-            (context as MainActivity).eyeMbtiQuestionIsSelect = true
+            listener.onOptionSelected(true)
         }
     }
 

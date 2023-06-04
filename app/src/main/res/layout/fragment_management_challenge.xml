@@ -1,5 +1,6 @@
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,34 +13,70 @@
         android:text="달성율: 0%"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@color/MAIN_70"
+        app:layout_constraintStart_toStartOf="@id/currentProgressBackground"
+        app:layout_constraintEnd_toEndOf="@id/currentProgressBackground"
+        app:layout_constraintTop_toTopOf="@id/currentProgressBackground"
+        app:layout_constraintBottom_toBottomOf="@id/currentProgressBackground"/>
 
-    <ProgressBar
-        android:id="@+id/achievementProgressBar"
-        android:layout_width="match_parent"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/currentProgressBackground"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@color/MAIN_10"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/achievementRateTextView"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/achievementRateTextView"
-        android:layout_marginTop="16dp"
-        android:progress="0"
-        android:max="100"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/currentProgressBackground"
+        app:layout_constraintBottom_toBottomOf="@id/currentProgressBackground"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/currentProgressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="75%"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/Main"/>
+        <TextView
+            android:id="@+id/progressDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10일간 진행 중"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/Main"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dateRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/achievementProgressBar"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         tools:listitem="@layout/item_challenges"
         android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentProgressBackground"/>
 
-    <Button
-        android:id="@+id/completeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="도전과제 완료"
-        android:layout_below="@id/dateRecyclerView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"/>
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

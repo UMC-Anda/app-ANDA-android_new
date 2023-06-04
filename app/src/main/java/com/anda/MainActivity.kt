@@ -1,5 +1,6 @@
 package com.anda
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -19,9 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
-    public var isReviewRegistered = false
+    private var isReviewRegistered = false
 
-    public var eyeMbtiQuestionIsSelect = false
     public var compareSortSelectedLocation = arrayListOf<String>("강남구")
     public var compareSortSelectedOption = CompareSortSelectedOption("라식", "별점순", compareSortSelectedLocation)
     public var homeSelectLocation = arrayListOf<String>("강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구")
@@ -32,13 +32,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // SharedPreferences 인스턴스 초기화
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        sharedPreferences = getSharedPreferences("isReviewRegistered", MODE_PRIVATE)
 
         // 저장된 리뷰 작성 여부 불러오기
-        isReviewRegistered = sharedPreferences.getBoolean("isReviewRegistered", false)
+        checkIsReview()
 
 
         initBottomNavigation()
+    }
+
+    public fun checkIsReview() {
+        isReviewRegistered = sharedPreferences.getBoolean("isReviewRegistered", false)
     }
 
     public fun bottomNavigationControl() {

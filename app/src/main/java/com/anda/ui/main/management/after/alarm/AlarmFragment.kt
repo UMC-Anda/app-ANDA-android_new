@@ -1,6 +1,7 @@
-package com.anda.ui.main.management.after
+package com.anda.ui.main.management.after.alarm
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anda.data.entities.AlarmItem
 import com.anda.databinding.FragmentAlarmBinding
+import kotlin.math.min
 
 class AlarmFragment : Fragment() {
 
@@ -26,7 +28,7 @@ class AlarmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        alarmAdapter = AlarmRVAdapter(alarms)
+        alarmAdapter = AlarmRVAdapter(alarms, this)
         binding.alarmRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.alarmRecyclerView.adapter = alarmAdapter
 
@@ -40,6 +42,11 @@ class AlarmFragment : Fragment() {
             }
         }
     }
+    fun saveAlarmTime(hour: Int, minute: Int) {
+        val alarmHelper = AlarmHelper(requireContext())
+        alarmHelper.setAlarm(hour, minute)
+        Log.d("setAlarm", hour.toString() + " : " + minute.toString())
+    }
 
     private fun updateAddButtonVisibility() {
         if (alarms.size >= 3) {
@@ -50,5 +57,4 @@ class AlarmFragment : Fragment() {
             binding.addButton.alpha = 1f // 버튼의 투명도를 원래대로 복원
         }
     }
-
 }

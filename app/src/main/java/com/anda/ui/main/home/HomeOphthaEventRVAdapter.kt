@@ -9,9 +9,7 @@ import com.anda.databinding.ItemHomeOphthaEventBinding
 class HomeOphthaEventRVAdapter (private var ophthaEventList: ArrayList<HomeOphthaEvent>): RecyclerView.Adapter<HomeOphthaEventRVAdapter.ViewHolder>() {
 
     interface homeOphthaEventItemClickListener{
-        fun onItemClick(){
-
-        }
+        fun onItemClick(){        }
     }
 
     private lateinit var mItemClickListener : homeOphthaEventItemClickListener

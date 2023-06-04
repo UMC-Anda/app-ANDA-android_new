@@ -1,24 +1,56 @@
 <!-- item_date_achievement.xml -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp">
 
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="날짜"
-        android:textSize="18sp"
-        android:layout_marginStart="16dp"/>
+    <ProgressBar
+        android:id="@+id/dateProgress"
+        android:layout_width="50dp"
+        android:layout_height="150dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:rotation="270"
+        android:max="100"
+        android:scaleX="3"
+        android:scaleY="15"
+        android:progress="50"
+        android:backgroundTint="@color/MAIN_10"
+        android:progressTint="@color/MAIN_70"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 
     <TextView
         android:id="@+id/achievementRateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
-        android:textSize="18sp"
-        android:layout_marginStart="8dp"/>
+        android:text="70%"
+        android:textColor="@color/MAIN_70"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateProgress"/>
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05/07"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/achievementRateTextView"
+        app:layout_constraintEnd_toEndOf="@id/achievementRateTextView"
+        app:layout_constraintTop_toBottomOf="@id/achievementRateTextView"/>
 
-</LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

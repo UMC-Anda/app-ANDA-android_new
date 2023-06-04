@@ -21,6 +21,7 @@ class WriteReview3Fragment : Fragment() {
     private lateinit var binding: FragmentWriteReview3Binding
     private lateinit var sharedPreferences: SharedPreferences
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +29,7 @@ class WriteReview3Fragment : Fragment() {
     ): View? {
         binding = FragmentWriteReview3Binding.inflate(inflater, container, false)
 
-        sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("isReviewRegistered", Context.MODE_PRIVATE)
 
         val thinTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_thin)
         val regularTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_regular)
@@ -50,17 +51,12 @@ class WriteReview3Fragment : Fragment() {
     private fun setupClickListeners() {
         binding.writeReview3NextBtnIv.setOnClickListener {
             // 저장된 SharedPreferences 수정
-            sharedPreferences.edit()
-                .putBoolean("isReviewRegistered", true)
-                .apply()
+            sharedPreferences.edit().putBoolean("isReviewRegistered", true).apply()
+            (activity as MainActivity).checkIsReview()
 
             (requireActivity() as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment_container, HomeFragment())
                 .commitAllowingStateLoss()
-
-            // SharedPreferences에서 "isReviewRegistered" 값을 읽어와 로그로 표시
-            val isReviewRegistered = sharedPreferences.getBoolean("isReviewRegistered", false)
-            (requireActivity() as MainActivity).isReviewRegistered = isReviewRegistered
         }
     }
 }
