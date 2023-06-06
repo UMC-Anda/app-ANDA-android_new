@@ -1,15 +1,20 @@
 package com.anda.ui.main.management.after.alarm
 
+import android.app.Dialog
+import android.app.TimePickerDialog
 import android.os.Bundle
-import android.util.Log
+import android.text.format.DateFormat.is24HourFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anda.data.entities.AlarmItem
 import com.anda.databinding.FragmentAlarmBinding
-import kotlin.math.min
+import java.text.DateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AlarmFragment : Fragment() {
 
@@ -41,11 +46,6 @@ class AlarmFragment : Fragment() {
                 updateAddButtonVisibility()
             }
         }
-    }
-    fun saveAlarmTime(hour: Int, minute: Int) {
-        val alarmHelper = AlarmHelper(requireContext())
-        alarmHelper.setAlarm(hour, minute)
-        Log.d("setAlarm", hour.toString() + " : " + minute.toString())
     }
 
     private fun updateAddButtonVisibility() {

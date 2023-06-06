@@ -2,6 +2,7 @@ package com.anda.ui.main.home
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -40,6 +41,30 @@ class HomeFragment : Fragment(), AndaInfoView {
     val homeAndaRankingP1Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP2Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP3Datas = ArrayList<HomeAndaRankingOphtha>()
+
+    private lateinit var ophthaSharedPreferences1 : SharedPreferences
+    private lateinit var ophthaSharedPreferences2 : SharedPreferences
+    private lateinit var ophthaSharedPreferences3: SharedPreferences
+    private lateinit var ophthaSharedPreferences4 : SharedPreferences
+    private lateinit var ophthaSharedPreferences5 : SharedPreferences
+    private lateinit var ophthaSharedPreferences6 : SharedPreferences
+    private lateinit var ophthaSharedPreferences7 : SharedPreferences
+    private lateinit var ophthaSharedPreferences8 : SharedPreferences
+    private lateinit var ophthaSharedPreferences9 : SharedPreferences
+    private lateinit var ophthaSharedPreferences10 : SharedPreferences
+    private lateinit var ophthaSharedPreferences11 : SharedPreferences
+    private lateinit var ophthaSharedPreferences12 : SharedPreferences
+    private lateinit var ophthaSharedPreferences13 : SharedPreferences
+    private lateinit var ophthaSharedPreferences14 : SharedPreferences
+    private lateinit var ophthaSharedPreferences15 : SharedPreferences
+    private lateinit var ophthaSharedPreferences16 : SharedPreferences
+    private lateinit var ophthaSharedPreferences17 : SharedPreferences
+    private lateinit var ophthaSharedPreferences18 : SharedPreferences
+    private lateinit var ophthaSharedPreferences19 : SharedPreferences
+    private lateinit var ophthaSharedPreferences20 : SharedPreferences
+
+
+
 
     lateinit var binding: FragmentHomeBinding
     var currentPosition:Int = 0
