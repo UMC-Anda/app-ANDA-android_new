@@ -1,5 +1,6 @@
 package com.anda.ui.ophtha_info
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,7 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Ex
     var mPosition = 0
 
     interface ophthaInfoReviewsItemClickListener {
-        fun onItemClick() {
+        fun onItemClick(ophthaReview : ExOphthaInfoReview) {
 
         }
     }
@@ -42,7 +43,7 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Ex
         position: Int
     ) {
         holder.bind(ophthaInfoReviewList[position])
-        holder.itemView.setOnClickListener { mItemClickListener.onItemClick() }
+        holder.itemView.setOnClickListener { mItemClickListener.onItemClick(ophthaInfoReviewList[position]) }
     }
 
 
@@ -57,12 +58,20 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Ex
             else{
                 binding.itemOphthaInfoReviewRecieptIv.setImageResource(R.color.white)
             }
-            binding.itemOphthaInfoReviewCategoryTv.text = ophthaInfoReview.operationCategory
-            binding.itemOphthaInfoReviewTotalRatingRb.rating = ophthaInfoReview.totalRating!!.toFloat()
-            binding.itemOphthaInfoReviewDoctorNameTv.text = ophthaInfoReview.operationDoctor
+            when(ophthaInfoReview.operationCategory){
+                "lasik" -> binding.itemOphthaInfoReviewCategoryTv.text = "라식"
+                "lasek" -> binding.itemOphthaInfoReviewCategoryTv.text = "라섹"
+                "smile" -> binding.itemOphthaInfoReviewCategoryTv.text = "스마일 라식"
+                "today" -> binding.itemOphthaInfoReviewCategoryTv.text = "투데이 라섹"
+                "lens" -> binding.itemOphthaInfoReviewCategoryTv.text = "렌즈삽입술"
+                "back" -> binding.itemOphthaInfoReviewCategoryTv.text = "백내장"
+            }
+            binding.itemOphthaInfoReviewTotalRatingRb.rating = ophthaInfoReview.totalRating!!.toFloat()/2
+            binding.itemOphthaInfoReviewDoctorNameTv.text = ""
+            binding.itemOphthaInfoReviewTotalRatingTv.text = ophthaInfoReview.totalRating!!.toString()
             binding.itemOphthaInfoReviewTextReviewTv.text = ophthaInfoReview.reviewTxt
-            binding.itemOphthaInfoReviewPriceCategoryTv.text = ophthaInfoReview.operationCategory
             binding.itemOphthaInfoReviewPriceTv.text = ophthaInfoReview.operationPrice.toString()
+            Log.d("리뷰",ophthaInfoReview.totalRating!!.toFloat().toString() + " / " + ophthaInfoReview.totalRating!!.toString())
         }
     }
 

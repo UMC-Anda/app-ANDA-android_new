@@ -29,7 +29,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:src="@color/gray"
+                    android:src="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
@@ -129,7 +129,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/ophtha_info_review_detail_operation_info"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="11dp"
@@ -144,6 +144,7 @@
                     android:layout_width="80dp"
                     android:layout_height="25dp"
                     android:src="@drawable/item_ophtha_info_review_receipt"
+                    android:visibility="gone"
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -157,10 +158,11 @@
                     android:textSize="12dp"
                     android:textColor="@color/white_black"
                     android:textStyle="bold"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginStart="14dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_operation_receipt_iv"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <TextView
                     android:id="@+id/ophtha_info_review_detail_operation_category_tv"
@@ -200,9 +202,10 @@
                     android:id="@+id/ophtha_info_review_detail_operation_doctor_info_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="의사: "
+                    android:text=" "
                     android:layout_marginTop="5dp"
                     android:textSize="8dp"
+                    android:visibility="gone"
                     android:textColor="@color/white_black"
                     app:layout_constraintStart_toStartOf="@id/ophtha_info_review_detail_operation_rating_rb"
                     app:layout_constraintTop_toBottomOf="@id/ophtha_info_review_detail_operation_rating_rb"/>
@@ -211,7 +214,8 @@
                     android:id="@+id/ophtha_info_review_detail_operation_doctor_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="김의사"
+                    android:text=" "
+                    android:visibility="gone"
                     android:textSize="8dp"
                     android:textColor="@color/white_black"
                     app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_operation_doctor_info_tv"
@@ -261,6 +265,7 @@
                     android:layout_height="112dp"
                     android:src="@color/gray"
                     android:scaleType="fitXY"
+                    android:visibility="gone"
                     android:background="@drawable/round_background"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="5dp"
@@ -274,6 +279,7 @@
                     android:layout_height="112dp"
                     android:src="@color/gray"
                     android:scaleType="fitXY"
+                    android:visibility="gone"
                     android:background="@drawable/round_background"
                     android:layout_marginStart="5dp"
                     app:layout_constraintStart_toEndOf="@id/ophtha_info_review_detail_review_img1_iv"

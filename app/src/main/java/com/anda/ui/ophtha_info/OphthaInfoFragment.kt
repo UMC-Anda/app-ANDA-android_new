@@ -113,13 +113,20 @@ class OphthaInfoFragment(private val ophthaId : Int) : Fragment(), OnClickListen
                         ophthaSharedPreferences.getString("operation", "라식"),
                         reviewSharedPreferences.getInt("price", 0),
                         "",
-                        reviewSharedPreferences.getInt("totalRating", 0).toDouble(),
+                        reviewSharedPreferences.getInt("totalRating", 0).toFloat(),
                         false,
-                        reviewSharedPreferences.getString("review", "완전 좋았습니다!")
+                        reviewSharedPreferences.getString("review", "완전 좋았습니다!"),
+                        reviewSharedPreferences.getInt("ratingKindness", 0).toInt(),
+                        reviewSharedPreferences.getInt("ratingWaitingTime", 0).toInt(),
+                        reviewSharedPreferences.getInt("ratingEffect", 0).toInt(),
+                        reviewSharedPreferences.getInt("ratingInformation", 0).toInt(),
+                        reviewSharedPreferences.getInt("ratingPrice", 0).toInt(),
+                        reviewSharedPreferences.getString("nickName", "")
                     )
                 )
             }
         }
+
         kindnessAvg /= reviewCnt
         effectiveAvg /= reviewCnt
         WaitingAvg /= reviewCnt

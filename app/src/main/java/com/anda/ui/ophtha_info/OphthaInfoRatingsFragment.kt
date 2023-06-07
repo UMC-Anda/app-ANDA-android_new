@@ -12,12 +12,12 @@ import com.anda.databinding.FragmentOphthaInfoRatingsBinding
 class OphthaInfoRatingsFragment(val ophthaInfoReviewsData:ExOphthaInfoRating?) : Fragment() {
 
     private val reviewCnt:Int = ophthaInfoReviewsData!!.reviewCnt!!
-    private val totalRating : Float = ophthaInfoReviewsData!!.totalRating!!
-    private val kindnessAvg : Float = ophthaInfoReviewsData!!.kindnessAvg!!
-    private val effectiveAvg : Float = ophthaInfoReviewsData!!.effectiveAvg!!
-    private val WaitingAvg : Float = ophthaInfoReviewsData!!.WaitingAvg!!
-    private val informationAvg : Float = ophthaInfoReviewsData!!.informationAvg!!
-    private val priceAvg : Float = ophthaInfoReviewsData!!.priceAvg!!
+    private var totalRating : Float = ophthaInfoReviewsData!!.totalRating!!
+    private var kindnessAvg : Float = ophthaInfoReviewsData!!.kindnessAvg!!
+    private var effectiveAvg : Float = ophthaInfoReviewsData!!.effectiveAvg!!
+    private var WaitingAvg : Float = ophthaInfoReviewsData!!.WaitingAvg!!
+    private var informationAvg : Float = ophthaInfoReviewsData!!.informationAvg!!
+    private var priceAvg : Float = ophthaInfoReviewsData!!.priceAvg!!
 
     lateinit var binding: FragmentOphthaInfoRatingsBinding
 
@@ -28,6 +28,14 @@ class OphthaInfoRatingsFragment(val ophthaInfoReviewsData:ExOphthaInfoRating?) :
     ): View? {
         binding = FragmentOphthaInfoRatingsBinding.inflate(inflater, container, false)
 
+
+        //소수점 관리
+        totalRating = (((totalRating * 10).toInt())/10).toFloat()
+        kindnessAvg = (((kindnessAvg * 10).toInt())/10).toFloat()
+        effectiveAvg = (((effectiveAvg * 10).toInt())/10).toFloat()
+        WaitingAvg = (((WaitingAvg * 10).toInt())/10).toFloat()
+        informationAvg = (((informationAvg * 10).toInt())/10).toFloat()
+        priceAvg = (((priceAvg * 10).toInt())/10).toFloat()
 
         binding.ophthaInfoRatingKindRatingProgressbarPb.clipToOutline = true
         binding.ophthaInfoRatingWaitingRatingProgressbarPb.clipToOutline = true
