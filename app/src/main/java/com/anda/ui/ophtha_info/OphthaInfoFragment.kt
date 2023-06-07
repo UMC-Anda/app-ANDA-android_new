@@ -1,5 +1,7 @@
 package com.anda.ui.ophtha_info
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,19 +12,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.anda.R
-import com.anda.data.entities.ExOphthaInfoEvent
-import com.anda.data.entities.ExOphthaInfoReview
-import com.anda.data.entities.OphthaInfoEvent
-import com.anda.data.entities.OphthaInfoReview
+import com.anda.data.entities.*
 import com.anda.databinding.FragmentOphthaInfoBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import java.util.prefs.AbstractPreferences
 
-class OphthaInfoFragment() : Fragment(), OnClickListener {
+class OphthaInfoFragment(private val ophthaId : Int) : Fragment(), OnClickListener {
 
     val ophthaInfoEventDatas = ArrayList<ExOphthaInfoEvent>()
     val ophthaInfoReviewDatas = ArrayList<ExOphthaInfoReview>()
+    val ophthaInfoRatingData = ExOphthaInfoRating()
     lateinit var binding: FragmentOphthaInfoBinding
+    private lateinit var ophthaSharedPreferences: SharedPreferences
+    private lateinit var reviewSharedPreferences: SharedPreferences
     var isLikeChecked : Boolean = false
+
+    var kindnessAvg : Float = 0f
+    var effectiveAvg : Float = 0f
+    var WaitingAvg : Float = 0f
+    var informationAvg : Float = 0f
+    var priceAvg : Float = 0f
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +40,11 @@ class OphthaInfoFragment() : Fragment(), OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOphthaInfoBinding.inflate(inflater, container, false)
+
+        ophthaSharedPreferences = requireContext().getSharedPreferences("Ophtha" + ophthaId.toString(), Context.MODE_PRIVATE)
+
+
+
 
 
         binding.ophthaInfoDetailsEventBackgroundIv.setOnClickListener(this)
@@ -40,7 +55,14 @@ class OphthaInfoFragment() : Fragment(), OnClickListener {
         binding.ophthaInfoDetailsRatingSortTxtTv.setOnClickListener(this)
         binding.ophthaInfoOphthaLikeIv.setOnClickListener(this)
 
+        binding.ophthaInfoDetailsVp.isUserInputEnabled = false
         binding.ophthaInfoDetailsVp.clipToOutline = true
+
+        binding.ophthaInfoOphthaNameTv.text = ophthaSharedPreferences.getString("name", "김안과의원")
+        binding.ophthaInfoOphthaRatingAvgTv.text = "(" + ophthaSharedPreferences.getFloat("totalRating", 0f).toString() + ")"
+        binding.ophthaInfoOphthaRatingCntTv.text = "(" + ophthaSharedPreferences.getInt("cnt", 0).toString() + ")"
+        binding.ophthaInfoOphthaImageBackgroundIv.setImageResource(ophthaSharedPreferences.getInt("img", R.drawable.ophtha_info_details_tb_background))
+
         optionDetails()
 
         return binding.root
@@ -48,74 +70,61 @@ class OphthaInfoFragment() : Fragment(), OnClickListener {
 
 
     private fun optionDetails() {
-        addDetailsEvents()
+        //addDetailsEvents()
         addDetailsReviews()
 
+        ophthaInfoRatingData.reviewCnt = ophthaSharedPreferences.getInt("reviwCnt", 0)
+        ophthaInfoRatingData.totalRating = ophthaSharedPreferences.getFloat("totalRating", 0f)
+        ophthaInfoRatingData.kindnessAvg = kindnessAvg
+        ophthaInfoRatingData.effectiveAvg = effectiveAvg
+        ophthaInfoRatingData.WaitingAvg = WaitingAvg
+        ophthaInfoRatingData.informationAvg = informationAvg
+        ophthaInfoRatingData.priceAvg = priceAvg
+
         val andaOphthaInfoAdapter =
-            OphthaInfoBannerVPAdapter(this, ophthaInfoEventDatas, ophthaInfoReviewDatas)
+            OphthaInfoBannerVPAdapter(this, ophthaInfoEventDatas, ophthaInfoReviewDatas, ophthaInfoRatingData)
         binding.ophthaInfoDetailsVp.adapter = andaOphthaInfoAdapter
+
 
         andaOphthaInfoAdapter.addFragment(OphthaInfoEventsFragment(ophthaInfoEventDatas))
         andaOphthaInfoAdapter.addFragment(OphthaInfoReviewsFragment(ophthaInfoReviewDatas))
-        andaOphthaInfoAdapter.addFragment(OphthaInfoRatingsFragment())
+        andaOphthaInfoAdapter.addFragment(OphthaInfoRatingsFragment(ophthaInfoRatingData))
         binding.ophthaInfoDetailsVp.adapter = andaOphthaInfoAdapter
         binding.ophthaInfoDetailsVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
 
     private fun addDetailsReviews() {
-        ophthaInfoReviewDatas.apply {
-
-            add(
-                ExOphthaInfoReview(
-                    "라식",
-                    5000,
-                    "의사A",
-                    5.0,
-                    true,
-                    "속이 더부룩하고 신물 올라와서 방문했는데 병원도 나름 깔끔하고 버스 정류장도 가까워서 더운날에 멀지않아 좋았어요. 아픈데 거리도 있으면 너무 힘들것같아 가까운곳으로 찾아봤는데 너무 좋았던 것 같아요!!"
+        val reviewCnt = ophthaSharedPreferences.getInt("reviwCnt", 0)
+        kindnessAvg = 0f
+        effectiveAvg  = 0f
+        WaitingAvg = 0f
+        informationAvg = 0f
+        priceAvg = 0f
+        for (i in 1..reviewCnt){
+            reviewSharedPreferences = requireContext().getSharedPreferences("Ophtha${ophthaId}_review${i}", Context.MODE_PRIVATE)
+            kindnessAvg += reviewSharedPreferences.getInt("ratingKindness", 0)
+            effectiveAvg  += reviewSharedPreferences.getInt("ratingEffect", 0)
+            WaitingAvg += reviewSharedPreferences.getInt("ratingWaitingTime", 0)
+            informationAvg += reviewSharedPreferences.getInt("ratingInformation", 0)
+            priceAvg += reviewSharedPreferences.getInt("ratingPrice", 0)
+            ophthaInfoReviewDatas.apply{
+                add(
+                    ExOphthaInfoReview(
+                        ophthaSharedPreferences.getString("operation", "라식"),
+                        reviewSharedPreferences.getInt("price", 0),
+                        "",
+                        reviewSharedPreferences.getInt("totalRating", 0).toDouble(),
+                        false,
+                        reviewSharedPreferences.getString("review", "완전 좋았습니다!")
+                    )
                 )
-            )
-            add(
-                ExOphthaInfoReview(
-                    "라식",
-                    5000,
-                    "의사B",
-                    5.0,
-                    false,
-                    "최고에요!!"
-                )
-            )
-            add(
-                ExOphthaInfoReview(
-                    "라식",
-                    5000,
-                    "의사C",
-                    5.0,
-                    true,
-                    "속이 더부룩하고 신물 올라와서 방문했는데 병원도 나름 깔끔하고 버스 정류장도 가까워서 더운날에 멀지않아 좋았어요."
-                )
-            )
-            add(
-                ExOphthaInfoReview(
-                    "라식",
-                    5000,
-                    "의사D",
-                    5.0,
-                    false,
-                    "리뷰4"
-                )
-            )
-            add(
-                ExOphthaInfoReview(
-                    "라식",
-                    5000,
-                    "의사E",
-                    5.0,
-                    true,
-                    "리뷰5"
-                )
-            )
+            }
         }
+        kindnessAvg /= reviewCnt
+        effectiveAvg /= reviewCnt
+        WaitingAvg /= reviewCnt
+        informationAvg /= reviewCnt
+        priceAvg /= reviewCnt
     }
 
 

@@ -2,6 +2,7 @@ package com.anda.ui.main.home
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -31,9 +32,12 @@ import com.anda.ui.main.home.ranking.HomeAndaRankingBannerFragment
 import com.anda.ui.main.home.ranking.HomeAndaRankingBannerVPAdapter
 import com.anda.ui.main.home.ranking.HomeAndaRankingSelectRVAdapter
 import com.anda.ui.main.home.ranking.selectLocation.HomeSelectLocationFragment
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment(), AndaInfoView {
 
+    private val rankingOphthaList = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12","13","14","15","16","17","18","19", "20")
     private var isDoReviewClicked = false
     private var homeAndaRankingSelecDatas = ArrayList<HomeAndaRankingSelect>()
     val homeAndaInfoDatas = ArrayList<AndaInfoBanners>()
@@ -45,26 +49,6 @@ class HomeFragment : Fragment(), AndaInfoView {
     private lateinit var ophthaSharedPreferences1 : SharedPreferences
     private lateinit var ophthaSharedPreferences2 : SharedPreferences
     private lateinit var ophthaSharedPreferences3: SharedPreferences
-    private lateinit var ophthaSharedPreferences4 : SharedPreferences
-    private lateinit var ophthaSharedPreferences5 : SharedPreferences
-    private lateinit var ophthaSharedPreferences6 : SharedPreferences
-    private lateinit var ophthaSharedPreferences7 : SharedPreferences
-    private lateinit var ophthaSharedPreferences8 : SharedPreferences
-    private lateinit var ophthaSharedPreferences9 : SharedPreferences
-    private lateinit var ophthaSharedPreferences10 : SharedPreferences
-    private lateinit var ophthaSharedPreferences11 : SharedPreferences
-    private lateinit var ophthaSharedPreferences12 : SharedPreferences
-    private lateinit var ophthaSharedPreferences13 : SharedPreferences
-    private lateinit var ophthaSharedPreferences14 : SharedPreferences
-    private lateinit var ophthaSharedPreferences15 : SharedPreferences
-    private lateinit var ophthaSharedPreferences16 : SharedPreferences
-    private lateinit var ophthaSharedPreferences17 : SharedPreferences
-    private lateinit var ophthaSharedPreferences18 : SharedPreferences
-    private lateinit var ophthaSharedPreferences19 : SharedPreferences
-    private lateinit var ophthaSharedPreferences20 : SharedPreferences
-
-
-
 
     lateinit var binding: FragmentHomeBinding
     var currentPosition:Int = 0
@@ -81,6 +65,9 @@ class HomeFragment : Fragment(), AndaInfoView {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+
+
 
         //뷰페이저 내용물 바뀔때마다 호출
         binding.homeAndaInfoVp.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
@@ -155,20 +142,40 @@ class HomeFragment : Fragment(), AndaInfoView {
     }
 
     private fun addAndaRankingOphtha() {
+
+        var randomElement1 = rankingOphthaList.random()
+        var randomElement2 = rankingOphthaList.random()
+        var randomElement3 = rankingOphthaList.random()
+        ophthaSharedPreferences1 = requireContext().getSharedPreferences("Ophtha" + randomElement1, Context.MODE_PRIVATE)
+        ophthaSharedPreferences2 = requireContext().getSharedPreferences("Ophtha" + randomElement2, Context.MODE_PRIVATE)
+        ophthaSharedPreferences3 = requireContext().getSharedPreferences("Ophtha" + randomElement3, Context.MODE_PRIVATE)
+
         homeAndaRankingP1Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원1","서울특별시 영등포구",1, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원2","서울특별시 영등포구",2, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원3","서울특별시 영등포구",3, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences1.getString("id", "0")!!.toInt(), ophthaSharedPreferences1.getString("name", "김안과의원"),"서울특별시 영등포구",1, ophthaSharedPreferences1.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences1.getFloat("totalRating", 0f)!!.toDouble(), 4))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences2.getString("id", "0")!!.toInt(), ophthaSharedPreferences2.getString("name", "김안과의원"),"서울특별시 영등포구",2, ophthaSharedPreferences2.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences2.getFloat("totalRating", 0f)!!.toDouble(), 4))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences3.getString("id", "0")!!.toInt(), ophthaSharedPreferences3.getString("name", "김안과의원"),"서울특별시 영등포구",3, ophthaSharedPreferences1.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences3.getFloat("totalRating", 0f)!!.toDouble(), 5))
         }
+        randomElement1 = rankingOphthaList.random()
+        randomElement2 = rankingOphthaList.random()
+        randomElement3 = rankingOphthaList.random()
+        ophthaSharedPreferences1 = requireContext().getSharedPreferences("Ophtha" + randomElement1, Context.MODE_PRIVATE)
+        ophthaSharedPreferences2 = requireContext().getSharedPreferences("Ophtha" + randomElement2, Context.MODE_PRIVATE)
+        ophthaSharedPreferences3 = requireContext().getSharedPreferences("Ophtha" + randomElement3, Context.MODE_PRIVATE)
         homeAndaRankingP2Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원4","서울특별시 영등포구",4, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원5","서울특별시 영등포구",5, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원6","서울특별시 영등포구",6, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences1.getString("id", "0")!!.toInt(),ophthaSharedPreferences1.getString("name", "김안과의원"),"서울특별시 영등포구",4, ophthaSharedPreferences1.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences1.getFloat("totalRating", 0f)!!.toDouble(), 5))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences2.getString("id", "0")!!.toInt(),ophthaSharedPreferences2.getString("name", "김안과의원"),"서울특별시 영등포구",5, ophthaSharedPreferences2.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences2.getFloat("totalRating", 0f)!!.toDouble(), 4))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences3.getString("id", "0")!!.toInt(),ophthaSharedPreferences3.getString("name", "김안과의원"),"서울특별시 영등포구",6, ophthaSharedPreferences3.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences3.getFloat("totalRating", 0f)!!.toDouble(), 3))
         }
+        randomElement1 = rankingOphthaList.random()
+        randomElement2 = rankingOphthaList.random()
+        randomElement3 = rankingOphthaList.random()
+        ophthaSharedPreferences1 = requireContext().getSharedPreferences("Ophtha" + randomElement1, Context.MODE_PRIVATE)
+        ophthaSharedPreferences2 = requireContext().getSharedPreferences("Ophtha" + randomElement2, Context.MODE_PRIVATE)
+        ophthaSharedPreferences3 = requireContext().getSharedPreferences("Ophtha" + randomElement3, Context.MODE_PRIVATE)
         homeAndaRankingP3Datas.apply {
-            add(HomeAndaRankingOphtha("김안과병원7","서울특별시 영등포구",7, R.drawable.ophtha_ex_img, 3.5, 12))
-            add(HomeAndaRankingOphtha("김안과병원8","서울특별시 영등포구",8, R.drawable.ophtha_ex_img, 4.5, 2))
-            add(HomeAndaRankingOphtha("김안과병원9","서울특별시 영등포구",9, R.drawable.ophtha_ex_img, 5.0, 8))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences1.getString("id", "0")!!.toInt(), ophthaSharedPreferences1.getString("name", "김안과의원"),"서울특별시 영등포구",7, ophthaSharedPreferences1.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences1.getFloat("totalRating", 0f)!!.toDouble(), 4))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences2.getString("id", "0")!!.toInt(), ophthaSharedPreferences2.getString("name", "김안과의원"),"서울특별시 영등포구",8, ophthaSharedPreferences2.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences2.getFloat("totalRating", 0f)!!.toDouble(), 2))
+            add(HomeAndaRankingOphtha(ophthaSharedPreferences3.getString("id", "0")!!.toInt(), ophthaSharedPreferences3.getString("name", "김안과의원"),"서울특별시 영등포구",9, ophthaSharedPreferences3.getInt("img", R.drawable.ophtha_ex_img), ophthaSharedPreferences3.getFloat("totalRating", 0f)!!.toDouble(), 5))
         }
     }
 
@@ -193,7 +200,13 @@ class HomeFragment : Fragment(), AndaInfoView {
         binding.homeRankingSelectRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         andaRankingSelectRVAdapter.setHomeandaRankingSelectItemClickListener(object : HomeAndaRankingSelectRVAdapter.homeandaRankingSelectItemClickListener{
-            override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) { } })
+            override fun onItemClick(andaRankingSelect: HomeAndaRankingSelect) {
+                // 데이터 소스를 비워주는 예시 코드
+                homeAndaRankingP1Datas.clear() // dataList는 어댑터에서 사용하는 데이터 소스(List, ArrayList 등)
+                homeAndaRankingP2Datas.clear() // dataList는 어댑터에서 사용하는 데이터 소스(List, ArrayList 등)
+                homeAndaRankingP3Datas.clear() // dataList는 어댑터에서 사용하는 데이터 소스(List, ArrayList 등)
+                optionAndaRankingOphtha()
+            } })
     }
     private fun clickSetting() {
         binding.homeDoReviewBtn.setOnClickListener {

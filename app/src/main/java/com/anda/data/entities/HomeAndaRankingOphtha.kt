@@ -1,6 +1,7 @@
 package com.anda.data.entities
 
 data class HomeAndaRankingOphtha(
+    var ophthaID : Int? = 0,
     var ophthaName : String? = "", //안과 이름
     var ophthaLocation : String? = "", //안과 위치 -> 00구
     var ophthaRank : Int? = 0,

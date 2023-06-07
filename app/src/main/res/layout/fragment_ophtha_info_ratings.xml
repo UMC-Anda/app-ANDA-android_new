@@ -294,7 +294,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ophtha_info_rating_recommand_avg"
+        android:id="@+id/ophtha_info_rating_effective_avg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
@@ -303,32 +303,32 @@
         app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_information_avg">
 
         <TextView
-            android:id="@+id/ophtha_info_rating_recommand_txt_tv"
+            android:id="@+id/ophtha_info_rating_effective_txt_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지인추천"
+            android:text="수술효과"
             android:textSize="12dp"
             android:layout_marginEnd="31dp"
             android:textColor="@color/white_black"
-            app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_recommand_rating_progressbar_pb"
-            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_recommand_avg"
-            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_recommand_txt_tv"
+            app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_effective_rating_progressbar_pb"
+            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_effective_avg"
+            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_effective_txt_tv"
             />
 
         <TextView
-            android:id="@+id/ophtha_info_rating_recommand_rating_txt_tv"
+            android:id="@+id/ophtha_info_rating_effective_rating_txt_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(1.8/2)"
             android:textSize="8dp"
             android:layout_marginEnd="3dp"
             android:textColor="@color/white_black"
-            app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_recommand_rating_progressbar_pb"
-            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_recommand_avg"
-            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_recommand_txt_tv" />
+            app:layout_constraintEnd_toStartOf="@id/ophtha_info_rating_effective_rating_progressbar_pb"
+            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_effective_avg"
+            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_effective_txt_tv" />
 
         <ProgressBar
-            android:id="@+id/ophtha_info_rating_recommand_rating_progressbar_pb"
+            android:id="@+id/ophtha_info_rating_effective_rating_progressbar_pb"
             android:layout_width="250dp"
             android:layout_height="15dp"
             android:progress="180"
@@ -339,8 +339,8 @@
             android:scaleY="10"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_recommand_txt_tv"
-            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_recommand_txt_tv"/>
+            app:layout_constraintTop_toTopOf="@id/ophtha_info_rating_effective_txt_tv"
+            app:layout_constraintBottom_toBottomOf="@id/ophtha_info_rating_effective_txt_tv"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -348,7 +348,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:src="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_recommand_avg"
+        app:layout_constraintTop_toBottomOf="@id/ophtha_info_rating_effective_avg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

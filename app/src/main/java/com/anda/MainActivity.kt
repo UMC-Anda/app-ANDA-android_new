@@ -152,135 +152,135 @@ class MainActivity : AppCompatActivity() {
         // SharedPreferences 인스턴스 초기화
         checkReviewSharedPreferences = getSharedPreferences("isReviewRegistered", MODE_PRIVATE)
 
-        ophthaSharedPreferences1_lasik = getSharedPreferences("Ophtha1_lasik", MODE_PRIVATE)
-        ophthaSharedPreferences2_lasek = getSharedPreferences("Ophtha2_lasek", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile = getSharedPreferences("Ophtha3_smile", MODE_PRIVATE)
-        ophthaSharedPreferences4_today = getSharedPreferences("Ophtha4_today", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens = getSharedPreferences("Ophtha5_lens", MODE_PRIVATE)
-        ophthaSharedPreferences6_back = getSharedPreferences("Ophtha6_back", MODE_PRIVATE)
-        ophthaSharedPreferences7_lasik = getSharedPreferences("Ophtha7_lasik", MODE_PRIVATE)
-        ophthaSharedPreferences8_lasek = getSharedPreferences("Ophtha8_lasek", MODE_PRIVATE)
-        ophthaSharedPreferences9_smile = getSharedPreferences("Ophtha9_smile", MODE_PRIVATE)
-        ophthaSharedPreferences10_today = getSharedPreferences("Ophtha10_today", MODE_PRIVATE)
-        ophthaSharedPreferences11_lens = getSharedPreferences("Ophtha11_lens", MODE_PRIVATE)
-        ophthaSharedPreferences12_lasik = getSharedPreferences("Ophtha12_lasik", MODE_PRIVATE)
-        ophthaSharedPreferences13_lasek = getSharedPreferences("Ophtha13_lasek", MODE_PRIVATE)
-        ophthaSharedPreferences14_smile = getSharedPreferences("Ophtha14_smile", MODE_PRIVATE)
-        ophthaSharedPreferences15_today = getSharedPreferences("Ophtha15_today", MODE_PRIVATE)
-        ophthaSharedPreferences16_lens = getSharedPreferences("Ophtha16_lens", MODE_PRIVATE)
-        ophthaSharedPreferences17_lasik = getSharedPreferences("Ophtha17_lasik", MODE_PRIVATE)
-        ophthaSharedPreferences18_lasek = getSharedPreferences("Ophtha18_lasek", MODE_PRIVATE)
-        ophthaSharedPreferences19_smile = getSharedPreferences("Ophtha19_smile", MODE_PRIVATE)
-        ophthaSharedPreferences20_today = getSharedPreferences("Ophtha20_today", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik = getSharedPreferences("Ophtha1", MODE_PRIVATE)
+        ophthaSharedPreferences2_lasek = getSharedPreferences("Ophtha2", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile = getSharedPreferences("Ophtha3", MODE_PRIVATE)
+        ophthaSharedPreferences4_today = getSharedPreferences("Ophtha4", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens = getSharedPreferences("Ophtha5", MODE_PRIVATE)
+        ophthaSharedPreferences6_back = getSharedPreferences("Ophtha6", MODE_PRIVATE)
+        ophthaSharedPreferences7_lasik = getSharedPreferences("Ophtha7", MODE_PRIVATE)
+        ophthaSharedPreferences8_lasek = getSharedPreferences("Ophtha8", MODE_PRIVATE)
+        ophthaSharedPreferences9_smile = getSharedPreferences("Ophtha9", MODE_PRIVATE)
+        ophthaSharedPreferences10_today = getSharedPreferences("Ophtha10", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens = getSharedPreferences("Ophtha11", MODE_PRIVATE)
+        ophthaSharedPreferences12_lasik = getSharedPreferences("Ophtha12", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek = getSharedPreferences("Ophtha13", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile = getSharedPreferences("Ophtha14", MODE_PRIVATE)
+        ophthaSharedPreferences15_today = getSharedPreferences("Ophtha15", MODE_PRIVATE)
+        ophthaSharedPreferences16_lens = getSharedPreferences("Ophtha16", MODE_PRIVATE)
+        ophthaSharedPreferences17_lasik = getSharedPreferences("Ophtha17", MODE_PRIVATE)
+        ophthaSharedPreferences18_lasek = getSharedPreferences("Ophtha18", MODE_PRIVATE)
+        ophthaSharedPreferences19_smile = getSharedPreferences("Ophtha19", MODE_PRIVATE)
+        ophthaSharedPreferences20_today = getSharedPreferences("Ophtha20", MODE_PRIVATE)
 
-        ophthaSharedPreferences1_lasik_review1 = getSharedPreferences("Ophtha1_lasik_review1", MODE_PRIVATE)
-        ophthaSharedPreferences1_lasik_review2 = getSharedPreferences("Ophtha1_lasik_review2", MODE_PRIVATE)
-        ophthaSharedPreferences1_lasik_review3 = getSharedPreferences("Ophtha1_lasik_review3", MODE_PRIVATE)
-        ophthaSharedPreferences1_lasik_review4 = getSharedPreferences("Ophtha1_lasik_review4", MODE_PRIVATE)
-        ophthaSharedPreferences1_lasik_review5 = getSharedPreferences("Ophtha1_lasik_review5", MODE_PRIVATE)
-        ophthaSharedPreferences1_lasik_review6 = getSharedPreferences("Ophtha1_lasik_review6", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review1 = getSharedPreferences("Ophtha1_review1", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review2 = getSharedPreferences("Ophtha1_review2", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review3 = getSharedPreferences("Ophtha1_review3", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review4 = getSharedPreferences("Ophtha1_review4", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review5 = getSharedPreferences("Ophtha1_review5", MODE_PRIVATE)
+        ophthaSharedPreferences1_lasik_review6 = getSharedPreferences("Ophtha1_review6", MODE_PRIVATE)
 
-        ophthaSharedPreferences7_lasik_review1 = getSharedPreferences("Ophtha7_lasik_review1", MODE_PRIVATE)
-        ophthaSharedPreferences7_lasik_review2 = getSharedPreferences("Ophtha7_lasik_review2", MODE_PRIVATE)
-        ophthaSharedPreferences7_lasik_review3 = getSharedPreferences("Ophtha7_lasik_review3", MODE_PRIVATE)
-        ophthaSharedPreferences7_lasik_review4 = getSharedPreferences("Ophtha7_lasik_review4", MODE_PRIVATE)
+        ophthaSharedPreferences7_lasik_review1 = getSharedPreferences("Ophtha7_review1", MODE_PRIVATE)
+        ophthaSharedPreferences7_lasik_review2 = getSharedPreferences("Ophtha7_review2", MODE_PRIVATE)
+        ophthaSharedPreferences7_lasik_review3 = getSharedPreferences("Ophtha7_review3", MODE_PRIVATE)
+        ophthaSharedPreferences7_lasik_review4 = getSharedPreferences("Ophtha7_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences12_lasik_review1 = getSharedPreferences("Ophtha12_lasik_review1", MODE_PRIVATE)
-        ophthaSharedPreferences12_lasik_review2 = getSharedPreferences("Ophtha12_lasik_review2", MODE_PRIVATE)
-        ophthaSharedPreferences12_lasik_review3 = getSharedPreferences("Ophtha12_lasik_review3", MODE_PRIVATE)
-        ophthaSharedPreferences12_lasik_review4 = getSharedPreferences("Ophtha12_lasik_review4", MODE_PRIVATE)
+        ophthaSharedPreferences12_lasik_review1 = getSharedPreferences("Ophtha12_review1", MODE_PRIVATE)
+        ophthaSharedPreferences12_lasik_review2 = getSharedPreferences("Ophtha12_review2", MODE_PRIVATE)
+        ophthaSharedPreferences12_lasik_review3 = getSharedPreferences("Ophtha12_review3", MODE_PRIVATE)
+        ophthaSharedPreferences12_lasik_review4 = getSharedPreferences("Ophtha12_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences17_lasik_review1 = getSharedPreferences("Ophtha17_lasik_review1", MODE_PRIVATE)
-        ophthaSharedPreferences17_lasik_review2 = getSharedPreferences("Ophtha17_lasik_review2", MODE_PRIVATE)
-        ophthaSharedPreferences17_lasik_review3 = getSharedPreferences("Ophtha17_lasik_review3", MODE_PRIVATE)
-        ophthaSharedPreferences17_lasik_review4 = getSharedPreferences("Ophtha17_lasik_review4", MODE_PRIVATE)
+        ophthaSharedPreferences17_lasik_review1 = getSharedPreferences("Ophtha17_review1", MODE_PRIVATE)
+        ophthaSharedPreferences17_lasik_review2 = getSharedPreferences("Ophtha17_review2", MODE_PRIVATE)
+        ophthaSharedPreferences17_lasik_review3 = getSharedPreferences("Ophtha17_review3", MODE_PRIVATE)
+        ophthaSharedPreferences17_lasik_review4 = getSharedPreferences("Ophtha17_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences2_lasek_review1 = getSharedPreferences("Ophtha2_lasek_review1", MODE_PRIVATE)
-        ophthaSharedPreferences2_lasek_review2 = getSharedPreferences("Ophtha2_lasek_review2", MODE_PRIVATE)
-        ophthaSharedPreferences2_lasek_review3 = getSharedPreferences("Ophtha2_lasek_review3", MODE_PRIVATE)
+        ophthaSharedPreferences2_lasek_review1 = getSharedPreferences("Ophtha2_review1", MODE_PRIVATE)
+        ophthaSharedPreferences2_lasek_review2 = getSharedPreferences("Ophtha2_review2", MODE_PRIVATE)
+        ophthaSharedPreferences2_lasek_review3 = getSharedPreferences("Ophtha2_review3", MODE_PRIVATE)
 
-        ophthaSharedPreferences8_lasek_review1 = getSharedPreferences("Ophtha8_lasek_review1", MODE_PRIVATE)
-        ophthaSharedPreferences8_lasek_review2 = getSharedPreferences("Ophtha8_lasek_review2", MODE_PRIVATE)
-        ophthaSharedPreferences8_lasek_review3 = getSharedPreferences("Ophtha8_lasek_review3", MODE_PRIVATE)
+        ophthaSharedPreferences8_lasek_review1 = getSharedPreferences("Ophtha8_review1", MODE_PRIVATE)
+        ophthaSharedPreferences8_lasek_review2 = getSharedPreferences("Ophtha8_review2", MODE_PRIVATE)
+        ophthaSharedPreferences8_lasek_review3 = getSharedPreferences("Ophtha8_review3", MODE_PRIVATE)
 
-        ophthaSharedPreferences13_lasek_review1 = getSharedPreferences("Ophtha13_lasek_review1", MODE_PRIVATE)
-        ophthaSharedPreferences13_lasek_review2 = getSharedPreferences("Ophtha13_lasek_review2", MODE_PRIVATE)
-        ophthaSharedPreferences13_lasek_review3 = getSharedPreferences("Ophtha13_lasek_review3", MODE_PRIVATE)
-        ophthaSharedPreferences13_lasek_review4 = getSharedPreferences("Ophtha13_lasek_review4", MODE_PRIVATE)
-        ophthaSharedPreferences13_lasek_review5 = getSharedPreferences("Ophtha13_lasek_review5", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek_review1 = getSharedPreferences("Ophtha13_review1", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek_review2 = getSharedPreferences("Ophtha13_review2", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek_review3 = getSharedPreferences("Ophtha13_review3", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek_review4 = getSharedPreferences("Ophtha13_review4", MODE_PRIVATE)
+        ophthaSharedPreferences13_lasek_review5 = getSharedPreferences("Ophtha13_review5", MODE_PRIVATE)
 
-        ophthaSharedPreferences18_lasek_review1 = getSharedPreferences("Ophtha18_lasek_review1", MODE_PRIVATE)
-        ophthaSharedPreferences18_lasek_review2 = getSharedPreferences("Ophtha18_lasek_review2", MODE_PRIVATE)
-        ophthaSharedPreferences18_lasek_review3 = getSharedPreferences("Ophtha18_lasek_review3", MODE_PRIVATE)
-        ophthaSharedPreferences18_lasek_review4 = getSharedPreferences("Ophtha18_lasek_review4", MODE_PRIVATE)
+        ophthaSharedPreferences18_lasek_review1 = getSharedPreferences("Ophtha18_review1", MODE_PRIVATE)
+        ophthaSharedPreferences18_lasek_review2 = getSharedPreferences("Ophtha18_review2", MODE_PRIVATE)
+        ophthaSharedPreferences18_lasek_review3 = getSharedPreferences("Ophtha18_review3", MODE_PRIVATE)
+        ophthaSharedPreferences18_lasek_review4 = getSharedPreferences("Ophtha18_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences3_smile_review1 = getSharedPreferences("Ophtha3_smile_review1", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review2 = getSharedPreferences("Ophtha3_smile_review2", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review3 = getSharedPreferences("Ophtha3_smile_review3", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review4 = getSharedPreferences("Ophtha3_smile_review4", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review5 = getSharedPreferences("Ophtha3_smile_review5", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review6 = getSharedPreferences("Ophtha3_smile_review6", MODE_PRIVATE)
-        ophthaSharedPreferences3_smile_review7 = getSharedPreferences("Ophtha3_smile_review7", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review1 = getSharedPreferences("Ophtha3_review1", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review2 = getSharedPreferences("Ophtha3_review2", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review3 = getSharedPreferences("Ophtha3_review3", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review4 = getSharedPreferences("Ophtha3_review4", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review5 = getSharedPreferences("Ophtha3_review5", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review6 = getSharedPreferences("Ophtha3_review6", MODE_PRIVATE)
+        ophthaSharedPreferences3_smile_review7 = getSharedPreferences("Ophtha3_review7", MODE_PRIVATE)
 
-        ophthaSharedPreferences9_smile_review1 = getSharedPreferences("Ophtha9_smile_review1", MODE_PRIVATE)
-        ophthaSharedPreferences9_smile_review2 = getSharedPreferences("Ophtha9_smile_review2", MODE_PRIVATE)
-        ophthaSharedPreferences9_smile_review3 = getSharedPreferences("Ophtha9_smile_review3", MODE_PRIVATE)
-        ophthaSharedPreferences9_smile_review4 = getSharedPreferences("Ophtha9_smile_review4", MODE_PRIVATE)
+        ophthaSharedPreferences9_smile_review1 = getSharedPreferences("Ophtha9_review1", MODE_PRIVATE)
+        ophthaSharedPreferences9_smile_review2 = getSharedPreferences("Ophtha9_review2", MODE_PRIVATE)
+        ophthaSharedPreferences9_smile_review3 = getSharedPreferences("Ophtha9_review3", MODE_PRIVATE)
+        ophthaSharedPreferences9_smile_review4 = getSharedPreferences("Ophtha9_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences14_smile_review1 = getSharedPreferences("Ophtha14_smile_review1", MODE_PRIVATE)
-        ophthaSharedPreferences14_smile_review2 = getSharedPreferences("Ophtha14_smile_review2", MODE_PRIVATE)
-        ophthaSharedPreferences14_smile_review3 = getSharedPreferences("Ophtha14_smile_review3", MODE_PRIVATE)
-        ophthaSharedPreferences14_smile_review4 = getSharedPreferences("Ophtha14_smile_review4", MODE_PRIVATE)
-        ophthaSharedPreferences14_smile_review5 = getSharedPreferences("Ophtha14_smile_review5", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile_review1 = getSharedPreferences("Ophtha14_review1", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile_review2 = getSharedPreferences("Ophtha14_review2", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile_review3 = getSharedPreferences("Ophtha14_review3", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile_review4 = getSharedPreferences("Ophtha14_review4", MODE_PRIVATE)
+        ophthaSharedPreferences14_smile_review5 = getSharedPreferences("Ophtha14_review5", MODE_PRIVATE)
 
-        ophthaSharedPreferences19_smile_review1 = getSharedPreferences("Ophtha19_smile_review1", MODE_PRIVATE)
-        ophthaSharedPreferences19_smile_review2 = getSharedPreferences("Ophtha19_smile_review2", MODE_PRIVATE)
-        ophthaSharedPreferences19_smile_review3 = getSharedPreferences("Ophtha19_smile_review3", MODE_PRIVATE)
-        ophthaSharedPreferences19_smile_review4 = getSharedPreferences("Ophtha19_smile_review4", MODE_PRIVATE)
+        ophthaSharedPreferences19_smile_review1 = getSharedPreferences("Ophtha19_review1", MODE_PRIVATE)
+        ophthaSharedPreferences19_smile_review2 = getSharedPreferences("Ophtha19_review2", MODE_PRIVATE)
+        ophthaSharedPreferences19_smile_review3 = getSharedPreferences("Ophtha19_review3", MODE_PRIVATE)
+        ophthaSharedPreferences19_smile_review4 = getSharedPreferences("Ophtha19_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences4_today_review1 = getSharedPreferences("Ophtha4_today_review1", MODE_PRIVATE)
-        ophthaSharedPreferences4_today_review2 = getSharedPreferences("Ophtha4_today_review2", MODE_PRIVATE)
-        ophthaSharedPreferences4_today_review3 = getSharedPreferences("Ophtha4_today_review3", MODE_PRIVATE)
-        ophthaSharedPreferences4_today_review4 = getSharedPreferences("Ophtha4_today_review4", MODE_PRIVATE)
-        ophthaSharedPreferences4_today_review5 = getSharedPreferences("Ophtha4_today_review5", MODE_PRIVATE)
+        ophthaSharedPreferences4_today_review1 = getSharedPreferences("Ophtha4_review1", MODE_PRIVATE)
+        ophthaSharedPreferences4_today_review2 = getSharedPreferences("Ophtha4_review2", MODE_PRIVATE)
+        ophthaSharedPreferences4_today_review3 = getSharedPreferences("Ophtha4_review3", MODE_PRIVATE)
+        ophthaSharedPreferences4_today_review4 = getSharedPreferences("Ophtha4_review4", MODE_PRIVATE)
+        ophthaSharedPreferences4_today_review5 = getSharedPreferences("Ophtha4_review5", MODE_PRIVATE)
 
-        ophthaSharedPreferences10_today_review1 = getSharedPreferences("Ophtha10_today_review1", MODE_PRIVATE)
-        ophthaSharedPreferences10_today_review2 = getSharedPreferences("Ophtha10_today_review2", MODE_PRIVATE)
-        ophthaSharedPreferences10_today_review3 = getSharedPreferences("Ophtha10_today_review3", MODE_PRIVATE)
-        ophthaSharedPreferences10_today_review4 = getSharedPreferences("Ophtha10_today_review4", MODE_PRIVATE)
+        ophthaSharedPreferences10_today_review1 = getSharedPreferences("Ophtha10_review1", MODE_PRIVATE)
+        ophthaSharedPreferences10_today_review2 = getSharedPreferences("Ophtha10_review2", MODE_PRIVATE)
+        ophthaSharedPreferences10_today_review3 = getSharedPreferences("Ophtha10_review3", MODE_PRIVATE)
+        ophthaSharedPreferences10_today_review4 = getSharedPreferences("Ophtha10_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences15_today_review1 = getSharedPreferences("Ophtha15_today_review1", MODE_PRIVATE)
-        ophthaSharedPreferences15_today_review2 = getSharedPreferences("Ophtha15_today_review2", MODE_PRIVATE)
-        ophthaSharedPreferences15_today_review3 = getSharedPreferences("Ophtha15_today_review3", MODE_PRIVATE)
+        ophthaSharedPreferences15_today_review1 = getSharedPreferences("Ophtha15_review1", MODE_PRIVATE)
+        ophthaSharedPreferences15_today_review2 = getSharedPreferences("Ophtha15_review2", MODE_PRIVATE)
+        ophthaSharedPreferences15_today_review3 = getSharedPreferences("Ophtha15_review3", MODE_PRIVATE)
 
-        ophthaSharedPreferences20_today_review1 = getSharedPreferences("Ophtha20_today_review1", MODE_PRIVATE)
-        ophthaSharedPreferences20_today_review2 = getSharedPreferences("Ophtha20_today_review2", MODE_PRIVATE)
-        ophthaSharedPreferences20_today_review3 = getSharedPreferences("Ophtha20_today_review3", MODE_PRIVATE)
-        ophthaSharedPreferences20_today_review4 = getSharedPreferences("Ophtha20_today_review4", MODE_PRIVATE)
-        ophthaSharedPreferences20_today_review5 = getSharedPreferences("Ophtha20_today_review5", MODE_PRIVATE)
+        ophthaSharedPreferences20_today_review1 = getSharedPreferences("Ophtha20_review1", MODE_PRIVATE)
+        ophthaSharedPreferences20_today_review2 = getSharedPreferences("Ophtha20_review2", MODE_PRIVATE)
+        ophthaSharedPreferences20_today_review3 = getSharedPreferences("Ophtha20_review3", MODE_PRIVATE)
+        ophthaSharedPreferences20_today_review4 = getSharedPreferences("Ophtha20_review4", MODE_PRIVATE)
+        ophthaSharedPreferences20_today_review5 = getSharedPreferences("Ophtha20_review5", MODE_PRIVATE)
 
-        ophthaSharedPreferences5_lens_review1 = getSharedPreferences("Ophtha5_lens_review1", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens_review2 = getSharedPreferences("Ophtha5_lens_review2", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens_review3 = getSharedPreferences("Ophtha5_lens_review3", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens_review4 = getSharedPreferences("Ophtha5_lens_review4", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens_review5 = getSharedPreferences("Ophtha5_lens_review5", MODE_PRIVATE)
-        ophthaSharedPreferences5_lens_review6 = getSharedPreferences("Ophtha5_lens_review6", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review1 = getSharedPreferences("Ophtha5_review1", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review2 = getSharedPreferences("Ophtha5_review2", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review3 = getSharedPreferences("Ophtha5_review3", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review4 = getSharedPreferences("Ophtha5_review4", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review5 = getSharedPreferences("Ophtha5_review5", MODE_PRIVATE)
+        ophthaSharedPreferences5_lens_review6 = getSharedPreferences("Ophtha5_review6", MODE_PRIVATE)
 
-        ophthaSharedPreferences11_lens_review1 = getSharedPreferences("Ophtha11_lens_review1", MODE_PRIVATE)
-        ophthaSharedPreferences11_lens_review2 = getSharedPreferences("Ophtha11_lens_review2", MODE_PRIVATE)
-        ophthaSharedPreferences11_lens_review3 = getSharedPreferences("Ophtha11_lens_review3", MODE_PRIVATE)
-        ophthaSharedPreferences11_lens_review4 = getSharedPreferences("Ophtha11_lens_review4", MODE_PRIVATE)
-        ophthaSharedPreferences11_lens_review5 = getSharedPreferences("Ophtha11_lens_review5", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens_review1 = getSharedPreferences("Ophtha11_review1", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens_review2 = getSharedPreferences("Ophtha11_review2", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens_review3 = getSharedPreferences("Ophtha11_review3", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens_review4 = getSharedPreferences("Ophtha11_review4", MODE_PRIVATE)
+        ophthaSharedPreferences11_lens_review5 = getSharedPreferences("Ophtha11_review5", MODE_PRIVATE)
 
-        ophthaSharedPreferences16_lens_review1 = getSharedPreferences("Ophtha16_lens_review1", MODE_PRIVATE)
-        ophthaSharedPreferences16_lens_review2 = getSharedPreferences("Ophtha16_lens_review2", MODE_PRIVATE)
-        ophthaSharedPreferences16_lens_review3 = getSharedPreferences("Ophtha16_lens_review3", MODE_PRIVATE)
-        ophthaSharedPreferences16_lens_review4 = getSharedPreferences("Ophtha16_lens_review4", MODE_PRIVATE)
+        ophthaSharedPreferences16_lens_review1 = getSharedPreferences("Ophtha16_review1", MODE_PRIVATE)
+        ophthaSharedPreferences16_lens_review2 = getSharedPreferences("Ophtha16_review2", MODE_PRIVATE)
+        ophthaSharedPreferences16_lens_review3 = getSharedPreferences("Ophtha16_review3", MODE_PRIVATE)
+        ophthaSharedPreferences16_lens_review4 = getSharedPreferences("Ophtha16_review4", MODE_PRIVATE)
 
-        ophthaSharedPreferences6_back_review1 = getSharedPreferences("Ophtha6_back_review1", MODE_PRIVATE)
-        ophthaSharedPreferences6_back_review2 = getSharedPreferences("Ophtha6_back_review2", MODE_PRIVATE)
-        ophthaSharedPreferences6_back_review3 = getSharedPreferences("Ophtha6_back_review3", MODE_PRIVATE)
-        ophthaSharedPreferences6_back_review4 = getSharedPreferences("Ophtha6_back_review4", MODE_PRIVATE)
+        ophthaSharedPreferences6_back_review1 = getSharedPreferences("Ophtha6_review1", MODE_PRIVATE)
+        ophthaSharedPreferences6_back_review2 = getSharedPreferences("Ophtha6_review2", MODE_PRIVATE)
+        ophthaSharedPreferences6_back_review3 = getSharedPreferences("Ophtha6_review3", MODE_PRIVATE)
+        ophthaSharedPreferences6_back_review4 = getSharedPreferences("Ophtha6_review4", MODE_PRIVATE)
 
 
 
@@ -376,6 +376,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (5+6+8+4+7+6) / 6f
         ophthaSharedPreferences1_lasik.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences1_lasik.edit().putInt("img",R.drawable.ophtha_ex_img).apply()
+        ophthaSharedPreferences1_lasik.edit().putInt("reviwCnt",6).apply()
+        ophthaSharedPreferences1_lasik.edit().putString("id","1").apply()
+        ophthaSharedPreferences1_lasik.edit().putString("operation","lasik").apply()
+        ophthaSharedPreferences1_lasik.edit().putString("name","천리안 안과").apply()
 
         // ophthaSharedPreferences7
         // ophthaSharedPreferences7_lasik_review1
@@ -428,6 +433,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (5+6+9+5) / 4f
         ophthaSharedPreferences7_lasik.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences7_lasik.edit().putInt("img", R.drawable.ophtha_ex_img7).apply()
+        ophthaSharedPreferences7_lasik.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences7_lasik.edit().putString("id","7").apply()
+        ophthaSharedPreferences7_lasik.edit().putString("operation","lasik").apply()
+        ophthaSharedPreferences7_lasik.edit().putString("name","누리 안과").apply()
 
         // ophthaSharedPreferences12
         // ophthaSharedPreferences12_lasik_review1
@@ -481,6 +491,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (6+6+9+7) / 4f
         ophthaSharedPreferences12_lasik.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences12_lasik.edit().putInt("img",R.drawable.ophtha_ex_img12).apply()
+        ophthaSharedPreferences12_lasik.edit().putInt("reviwCnt",4).apply()
+        ophthaSharedPreferences12_lasik.edit().putString("id","12").apply()
+        ophthaSharedPreferences12_lasik.edit().putString("operation","lasik").apply()
+        ophthaSharedPreferences12_lasik.edit().putString("name","제일 안과").apply()
 
         // ophthaSharedPreferences17
         // ophthaSharedPreferences17_lasik_review1
@@ -533,6 +548,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (6+7+8+4) / 4f
         ophthaSharedPreferences17_lasik.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences17_lasik.edit().putInt("img",R.drawable.ophtha_ex_img17).apply()
+        ophthaSharedPreferences17_lasik.edit().putInt("reviwCnt",4).apply()
+        ophthaSharedPreferences17_lasik.edit().putString("id", "17").apply()
+        ophthaSharedPreferences17_lasik.edit().putString("operation", "lasik").apply()
+        ophthaSharedPreferences17_lasik.edit().putString("name", "가나다 안과").apply()
 
         // ophthaSharedPreferences2
         // ophthaSharedPreferences2_lasek_review1
@@ -576,6 +596,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (6+6+5) / 3f
         ophthaSharedPreferences2_lasek.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences2_lasek.edit().putInt("img", R.drawable.ophtha_ex_img2).apply()
+        ophthaSharedPreferences2_lasek.edit().putInt("reviwCnt", 3).apply()
+        ophthaSharedPreferences2_lasek.edit().putString("id", "2").apply()
+        ophthaSharedPreferences2_lasek.edit().putString("operation", "lasek").apply()
+        ophthaSharedPreferences2_lasek.edit().putString("name", "사랑 안과").apply()
 
         // ophthaSharedPreferences8
         // ophthaSharedPreferences8_lasek_review1
@@ -616,6 +641,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (6+7+8) / 3f
         ophthaSharedPreferences8_lasek.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences8_lasek.edit().putInt("img", R.drawable.ophtha_ex_img8).apply()
+        ophthaSharedPreferences8_lasek.edit().putInt("reviwCnt", 3).apply()
+        ophthaSharedPreferences8_lasek.edit().putString("id", "8").apply()
+        ophthaSharedPreferences8_lasek.edit().putString("operation", "lasek").apply()
+        ophthaSharedPreferences8_lasek.edit().putString("name", "소원 안과").apply()
 
         // ophthaSharedPreferences13
         // ophthaSharedPreferences13_lasek_review1
@@ -680,6 +710,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg = (6+7+8 +5 +5) / 5f
         ophthaSharedPreferences13_lasek.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences13_lasek.edit().putInt("img", R.drawable.ophtha_ex_img13).apply()
+        ophthaSharedPreferences13_lasek.edit().putInt("reviwCnt", 5).apply()
+        ophthaSharedPreferences13_lasek.edit().putString("id","13").apply()
+        ophthaSharedPreferences13_lasek.edit().putString("operation","lasek").apply()
+        ophthaSharedPreferences13_lasek.edit().putString("name","강남 안과").apply()
 
         // ophthaSharedPreferences18
         // ophthaSharedPreferences18_lasek_review1
@@ -732,6 +767,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (5+6+9+6)/ 4f
         ophthaSharedPreferences18_lasek.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences18_lasek.edit().putInt("img", R.drawable.ophtha_ex_img18).apply()
+        ophthaSharedPreferences18_lasek.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences18_lasek.edit().putString("id","18").apply()
+        ophthaSharedPreferences18_lasek.edit().putString("operation","lasek").apply()
+        ophthaSharedPreferences18_lasek.edit().putString("name","은혜 안과").apply()
 
         // ophthaSharedPreferences3
         // ophthaSharedPreferences3_smile_review1
@@ -821,6 +861,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (5+10+5+9+7+8+7)/ 7f
         ophthaSharedPreferences3_smile.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences3_smile.edit().putInt("img", R.drawable.ophtha_ex_img3).apply()
+        ophthaSharedPreferences3_smile.edit().putInt("reviwCnt", 7).apply()
+        ophthaSharedPreferences3_smile.edit().putString("id", "3").apply()
+        ophthaSharedPreferences3_smile.edit().putString("operation", "smile").apply()
+        ophthaSharedPreferences3_smile.edit().putString("name", "밝은 안과").apply()
 
         // ophthaSharedPreferences9
         // ophthaSharedPreferences9_smile_review1
@@ -873,6 +918,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (8+8+7+6)/ 4f
         ophthaSharedPreferences9_smile.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences9_smile.edit().putInt("img", R.drawable.ophtha_ex_img9).apply()
+        ophthaSharedPreferences9_smile.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences9_smile.edit().putString("id","9").apply()
+        ophthaSharedPreferences9_smile.edit().putString("operation","smile").apply()
+        ophthaSharedPreferences9_smile.edit().putString("name","미소 안과").apply()
 
         // ophthaSharedPreferences14
         // ophthaSharedPreferences14_smile_review1
@@ -940,6 +990,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (8+6+7+5+3)/ 5f
         ophthaSharedPreferences14_smile.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences14_smile.edit().putInt("img", R.drawable.ophtha_ex_img14).apply()
+        ophthaSharedPreferences14_smile.edit().putInt("reviwCnt", 5).apply()
+        ophthaSharedPreferences14_smile.edit().putString("id", "14").apply()
+        ophthaSharedPreferences14_smile.edit().putString("operation", "smile").apply()
+        ophthaSharedPreferences14_smile.edit().putString("name", "다보임 안과").apply()
 
         // ophthaSharedPreferences19
         // ophthaSharedPreferences19_smile_review1
@@ -992,6 +1047,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+5+8+5)/ 4f
         ophthaSharedPreferences19_smile.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences19_smile.edit().putInt("img", R.drawable.ophtha_ex_img19).apply()
+        ophthaSharedPreferences19_smile.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences19_smile.edit().putString("id", "19").apply()
+        ophthaSharedPreferences19_smile.edit().putString("operation", "smile").apply()
+        ophthaSharedPreferences19_smile.edit().putString("name", "초롱 안과").apply()
 
         // ophthaSharedPreferences4
         // ophthaSharedPreferences4_today_review1
@@ -1056,6 +1116,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+4+6+6+6)/ 5f
         ophthaSharedPreferences4_today.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences4_today.edit().putInt("img", R.drawable.ophtha_ex_img4).apply()
+        ophthaSharedPreferences4_today.edit().putInt("reviwCnt", 5).apply()
+        ophthaSharedPreferences4_today.edit().putString("id","4").apply()
+        ophthaSharedPreferences4_today.edit().putString("operation","today").apply()
+        ophthaSharedPreferences4_today.edit().putString("name","하늘 안과").apply()
 
         // ophthaSharedPreferences10
         // ophthaSharedPreferences10_today_review1
@@ -1112,6 +1177,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+9+8+10)/ 4f
         ophthaSharedPreferences10_today.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences10_today.edit().putInt("img", R.drawable.ophtha_ex_img10).apply()
+        ophthaSharedPreferences10_today.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences10_today.edit().putString("id", "10").apply()
+        ophthaSharedPreferences10_today.edit().putString("operation", "today").apply()
+        ophthaSharedPreferences10_today.edit().putString("name", "좋은 안과").apply()
 
         // ophthaSharedPreferences15
         // ophthaSharedPreferences15_today_review1
@@ -1152,6 +1222,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+5+8)/ 3f
         ophthaSharedPreferences15_today.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences15_today.edit().putInt("img", R.drawable.ophtha_ex_img15).apply()
+        ophthaSharedPreferences15_today.edit().putInt("reviwCnt", 3).apply()
+        ophthaSharedPreferences15_today.edit().putString("id", "15").apply()
+        ophthaSharedPreferences15_today.edit().putString("operation", "today").apply()
+        ophthaSharedPreferences15_today.edit().putString("name", "나라 안과").apply()
 
         // ophthaSharedPreferences20
         // ophthaSharedPreferences20_today_review1
@@ -1217,6 +1292,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (8+7+5+7+8)/ 5f
         ophthaSharedPreferences20_today.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences20_today.edit().putInt("img", R.drawable.ophtha_ex_img20).apply()
+        ophthaSharedPreferences20_today.edit().putInt("reviwCnt", 5).apply()
+        ophthaSharedPreferences20_today.edit().putString("id", "20").apply()
+        ophthaSharedPreferences20_today.edit().putString("operation", "today").apply()
+        ophthaSharedPreferences20_today.edit().putString("name", "아름 안과").apply()
 
         // ophthaSharedPreferences5
         // ophthaSharedPreferences5_lens_review1
@@ -1294,6 +1374,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (7+6+5+8+10+7)/ 6f
         ophthaSharedPreferences5_lens.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences5_lens.edit().putInt("img", R.drawable.ophtha_ex_img5).apply()
+        ophthaSharedPreferences5_lens.edit().putInt("reviwCnt", 6).apply()
+        ophthaSharedPreferences5_lens.edit().putString("id", "5").apply()
+        ophthaSharedPreferences5_lens.edit().putString("operation", "lens").apply()
+        ophthaSharedPreferences5_lens.edit().putString("name", "바다 안과").apply()
 
         // ophthaSharedPreferences11
         // ophthaSharedPreferences11_lens_review1
@@ -1358,6 +1443,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+5+7+7+7)/ 5f
         ophthaSharedPreferences11_lens.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences11_lens.edit().putInt("img", R.drawable.ophtha_ex_img11).apply()
+        ophthaSharedPreferences11_lens.edit().putInt("reviwCnt", 5).apply()
+        ophthaSharedPreferences11_lens.edit().putString("id","11").apply()
+        ophthaSharedPreferences11_lens.edit().putString("operation","lens").apply()
+        ophthaSharedPreferences11_lens.edit().putString("name","튼튼 안과").apply()
 
         // ophthaSharedPreferences16
         // ophthaSharedPreferences16_lens_review1
@@ -1410,6 +1500,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (6+5+8+7)/ 4f
         ophthaSharedPreferences16_lens.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences16_lens.edit().putInt("img", R.drawable.ophtha_ex_img16).apply()
+        ophthaSharedPreferences16_lens.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences16_lens.edit().putString("id","16").apply()
+        ophthaSharedPreferences16_lens.edit().putString("operation","lens").apply()
+        ophthaSharedPreferences16_lens.edit().putString("name","국민 안과").apply()
 
         // ophthaSharedPreferences6
         // ophthaSharedPreferences6_back_review1
@@ -1462,6 +1557,11 @@ class MainActivity : AppCompatActivity() {
             .apply()
         totalAvg =  (5+6+5+5)/ 4f
         ophthaSharedPreferences6_back.edit().putFloat("totalRating",totalAvg.toFloat()).apply()
+        ophthaSharedPreferences6_back.edit().putInt("img", R.drawable.ophtha_ex_img6).apply()
+        ophthaSharedPreferences6_back.edit().putInt("reviwCnt", 4).apply()
+        ophthaSharedPreferences6_back.edit().putString("id", "6").apply()
+        ophthaSharedPreferences6_back.edit().putString("operation", "back").apply()
+        ophthaSharedPreferences6_back.edit().putString("name", "한빛 안과").apply()
     }
 
 

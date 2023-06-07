@@ -6,15 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
 import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.ItemHomeAndaRankingOphthaBinding
+import com.anda.ui.main.management.after.challenge.ManagementChallengeRVAdapter
 
 class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRankingOphtha>): RecyclerView.Adapter<HomeAndaRankingRVAdapter.ViewHolder>() {
 
     private lateinit var mItemClickListener: homeandaRankingOphthaItemClickListener
 
-    interface homeandaRankingOphthaItemClickListener {
-        fun onItemClick() {
-        }
-    }
+    interface homeandaRankingOphthaItemClickListener { fun onItemClick(homeAndaRankingOphtha: HomeAndaRankingOphtha) {} }
+
     fun setHomeandaRankingOphthaItemClickListener(itemClickListener: homeandaRankingOphthaItemClickListener) {
         mItemClickListener = itemClickListener
     }
@@ -27,7 +26,7 @@ class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRa
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(andaRankingList[position])
-        holder.itemView.setOnClickListener{mItemClickListener.onItemClick()}
+        holder.itemView.setOnClickListener{mItemClickListener.onItemClick(andaRankingList[position])}
     }
 
     override fun getItemCount(): Int = andaRankingList.size
