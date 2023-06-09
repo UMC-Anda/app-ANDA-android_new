@@ -288,7 +288,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // 저장된 리뷰 작성 여부 불러오기
-
+        checkIsReview()
         initBottomNavigation()
     }
 
