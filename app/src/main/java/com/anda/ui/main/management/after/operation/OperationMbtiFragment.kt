@@ -26,7 +26,7 @@ class OperationMbtiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOperationMbtiBinding.inflate(inflater, container, false)
-        myOperationsharedPreferences = requireContext().getSharedPreferences("MyOperation", Context.MODE_PRIVATE)
+        myOperationsharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
 
         var myOperation = myOperationsharedPreferences.getString("myOperation", "").toString()
         when(myOperation){

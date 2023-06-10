@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // SharedPreferences 인스턴스 초기화
-        checkReviewSharedPreferences = getSharedPreferences("isReviewRegistered", MODE_PRIVATE)
+        checkReviewSharedPreferences = getSharedPreferences("UserInfo", MODE_PRIVATE)
 
         ophthaSharedPreferences1_lasik = getSharedPreferences("Ophtha1", MODE_PRIVATE)
         ophthaSharedPreferences2_lasek = getSharedPreferences("Ophtha2", MODE_PRIVATE)
@@ -1587,10 +1587,10 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, HomeFragment()).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
-                R.id.mapFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, WriteReview1Fragment()).commitAllowingStateLoss()
-                    return@setOnItemSelectedListener true
-                }
+//                R.id.mapFragment -> {
+//                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, WriteReview1Fragment()).commitAllowingStateLoss()
+//                    return@setOnItemSelectedListener true
+//                }
                 R.id.compareFragment -> {
                     supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, CompareFragment()).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true

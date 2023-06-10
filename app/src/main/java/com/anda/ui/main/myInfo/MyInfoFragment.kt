@@ -18,7 +18,8 @@ import com.anda.ui.main.myInfo.myPoint.MyInfoMyPointFragment
 class MyInfoFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentMyInfoBinding
-    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var myPointSharedPreferences: SharedPreferences
+    private var myPoint =0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,12 +28,13 @@ class MyInfoFragment : Fragment(), View.OnClickListener {
     ): View? {
         binding = FragmentMyInfoBinding.inflate(inflater, container, false)
 
-        sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-
+        myPointSharedPreferences = requireContext().getSharedPreferences("MyPoint", Context.MODE_PRIVATE)
+        myPoint = myPointSharedPreferences.getInt("MyPoint", 0)
         // 클릭 리스너 설정
 //        binding.myInfoMyOphthaImgIv.setOnClickListener(this)
 //        binding.myInfoMyPointImgIv.setOnClickListener(this)
 
+        binding.myPointCurrentPointTv.text = myPoint.toString() + " P"
         return binding.root
     }
 

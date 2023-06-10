@@ -29,7 +29,7 @@ class WriteReview3Fragment : Fragment() {
     ): View? {
         binding = FragmentWriteReview3Binding.inflate(inflater, container, false)
 
-        sharedPreferences = requireContext().getSharedPreferences("isReviewRegistered", Context.MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
 
         val thinTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_thin)
         val regularTxt: Typeface? = ResourcesCompat.getFont((context as MainActivity), R.font.pretendard_regular)

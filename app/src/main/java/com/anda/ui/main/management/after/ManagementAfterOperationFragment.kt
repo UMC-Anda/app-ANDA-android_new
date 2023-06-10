@@ -27,6 +27,7 @@ class ManagementAfterOperationFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var myOperationsharedPreferences: SharedPreferences
     private lateinit var challengeAchievementDatasSharedPreferences: SharedPreferences
+
     private val currentDate = getCurrentDate()
     private lateinit var currentDateDash : String
     private val todoList = listOf("안약 점약하기", "외출 시 썬글라스 착용", "비타민 복용", "안과 검진", "커튼으로 실내 햇빛 차단", "화장 안하기", "금주, 금연", "1시간 이상 전자기기 사용하지 않기")

@@ -19,6 +19,7 @@ import com.anda.R
 import com.anda.data.entities.HomeAndaRankingSelect
 import com.anda.data.entities.HomeAndaRankingOphtha
 import com.anda.databinding.FragmentHomeBinding
+import com.anda.ui.main.compare.CompareFragment
 import com.anda.ui.main.compare.option.CompareOptionSelectSortFragment
 import com.anda.ui.main.home.ads.HomeAdsBannerFragment
 import com.anda.ui.main.home.ads.HomeAdsBannerVPAdapter
@@ -227,6 +228,11 @@ class HomeFragment : Fragment(), AndaInfoView {
         binding.homeRankingSelectLocation.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment_container, HomeSelectLocationFragment())
+                .commitAllowingStateLoss()
+        }
+        binding.homeMoreReviewsIv.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, CompareFragment())
                 .commitAllowingStateLoss()
         }
     }

@@ -101,21 +101,21 @@
                 tools:itemCount="5"
                 tools:listitem="@layout/item_compare_ophtha" />
 
-            <ImageView
-                android:id="@+id/compare_do_review_btn"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:src="@drawable/compare_do_review_btn"
-                tools:layout_editor_absoluteX="105dp"
-                tools:layout_editor_absoluteY="628dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-
+    <ImageView
+        android:id="@+id/compare_do_review_btn"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/compare_do_review_btn"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="628dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <!--    compare화면 옵션-->
     <ImageView
         android:id="@+id/compare_option_cancel_iv"

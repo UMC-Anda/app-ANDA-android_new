@@ -13,12 +13,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.anda.ui.main.map.MapFragment"
-        android:label="@string/title_map"
-        tools:layout="@layout/fragment_map" />
-
-    <fragment
         android:id="@+id/compareFragment"
         android:name="com.anda.ui.main.map.MapFragment"
         android:label="@string/title_compare"

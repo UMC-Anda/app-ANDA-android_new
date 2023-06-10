@@ -28,7 +28,8 @@ class ManagementBeforeOperationFragment : Fragment() {
     private lateinit var binding: FragmentManagementBeforeOperationBinding
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var myOperationsharedPreferences: SharedPreferences
-
+    private lateinit var myPointSharedPreferences: SharedPreferences
+    private var myPoint =0
 
     private val items = listOf("5 point", "6 point", "7 point", "8 point", "9 point", "10 point")
     private var isSpinning = false
@@ -51,7 +52,9 @@ class ManagementBeforeOperationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedPreferences = requireContext().getSharedPreferences("CheckedInDates", Context.MODE_PRIVATE)
-        myOperationsharedPreferences = requireContext().getSharedPreferences("MyOperation", Context.MODE_PRIVATE)
+        myOperationsharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        myPointSharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        myPoint = myPointSharedPreferences.getInt("MyPoint", 0)
 
         binding.buttonCheckin.setOnClickListener { onCheckInButtonClick() }
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
@@ -143,6 +146,7 @@ class ManagementBeforeOperationFragment : Fragment() {
             sharedPreferences.edit().putLong(KEY_LAST_SPIN_TIME, currentTime).apply()
 
             sharedPreferences.edit().putString("${currentDate}", point).apply()
+
             disableButton()
         }
     }
@@ -181,6 +185,15 @@ class ManagementBeforeOperationFragment : Fragment() {
                 isSpinning = false
                 binding.resultTextView.visibility = View.VISIBLE
                 binding.resultTextView.text = selectedItem
+                when(selectedItem) {
+                    "5 point" -> { myPoint += 5 }
+                    "6 point" -> { myPoint += 6 }
+                    "7 point" -> { myPoint += 7 }
+                    "8 point" -> { myPoint += 8 }
+                    "9 point" -> { myPoint += 9 }
+                    "10 point" -> { myPoint += 10 }
+                }
+                myPointSharedPreferences.edit().putInt("MyPoint", myPoint)
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}

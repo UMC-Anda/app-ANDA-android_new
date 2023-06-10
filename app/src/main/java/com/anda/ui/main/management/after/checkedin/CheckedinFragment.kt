@@ -26,6 +26,8 @@ class CheckedinFragment : Fragment() {
     private var rotateAnimation: RotateAnimation? = null
     private val currentDate = getCurrentDate()
     private val KEY_LAST_SPIN_TIME = "last_spin_time"
+    private lateinit var myPointSharedPreferences: SharedPreferences
+    private var myPoint =0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +40,8 @@ class CheckedinFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        myPointSharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        myPoint = myPointSharedPreferences.getInt("MyPoint", 0)
         sharedPreferences = requireContext().getSharedPreferences("CheckedInDates", Context.MODE_PRIVATE)
         binding.buttonCheckin.setOnClickListener { onCheckInButtonClick() }
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
@@ -116,6 +120,15 @@ class CheckedinFragment : Fragment() {
 
             sharedPreferences.edit().putString("${currentDate}", point).apply()
             disableButton()
+            when(point) {
+                "5 point" -> { myPoint += 5 }
+                "6 point" -> { myPoint += 6 }
+                "7 point" -> { myPoint += 7 }
+                "8 point" -> { myPoint += 8 }
+                "9 point" -> { myPoint += 9 }
+                "10 point" -> { myPoint += 10 }
+            }
+            myPointSharedPreferences.edit().putInt("MyPoint", myPoint)
         }
     }
 

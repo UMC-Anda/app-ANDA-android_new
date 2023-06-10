@@ -121,6 +121,10 @@ class ChallengeHistoryDetailFragment : Fragment() {
         }
         // ToDoList 구현 종료
 
+        binding.checkBox1.isClickable = false
+        binding.checkBox2.isClickable = false
+        binding.checkBox3.isClickable = false
+
         return binding.root
     }
 

@@ -22,6 +22,7 @@ class ManagementChallengeFragment : Fragment() {
     private lateinit var challengeAdapter: ManagementChallengeRVAdapter
     private lateinit var sharedPreferences: SharedPreferences
     private val challengeAchievementDatas: ArrayList<ChallengeItem> = ArrayList()
+    var totalAchievement = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,9 +41,24 @@ class ManagementChallengeFragment : Fragment() {
 
 
         //도전과제 달성률 가져오기
-
+        setProgressAchievement()
         setChallengeAchievementRVapter()
 
+    }
+    private fun setProgressAchievement() {
+        val keyList = java.util.ArrayList(sharedPreferences.all.keys)
+        var progressDays = 0
+        for (key in keyList) {
+            var achievement = sharedPreferences.getInt(key, 0)
+            totalAchievement += achievement
+            progressDays++
+            Log.d("keyName",key.toString())
+            Log.d("achievement",achievement.toString())
+            Log.d("totalAchievement",totalAchievement.toString())
+        }
+        binding.currentProgressText.text = totalAchievement.toString() + "%"
+        binding.progressDays.text = progressDays.toString() + "일간 진행 중"
+        totalAchievement = 0
     }
 
     private fun setChallengeAchievementRVapter() {

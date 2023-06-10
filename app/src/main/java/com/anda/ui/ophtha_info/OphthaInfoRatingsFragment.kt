@@ -30,12 +30,12 @@ class OphthaInfoRatingsFragment(val ophthaInfoReviewsData:ExOphthaInfoRating?) :
 
 
         //소수점 관리
-        totalRating = (((totalRating * 10).toInt())/10).toFloat()
-        kindnessAvg = (((kindnessAvg * 10).toInt())/10).toFloat()
-        effectiveAvg = (((effectiveAvg * 10).toInt())/10).toFloat()
-        WaitingAvg = (((WaitingAvg * 10).toInt())/10).toFloat()
-        informationAvg = (((informationAvg * 10).toInt())/10).toFloat()
-        priceAvg = (((priceAvg * 10).toInt())/10).toFloat()
+        totalRating = (((totalRating * 10).toInt())/10f).toFloat()
+        kindnessAvg = (((kindnessAvg * 10).toInt())/10f).toFloat()
+        effectiveAvg = (((effectiveAvg * 10).toInt())/10f).toFloat()
+        WaitingAvg = (((WaitingAvg * 10).toInt())/10f).toFloat()
+        informationAvg = (((informationAvg * 10).toInt())/10f).toFloat()
+        priceAvg = (((priceAvg * 10).toInt())/10f).toFloat()
 
         binding.ophthaInfoRatingKindRatingProgressbarPb.clipToOutline = true
         binding.ophthaInfoRatingWaitingRatingProgressbarPb.clipToOutline = true
@@ -51,11 +51,23 @@ class OphthaInfoRatingsFragment(val ophthaInfoReviewsData:ExOphthaInfoRating?) :
     private fun setInfos() {
         binding.ophthaInfoRatingsReviewCntTv.text = reviewCnt.toString()
         binding.ophthaInfoRatingsTotalAvgRatingTv.text = totalRating.toString()
+
+        //progressBar
+        //친절도
         binding.ophthaInfoRatingKindRatingTxtTv.text = "(" + kindnessAvg.toString() + "/2)"
-        binding.ophthaInfoRatingEffectiveRatingTxtTv.text = "(" + effectiveAvg.toString() + "/2)"
+        binding.ophthaInfoRatingKindRatingProgressbarPb.progress = (kindnessAvg * 100).toInt()
+        //대기시간
         binding.ophthaInfoRatingWaitingRatingTxtTv.text = "(" + WaitingAvg.toString() + "/2)"
-        binding.ophthaInfoRatingInformationTxtTv.text = "(" + informationAvg.toString() + "/2)"
-        binding.ophthaInfoRatingPriceTxtTv.text = "(" + priceAvg.toString() + "/2)"
+        binding.ophthaInfoRatingWaitingRatingProgressbarPb.progress = (WaitingAvg * 100).toInt()
+        //가격
+        binding.ophthaInfoRatingPriceRatingTxtTv.text = "(" + priceAvg.toString() + "/2)"
+        binding.ophthaInfoRatingPriceRatingProgressbarPb.progress = (priceAvg * 100).toInt()
+        //정보전달
+        binding.ophthaInfoRatingInformationRatingTxtTv.text =  "(" + informationAvg.toString() + "/2)"
+        binding.ophthaInfoRatingInformationRatingProgressbarPb.progress = (informationAvg * 100).toInt()
+        //수술효과
+        binding.ophthaInfoRatingEffectiveRatingTxtTv.text =  "(" + effectiveAvg.toString() + "/2)"
+        binding.ophthaInfoRatingEffectiveRatingProgressbarPb.progress = (effectiveAvg * 100).toInt()
     }
 
     override fun onResume() {
