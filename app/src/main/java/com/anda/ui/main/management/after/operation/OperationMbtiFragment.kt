@@ -35,6 +35,7 @@ class OperationMbtiFragment : Fragment() {
             "스마일 라식" ->  binding.operationMbtiImg.setImageResource(R.drawable.eye_mbti_result_smile)
             "렌즈 삽입술" ->  binding.operationMbtiImg.setImageResource(R.drawable.eye_mbti_result_lens)
         }
+        binding.operationMbtiMyMbti.text = "내 시력 MBTI는 $myOperation"
         Log.d("mbti결과", myOperation)
 
         binding.operationMbtiImg.setOnClickListener {

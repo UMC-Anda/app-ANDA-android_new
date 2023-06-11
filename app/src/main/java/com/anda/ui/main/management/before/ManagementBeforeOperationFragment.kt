@@ -20,6 +20,7 @@ import com.anda.databinding.FragmentManagementBeforeOperationBinding
 import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
 import com.anda.ui.main.management.after.operation.OperationMbtiFragment
 import com.anda.ui.write_review.WriteReview1Fragment
+import com.anda.ui.write_review.WriteReview2Fragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -103,7 +104,6 @@ class ManagementBeforeOperationFragment : Fragment() {
 
 
 
-        saveCheckedInDates()
     }
     private fun getCurrentDate(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -123,7 +123,7 @@ class ManagementBeforeOperationFragment : Fragment() {
 
     private fun onBannerReviewClick() {
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, WriteReview1Fragment())
+            .replace(R.id.nav_host_fragment_container, WriteReview2Fragment())
             .commitAllowingStateLoss()
     }
 
@@ -155,6 +155,7 @@ class ManagementBeforeOperationFragment : Fragment() {
         binding.resultTextView.visibility = View.GONE
         binding.rouletteImage.visibility = View.GONE
         binding.getPointView.visibility = View.VISIBLE
+        binding.getPointText.visibility = View.GONE
         binding.getPointView.text = sharedPreferences.getString(currentDate, "")
         resetAnimation()
     }
@@ -193,7 +194,9 @@ class ManagementBeforeOperationFragment : Fragment() {
                     "9 point" -> { myPoint += 9 }
                     "10 point" -> { myPoint += 10 }
                 }
-                myPointSharedPreferences.edit().putInt("MyPoint", myPoint)
+                binding.getPointText.text = myPoint.toString() + " point"
+                binding.getPointText.visibility = View.VISIBLE
+                myPointSharedPreferences.edit().putInt("MyPoint", myPoint).apply()
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}
@@ -209,17 +212,6 @@ class ManagementBeforeOperationFragment : Fragment() {
         binding.rouletteImage.clearAnimation()
     }
 
-    private fun saveCheckedInDates() {
-        sharedPreferences.edit().putString("2023-05-13", "5 point").apply()
-        sharedPreferences.edit().putString("2023-05-14", "10 point").apply()
-        sharedPreferences.edit().putString("2023-05-15", "9 point").apply()
-        sharedPreferences.edit().putString("2023-05-16", "7 point").apply()
-        sharedPreferences.edit().putString("2023-05-17", "6 point").apply()
-        sharedPreferences.edit().putString("2023-05-18", "5 point").apply()
-        sharedPreferences.edit().putString("2023-05-19", "10 point").apply()
-        sharedPreferences.edit().putString("2023-05-20", "9 point").apply()
-        sharedPreferences.edit().putString("2023-05-21", "8 point").apply()
-    }
 
 
     private fun disableButton() {

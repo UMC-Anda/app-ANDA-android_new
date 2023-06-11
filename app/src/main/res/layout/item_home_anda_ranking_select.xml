@@ -11,7 +11,7 @@
         android:id="@+id/item_home_ranking_select_img_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/home_ranking_selected_lasek_img"
+        android:src="@drawable/home_ranking_selected_normal_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

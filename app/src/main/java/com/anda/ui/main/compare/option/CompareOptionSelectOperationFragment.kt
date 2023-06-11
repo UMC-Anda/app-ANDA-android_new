@@ -176,7 +176,7 @@ class CompareOptionSelectOperationFragment() : Fragment(), View.OnClickListener{
                     binding.compareOptionSelectOperationLensIv.setImageResource(R.drawable.home_ranking_unselected_lens_img)
                     binding.compareOptionSelectOperationBackIv.setImageResource(R.drawable.home_ranking_unselected_back_img)
                     binding.compareOptionSelectOperationNormalIv.setImageResource(R.drawable.home_ranking_selected_normal_img)
-                    (activity as MainActivity).compareSortSelectedOption.selectedOperation = "일반진료"
+                    (activity as MainActivity).compareSortSelectedOption.selectedOperation = "투데이라섹"
                     isNormalSelected = !isNormalSelected
                     isLasikSelected = false
                     isLasekSelected = false

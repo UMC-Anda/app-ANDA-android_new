@@ -28,7 +28,7 @@ class MyInfoFragment : Fragment(), View.OnClickListener {
     ): View? {
         binding = FragmentMyInfoBinding.inflate(inflater, container, false)
 
-        myPointSharedPreferences = requireContext().getSharedPreferences("MyPoint", Context.MODE_PRIVATE)
+        myPointSharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
         myPoint = myPointSharedPreferences.getInt("MyPoint", 0)
         // 클릭 리스너 설정
 //        binding.myInfoMyOphthaImgIv.setOnClickListener(this)

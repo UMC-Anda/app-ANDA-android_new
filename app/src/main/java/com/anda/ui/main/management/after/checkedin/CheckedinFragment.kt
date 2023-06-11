@@ -82,7 +82,6 @@ class CheckedinFragment : Fragment() {
         val endDate = Calendar.getInstance().apply {
             set(2023, Calendar.MAY, 20)
         }
-        saveCheckedInDates(startDate, endDate)
     }
     private fun getCurrentDate(): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -120,15 +119,6 @@ class CheckedinFragment : Fragment() {
 
             sharedPreferences.edit().putString("${currentDate}", point).apply()
             disableButton()
-            when(point) {
-                "5 point" -> { myPoint += 5 }
-                "6 point" -> { myPoint += 6 }
-                "7 point" -> { myPoint += 7 }
-                "8 point" -> { myPoint += 8 }
-                "9 point" -> { myPoint += 9 }
-                "10 point" -> { myPoint += 10 }
-            }
-            myPointSharedPreferences.edit().putInt("MyPoint", myPoint)
         }
     }
 
@@ -136,6 +126,7 @@ class CheckedinFragment : Fragment() {
         binding.resultTextView.visibility = View.GONE
         binding.rouletteImage.visibility = View.GONE
         binding.getPointView.visibility = View.VISIBLE
+        binding.getPointText.visibility = View.GONE
         binding.getPointView.text = sharedPreferences.getString(currentDate, "")
         resetAnimation()
     }
@@ -166,6 +157,17 @@ class CheckedinFragment : Fragment() {
                 isSpinning = false
                 binding.resultTextView.visibility = View.VISIBLE
                 binding.resultTextView.text = selectedItem
+                when(selectedItem) {
+                    "5 point" -> { myPoint += 5 }
+                    "6 point" -> { myPoint += 6 }
+                    "7 point" -> { myPoint += 7 }
+                    "8 point" -> { myPoint += 8 }
+                    "9 point" -> { myPoint += 9 }
+                    "10 point" -> { myPoint += 10 }
+                }
+                binding.getPointText.text = myPoint.toString() + " point"
+                binding.getPointText.visibility = View.VISIBLE
+                myPointSharedPreferences.edit().putInt("MyPoint", myPoint).apply()
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}
@@ -181,17 +183,6 @@ class CheckedinFragment : Fragment() {
         binding.rouletteImage.clearAnimation()
     }
 
-    private fun saveCheckedInDates(startDate: Calendar, endDate: Calendar) {
-        sharedPreferences.edit().putString("2023-05-13", "5 point").apply()
-        sharedPreferences.edit().putString("2023-05-14", "10 point").apply()
-        sharedPreferences.edit().putString("2023-05-15", "9 point").apply()
-        sharedPreferences.edit().putString("2023-05-16", "7 point").apply()
-        sharedPreferences.edit().putString("2023-05-17", "6 point").apply()
-        sharedPreferences.edit().putString("2023-05-18", "5 point").apply()
-        sharedPreferences.edit().putString("2023-05-19", "10 point").apply()
-        sharedPreferences.edit().putString("2023-05-20", "9 point").apply()
-        sharedPreferences.edit().putString("2023-05-21", "8 point").apply()
-    }
 
 
     private fun disableButton() {

@@ -20,7 +20,7 @@
         android:id="@+id/roulette_image"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@color/gray"
+        android:src="@drawable/roullet"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,18 @@
         app:layout_constraintBottom_toTopOf="@id/button_checkin"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
+    <TextView
+        android:id="@+id/get_point_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5 point"
+        android:visibility="gone"
+        android:textSize="30sp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@id/roulette_image"
+        app:layout_constraintEnd_toEndOf="@id/roulette_image"
+        app:layout_constraintTop_toTopOf="@id/roulette_image"
+        app:layout_constraintBottom_toBottomOf="@id/roulette_image"/>
 
     <!-- 선택된 항목 표시 -->
     <TextView

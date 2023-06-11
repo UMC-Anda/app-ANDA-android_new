@@ -114,6 +114,7 @@
 
 
         <Button
+            android:id="@+id/fixAchievement"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="달성율 올리기"

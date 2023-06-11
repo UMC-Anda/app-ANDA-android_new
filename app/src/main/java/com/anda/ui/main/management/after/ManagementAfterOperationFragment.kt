@@ -15,6 +15,7 @@ import com.anda.MainActivity
 import com.anda.R
 import com.anda.databinding.FragmentManagementAfterOperationBinding
 import com.anda.ui.main.management.after.alarm.AlarmFragment
+import com.anda.ui.main.management.after.challenge.ChallengeHistoryDetailFragment
 import com.anda.ui.main.management.after.checkedin.CheckedinFragment
 import com.anda.ui.main.management.after.challenge.ManagementChallengeFragment
 import com.anda.ui.main.management.after.operation.OperationMbtiFragment
@@ -46,7 +47,7 @@ class ManagementAfterOperationFragment : Fragment() {
 
         // SharedPreferences 초기화
         sharedPreferences = requireContext().getSharedPreferences("ToDoList_${currentDate}", Context.MODE_PRIVATE)
-        myOperationsharedPreferences = requireContext().getSharedPreferences("MyOperation", Context.MODE_PRIVATE)
+        myOperationsharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
         challengeAchievementDatasSharedPreferences = requireContext().getSharedPreferences("challengeAchievementDatas", Context.MODE_PRIVATE)
 
         //도전과제 달성률 세팅
@@ -88,6 +89,11 @@ class ManagementAfterOperationFragment : Fragment() {
             binding.popUpVp.visibility = View.GONE
             binding.popUpBackgroundImg.visibility = View.GONE
             binding.popUpCloseBtn.visibility = View.GONE
+        }
+        binding.fixAchievement.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_container, ManagementChallengeFragment())
+                .commitAllowingStateLoss()
         }
         return binding.root
     }

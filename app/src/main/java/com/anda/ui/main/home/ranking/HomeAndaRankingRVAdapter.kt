@@ -34,10 +34,13 @@ class HomeAndaRankingRVAdapter(private var andaRankingList: ArrayList<HomeAndaRa
     inner class ViewHolder(val binding: ItemHomeAndaRankingOphthaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(andaRankingOphtha: HomeAndaRankingOphtha) {
+            var totalAvg = andaRankingOphtha.ophthaRatingAvg!!.toFloat() * 10f
+            totalAvg = (totalAvg.toInt()) / 10f
+
             binding.itemHomeRankingOphthaNameTv.text = andaRankingOphtha.ophthaName
             binding.itemHomeRankingOphthaLocationTv.text = andaRankingOphtha.ophthaLocation
-            binding.itemHomeRankingRatingAvgTv.text = andaRankingOphtha.ophthaRatingAvg.toString()
-            binding.itemHomeRankingRatingCntTv.text = andaRankingOphtha.ophthaRatingCnt.toString()
+            binding.itemHomeRankingRatingAvgTv.text = totalAvg.toString()
+            binding.itemHomeRankingRatingCntTv.text = " (" + andaRankingOphtha.ophthaRatingCnt.toString() + "개의 리뷰)"
             binding.itemHomeRankingOphthaImgIv.setImageResource(andaRankingOphtha.ophthaImg!!)
             when(andaRankingOphtha.ophthaRank){
                 1-> binding.itemHomeRankingNumImgIv.setImageResource(R.drawable.home_anda_ranking_ophtha_num1_img)

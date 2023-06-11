@@ -22,7 +22,7 @@ class ManagementChallengeFragment : Fragment() {
     private lateinit var challengeAdapter: ManagementChallengeRVAdapter
     private lateinit var sharedPreferences: SharedPreferences
     private val challengeAchievementDatas: ArrayList<ChallengeItem> = ArrayList()
-    var totalAchievement = 0
+    var totalAchievement = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,14 +51,18 @@ class ManagementChallengeFragment : Fragment() {
         for (key in keyList) {
             var achievement = sharedPreferences.getInt(key, 0)
             totalAchievement += achievement
-            progressDays++
+            progressDays += 1
             Log.d("keyName",key.toString())
             Log.d("achievement",achievement.toString())
             Log.d("totalAchievement",totalAchievement.toString())
         }
+        totalAchievement = (totalAchievement.toFloat() / progressDays.toFloat())
+        totalAchievement = (totalAchievement * 10).toInt() / 10f
         binding.currentProgressText.text = totalAchievement.toString() + "%"
         binding.progressDays.text = progressDays.toString() + "일간 진행 중"
-        totalAchievement = 0
+        binding.achievementRateTextView.text = "달성률 : $totalAchievement%"
+
+        totalAchievement = 0f
     }
 
     private fun setChallengeAchievementRVapter() {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.anda.R
+import com.anda.data.entities.CompareOphthaReview
 import com.anda.data.entities.ExOphthaInfoReview
 import com.anda.data.entities.OphthaInfoEvent
 import com.anda.data.entities.OphthaInfoReview
@@ -85,9 +86,17 @@ class OphthaInfoReviewsRVAdapter (private val ophthaInfoReviewList: ArrayList<Ex
             binding.itemOphthaInfoReviewTotalRatingRb.rating = ophthaInfoReview.totalRating!!.toFloat()/2
             binding.itemOphthaInfoReviewDoctorNameTv.text = ""
             binding.itemOphthaInfoReviewTotalRatingTv.text = ophthaInfoReview.totalRating!!.toString()
-            binding.itemOphthaInfoReviewTextReviewTv.text = ophthaInfoReview.reviewTxt
             binding.itemOphthaInfoReviewPriceTv.text = ophthaInfoReview.operationPrice.toString()
             Log.d("리뷰",ophthaInfoReview.totalRating!!.toFloat().toString() + " / " + ophthaInfoReview.totalRating!!.toString())
+
+            val lenth = ophthaInfoReview.reviewTxt!!.length
+            val reviewText = if (lenth > 35) {
+                ophthaInfoReview.reviewTxt!!.substring(0, 35) + "  ...더보기"
+            } else {
+                ophthaInfoReview.reviewTxt
+            }
+            binding.itemOphthaInfoReviewTextReviewTv.text = reviewText
+
         }
     }
 

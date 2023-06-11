@@ -36,7 +36,7 @@ class CommunityEyeMbtiFragment : Fragment() ,OnClickListener,
     ): View? {
         binding = FragmentCommunityEyeMbtiBinding.inflate(inflater, container, false)
 
-        myOperationsharedPreferences = requireContext().getSharedPreferences("MyOperation", Context.MODE_PRIVATE)
+        myOperationsharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
 
 
         binding.communityEyeMbtiQuestionsNextBtnIv.setOnClickListener(this)
