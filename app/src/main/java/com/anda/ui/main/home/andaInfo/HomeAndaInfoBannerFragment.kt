@@ -32,7 +32,7 @@ class HomeAndaInfoBannerFragment (val pictureImg: Int) : Fragment() {
     private fun clickSetting() {
         binding.homeAndaInfoBannerImageIv.setOnClickListener {
 
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSfdL9I2cN25yB4yWVvUdeflZ6XJ2LAoJUU87AS1lhX8JfPBrQ/viewform"))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/EvcLj4JXHXbn3yit7"))
             startActivity(intent)
         }
     }

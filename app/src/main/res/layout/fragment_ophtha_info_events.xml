@@ -32,8 +32,8 @@
 
     <ImageView
         android:id="@+id/warning_icon_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/warning_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="이벤트를 준비중이에요."
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="13sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="@id/warning_icon_img"
         app:layout_constraintEnd_toEndOf="@id/warning_icon_img"

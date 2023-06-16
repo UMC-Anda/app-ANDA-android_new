@@ -35,7 +35,7 @@ class ManagementAfterOperationFragment : Fragment() {
     lateinit var todaysToDoList1 : String
     lateinit var todaysToDoList2 : String
     lateinit var todaysToDoList3 : String
-    var totalAchievement : Int = 0
+    var totalAchievement = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -104,14 +104,16 @@ class ManagementAfterOperationFragment : Fragment() {
         for (key in keyList) {
             var achievement = challengeAchievementDatasSharedPreferences.getInt(key, 0)
             totalAchievement += achievement
-            progressDays++
+            progressDays += 1
             Log.d("keyName",key.toString())
             Log.d("achievement",achievement.toString())
             Log.d("totalAchievement",totalAchievement.toString())
         }
+        totalAchievement = (totalAchievement.toFloat() / progressDays.toFloat())
+        totalAchievement = (totalAchievement * 10).toInt() / 10f
         binding.currentProgressText.text = totalAchievement.toString() + "%"
         binding.progressDays.text = progressDays.toString() + "일간 진행 중"
-        totalAchievement = 0
+        totalAchievement = 0f
     }
 
     private fun clickGoToOperation() {
