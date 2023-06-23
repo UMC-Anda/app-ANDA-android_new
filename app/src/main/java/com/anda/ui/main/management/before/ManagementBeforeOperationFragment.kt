@@ -150,7 +150,6 @@ class ManagementBeforeOperationFragment : Fragment() {
             disableButton()
         }
     }
-
     private fun onResultTextViewClick() {
         binding.resultTextView.visibility = View.GONE
         binding.rouletteImage.visibility = View.GONE
