@@ -6,17 +6,27 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.anda.data.entities.CompareSortSelectedOption
 import com.anda.databinding.ActivityMainBinding
+import com.anda.ui.main.community.eyeMbti.CommunityEyeMbtiFragment
 import com.anda.ui.main.compare.CompareFragment
 import com.anda.ui.main.home.HomeFragment
 import com.anda.ui.main.management.after.ManagementAfterOperationFragment
+import com.anda.ui.main.management.after.challenge.ChallengeHistoryDetailFragment
+import com.anda.ui.main.management.after.challenge.ManagementChallengeFragment
 import com.anda.ui.main.management.before.ManagementBeforeOperationFragment
 import com.anda.ui.main.myInfo.MyInfoFragment
 import com.anda.ui.write_review.WriteReview1Fragment
+import com.anda.ui.write_review.WriteReview2Fragment
 
 class MainActivity : AppCompatActivity() {
+
+    var backPressedTime:Long = 0
+    var backStackFragment = HomeFragment()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var checkReviewSharedPreferences: SharedPreferences
@@ -292,12 +302,69 @@ class MainActivity : AppCompatActivity() {
         initBottomNavigation()
     }
 
-    private fun setOphtha() {
-
-        setReviews()
-
+    // 이전 프래그먼트로 이동하는 함수
+    fun goBack() {
+        supportFragmentManager.popBackStack()
     }
 
+    // 프래그먼트를 변경하는 함수
+    public fun changeFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.nav_host_fragment_container, fragment)
+        transaction.addToBackStack(fragment.javaClass.simpleName) // 현재 프래그먼트를 백 스택에 추가
+        transaction.commit()
+        Log.d("currentFragment", supportFragmentManager.backStackEntryCount.toString())
+    }
+
+
+
+
+    // 뒤로가기 버튼을 누를 때 호출되는 함수
+    override fun onBackPressed() {
+        // 현재 화면이 특정 프래그먼트 중 하나인 경우에만 스택 로그 출력
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container)
+        if (currentFragment is HomeFragment || currentFragment is CompareFragment || currentFragment is ManagementBeforeOperationFragment || currentFragment is MyInfoFragment){
+            // 현재 시간보다 3초 이내에 다시 누를 경우 액티비티 종료
+            if (backPressedTime + 1000 > System.currentTimeMillis()) {
+                super.onBackPressed()
+                finish() // 액티비티 종료
+            } else {
+                Toast.makeText(applicationContext, "한번 더 뒤로가기 버튼을 누르면 애플리케이션을 종료합니다.", Toast.LENGTH_SHORT).show()
+            }
+            // 현재 시간 저장
+            backPressedTime = System.currentTimeMillis()
+        }else if(currentFragment is CommunityEyeMbtiFragment){
+            // 현재 시간보다 3초 이내에 다시 누를 경우 액티비티 종료
+            if (backPressedTime + 1000 > System.currentTimeMillis()) {
+                backPressedTime = System.currentTimeMillis() - 1000
+                goBack()
+            } else {
+                Toast.makeText(applicationContext, "지금 뒤로가면 설문 결과가 저장되지 않습니다.", Toast.LENGTH_SHORT).show()
+            }
+            // 현재 시간 저장
+            backPressedTime = System.currentTimeMillis()
+        }else if(currentFragment is ManagementAfterOperationFragment){
+            changeFragment(ManagementAfterOperationFragment())
+            // 현재 시간보다 3초 이내에 다시 누를 경우 액티비티 종료
+            if (backPressedTime + 1000 > System.currentTimeMillis()) {
+                super.onBackPressed()
+                finish() // 액티비티 종료
+            } else {
+                Toast.makeText(applicationContext, "한번 더 뒤로가기 버튼을 누르면 애플리케이션을 종료합니다.", Toast.LENGTH_SHORT).show()
+            }
+            // 현재 시간 저장
+            backPressedTime = System.currentTimeMillis()
+        }else if(currentFragment is ChallengeHistoryDetailFragment){
+            changeFragment(ManagementAfterOperationFragment())
+            changeFragment(ManagementChallengeFragment())
+        }else{
+            goBack()
+        }
+    }
+
+    private fun setOphtha() {
+        setReviews()
+    }
     private fun setReviews() {
         var totalAvg :Float = 0f
 
@@ -1584,7 +1651,8 @@ class MainActivity : AppCompatActivity() {
         binding.mainBottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.homeFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, HomeFragment()).commitAllowingStateLoss()
+//                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, HomeFragment()).commitAllowingStateLoss()
+                    changeFragment(HomeFragment())
                     return@setOnItemSelectedListener true
                 }
 //                R.id.mapFragment -> {
@@ -1592,7 +1660,9 @@ class MainActivity : AppCompatActivity() {
 //                    return@setOnItemSelectedListener true
 //                }
                 R.id.compareFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, CompareFragment()).commitAllowingStateLoss()
+                    changeFragment(CompareFragment())
+
+//                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, CompareFragment()).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
                 R.id.communityFragment -> {
@@ -1601,11 +1671,13 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         ManagementBeforeOperationFragment()
                     }
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, fragment).commitAllowingStateLoss()
+                    changeFragment(fragment)
+//                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, fragment).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
                 R.id.myInfoFragment -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, MyInfoFragment()).commitAllowingStateLoss()
+                    changeFragment(MyInfoFragment())
+//                    supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_container, MyInfoFragment()).commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }
             }

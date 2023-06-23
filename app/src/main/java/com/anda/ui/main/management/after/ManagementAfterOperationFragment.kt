@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.ViewUtils
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.anda.MainActivity
@@ -23,6 +25,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ManagementAfterOperationFragment : Fragment() {
+
+
 
     private lateinit var binding: FragmentManagementAfterOperationBinding
     private lateinit var sharedPreferences: SharedPreferences
@@ -76,14 +80,10 @@ class ManagementAfterOperationFragment : Fragment() {
             clickGoToOperation()
         }
         binding.goToToDoList.setOnClickListener{
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, ManagementChallengeFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(ManagementChallengeFragment())
         }
         binding.goToTimer.setOnClickListener{
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, AlarmFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(AlarmFragment())
         }
         binding.popUpCloseBtn.setOnClickListener {
             binding.popUpVp.visibility = View.GONE
@@ -91,9 +91,7 @@ class ManagementAfterOperationFragment : Fragment() {
             binding.popUpCloseBtn.visibility = View.GONE
         }
         binding.fixAchievement.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, ManagementChallengeFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(ManagementChallengeFragment())
         }
         return binding.root
     }

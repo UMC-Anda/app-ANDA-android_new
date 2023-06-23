@@ -40,15 +40,11 @@ class OperationMbtiFragment : Fragment() {
 
         binding.operationMbtiImg.setOnClickListener {
             // 버튼 클릭 시 원하는 동작을 수행하도록 구현
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiResultFragment(myOperation))
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(CommunityEyeMbtiResultFragment(myOperation))
         }
         binding.reSurveyBtn.setOnClickListener {
             // 버튼 클릭 시 원하는 동작을 수행하도록 구현
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(CommunityEyeMbtiFragment())
         }
         return binding.root
     }

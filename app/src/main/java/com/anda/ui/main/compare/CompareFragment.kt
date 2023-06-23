@@ -35,6 +35,8 @@ import com.google.gson.Gson
 
 class CompareFragment() : Fragment(), View.OnClickListener {
 
+
+
     //바인딩
     lateinit var binding: FragmentCompareBinding
     private var compareSortSelectDatas = ArrayList<CompareSortSelect>()
@@ -367,8 +369,8 @@ class CompareFragment() : Fragment(), View.OnClickListener {
             CompareOphthaRVAdapter.ItemClickListener {
             override fun onItemClick(compareOphtha: CompareOphtha) {
                 // Fragment를 전환하고 Bundle을 전달합니다.
-                (context as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoFragment(compareOphtha.id!!)).commitAllowingStateLoss()
+                (context as MainActivity).changeFragment(OphthaInfoFragment(compareOphtha.id!!))
+//                    .replace(R.id.nav_host_fragment_container, OphthaInfoFragment(compareOphtha.id!!)).commitAllowingStateLoss()
             }
         })
     }
@@ -438,9 +440,7 @@ class CompareFragment() : Fragment(), View.OnClickListener {
         if (v == null) return
         when (v) {
             binding.compareDoReviewBtn -> {
-                (context as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, WriteReview2Fragment())
-                    .commitAllowingStateLoss()
+                (context as MainActivity).changeFragment(WriteReview2Fragment())
             }
             binding.compareOptionCancelIv -> {
                 //수술선택 클릭한 것 적용

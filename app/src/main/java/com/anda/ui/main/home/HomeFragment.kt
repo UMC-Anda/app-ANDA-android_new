@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
     val homeAndaRankingP2Datas = ArrayList<HomeAndaRankingOphtha>()
     val homeAndaRankingP3Datas = ArrayList<HomeAndaRankingOphtha>()
 
+
     private lateinit var ophthaSharedPreferences1 : SharedPreferences
     private lateinit var ophthaSharedPreferences2 : SharedPreferences
     private lateinit var ophthaSharedPreferences3: SharedPreferences
@@ -176,20 +177,22 @@ class HomeFragment : Fragment() {
             }
         }
         binding.homeDoReviewTv.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, WriteReview2Fragment())
-            .commitAllowingStateLoss()
-
+            (context as MainActivity).changeFragment(WriteReview2Fragment())
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//            .replace(R.id.nav_host_fragment_container, WriteReview2Fragment())
+//            .commitAllowingStateLoss()
         }
-        binding.homeRankingSelectLocation.setOnClickListener{
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, HomeSelectLocationFragment())
-                .commitAllowingStateLoss()
+        binding.homeRankingSelectLocation.setOnClickListener {
+            (context as MainActivity).changeFragment(HomeSelectLocationFragment())
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.nav_host_fragment_container, HomeSelectLocationFragment())
+//                .commitAllowingStateLoss()
         }
         binding.homeMoreReviewsIv.setOnClickListener{
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, CompareFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(CompareFragment())
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.nav_host_fragment_container, CompareFragment())
+//                .commitAllowingStateLoss()
         }
     }
 

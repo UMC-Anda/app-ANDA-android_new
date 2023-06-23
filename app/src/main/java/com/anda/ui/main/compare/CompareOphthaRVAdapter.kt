@@ -136,9 +136,7 @@ class CompareOphthaRVAdapter (private var compareOphthaList: ArrayList<CompareOp
             compareOphthaReviewRVAdapter.setItemClickListener(object :
                 CompareOphthaReviewRVAdapter.ItemClickListener {
                 override fun onItemClick(ophthaInfoReview: ExOphthaInfoReview) {
-                    (context as MainActivity).supportFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment_container, OphthaInfoDetailReviewFragment(ophthaInfoReview))
-                        .commitAllowingStateLoss()
+                    (context as MainActivity).changeFragment(OphthaInfoDetailReviewFragment(ophthaInfoReview))
                 }
             })
         }

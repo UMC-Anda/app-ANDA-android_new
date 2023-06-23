@@ -89,15 +89,11 @@ class CheckedinFragment : Fragment() {
         return dateFormat.format(Date())
     }
     private fun onBannerMbtiClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
-            .commitAllowingStateLoss()
+        (context as MainActivity).changeFragment(CommunityEyeMbtiFragment())
     }
 
     private fun onBannerReviewClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, WriteReview1Fragment())
-            .commitAllowingStateLoss()
+        (context as MainActivity).changeFragment(WriteReview1Fragment())
     }
 
     private fun onCheckInButtonClick() {

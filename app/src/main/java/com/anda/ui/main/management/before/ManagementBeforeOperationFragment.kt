@@ -26,6 +26,7 @@ import java.util.*
 
 class ManagementBeforeOperationFragment : Fragment() {
 
+
     private lateinit var binding: FragmentManagementBeforeOperationBinding
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var myOperationsharedPreferences: SharedPreferences
@@ -36,6 +37,7 @@ class ManagementBeforeOperationFragment : Fragment() {
     private var isSpinning = false
     private var rotateAnimation: RotateAnimation? = null
     private val currentDate = getCurrentDate()
+
 
 //    private val KEY_LAST_SPIN_TIME = "last_spin_time"
 
@@ -49,7 +51,7 @@ class ManagementBeforeOperationFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         sharedPreferences = requireContext().getSharedPreferences("CheckedInDates", Context.MODE_PRIVATE)
@@ -113,20 +115,14 @@ class ManagementBeforeOperationFragment : Fragment() {
     }
     private fun onBannerMbtiClick() {
         if (myOperationsharedPreferences.getBoolean("isRecommended", false)) {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, OperationMbtiFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(OperationMbtiFragment())
         } else {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_container, CommunityEyeMbtiFragment())
-                .commitAllowingStateLoss()
+            (context as MainActivity).changeFragment(CommunityEyeMbtiFragment())
         }
     }
 
     private fun onBannerReviewClick() {
-        (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_container, WriteReview2Fragment())
-            .commitAllowingStateLoss()
+        (context as MainActivity).changeFragment(WriteReview2Fragment())
     }
 
     private fun onCheckInButtonClick() {

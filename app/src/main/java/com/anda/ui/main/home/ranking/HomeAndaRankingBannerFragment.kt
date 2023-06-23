@@ -33,9 +33,7 @@ class HomeAndaRankingBannerFragment (val homeAndaRankingDatas:ArrayList<HomeAnda
         andaRankingRVAdapter.setHomeandaRankingOphthaItemClickListener(object :
             HomeAndaRankingRVAdapter.homeandaRankingOphthaItemClickListener {
             override fun onItemClick(homeAndaRankingOphtha: HomeAndaRankingOphtha) {
-                (activity as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoFragment(homeAndaRankingOphtha.ophthaID!!))
-                    .commitAllowingStateLoss()
+                (activity as MainActivity).changeFragment(OphthaInfoFragment(homeAndaRankingOphtha.ophthaID!!))
             }
         })
 

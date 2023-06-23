@@ -29,9 +29,7 @@ class OphthaInfoReviewsFragment (val ophthaInfoReviewsDatas:ArrayList<ExOphthaIn
 
         ophthaInfoReviewsRVAdapter.setOphthaInfoReviewsItemClickListener(object :OphthaInfoReviewsRVAdapter.ophthaInfoReviewsItemClickListener{
             override fun onItemClick(ophthaReview : ExOphthaInfoReview) {
-                (activity as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_container, OphthaInfoDetailReviewFragment(ophthaReview))
-                    .commitAllowingStateLoss()
+                (activity as MainActivity).changeFragment(OphthaInfoDetailReviewFragment(ophthaReview))
             } })
 
         return binding.root
