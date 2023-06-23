@@ -41,7 +41,7 @@ class CommunityEyeMbtiFragment : Fragment() ,OnClickListener,
 
         binding.communityEyeMbtiQuestionsNextBtnIv.setOnClickListener(this)
         binding.communityEyeMbtiQuestionsProgressbarPb.clipToOutline = true
-        binding.communityEyeMbtiQuestionsProgressbarPb.progress = currentQuestion * 10
+        binding.communityEyeMbtiQuestionsProgressbarPb.progress = (currentQuestion - 1) * 10
 
         binding.communityEyeMbtiQuestionsVp.isUserInputEnabled = false
 
@@ -55,70 +55,70 @@ class CommunityEyeMbtiFragment : Fragment() ,OnClickListener,
         val communityEyeMbtiQuestionAdapter = CommunityEyeMbtiQuestionsVPAdapter(this)
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "라식수술이 필요하십니까?",
+                "평소 아픔을 잘 참는다는 말을 많이 들으시나요?",
                 1,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "라섹수술이 필요하십니까?",
+                "일상생활로 빠르게 복귀해야 하나요?",
                 2,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "스마일라식수술이 필요하십니까?",
+                "눈을 위해서라면 돈을 아끼지 않으실 건가요?",
                 3,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "렌즈삽입술이 필요하십니까?",
+                "주변에서 신중하다는 소리를 많이 들으셨나요?",
                 4,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "백내장 수술이 필요하십니까?",
+                "운동을 좋아하시나요?",
                 5,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "무슨 수술이 필요하십니까?",
+                "초고도근시나 원시가 있으신가요?",
                 6,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "활종을 많이 하십니까?",
+                "모임에 나가면 리더가 되는 편인가요?",
                 7,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "어떤 수술이 필요하십니까?",
+                "수술 후 관리를 1년간 꾸준히 할 수 있으신가요?",
                 8,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "지금 수술이 필요하십니까?",
+                "수술 전 수술에 대해 많이 알아보시나요?",
                 9,
                 this
             )
         )
         communityEyeMbtiQuestionAdapter.addFragment(
             CommunityEyeMbtiQuestionsFragment(
-                "수술을 받고 싶습니까?",
+                "자신이 활발하다고 생각하시나요?",
                 10,
                 this
             )
@@ -154,7 +154,7 @@ class CommunityEyeMbtiFragment : Fragment() ,OnClickListener,
     private fun buttonUnabled() {
         binding.communityEyeMbtiQuestionsNextBtnIv.setImageResource(R.drawable.next_btn_unable)
         binding.communityEyeMbtiQuestionsVp.setCurrentItem(currentQuestion - 1, false)
-        binding.communityEyeMbtiQuestionsProgressbarPb.progress = currentQuestion * 10
+        binding.communityEyeMbtiQuestionsProgressbarPb.progress = (currentQuestion - 1) * 10
         binding.communityEyeMbtiQuestionsCurrentNumTv.text = currentQuestion.toString()
     }
 }

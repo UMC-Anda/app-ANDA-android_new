@@ -28,7 +28,7 @@ class OperationMbtiFragment : Fragment() {
         binding = FragmentOperationMbtiBinding.inflate(inflater, container, false)
         myOperationsharedPreferences = requireContext().getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
 
-        var myOperation = myOperationsharedPreferences.getString("myOperation", "").toString()
+        var myOperation = myOperationsharedPreferences.getString("myOperation", "스마일 라식").toString()
         when(myOperation){
             "라식" ->  binding.operationMbtiImg.setImageResource(R.drawable.eye_mbti_result_lasik)
             "라섹" ->  binding.operationMbtiImg.setImageResource(R.drawable.eye_mbti_result_lasek)

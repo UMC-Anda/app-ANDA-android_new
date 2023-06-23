@@ -25,7 +25,7 @@ class CheckedinFragment : Fragment() {
     private var isSpinning = false
     private var rotateAnimation: RotateAnimation? = null
     private val currentDate = getCurrentDate()
-    private val KEY_LAST_SPIN_TIME = "last_spin_time"
+//    private val KEY_LAST_SPIN_TIME = "last_spin_time"
     private lateinit var myPointSharedPreferences: SharedPreferences
     private var myPoint =0
 
@@ -47,13 +47,14 @@ class CheckedinFragment : Fragment() {
         binding.resultTextView.setOnClickListener { onResultTextViewClick() }
 
         // 버튼 초기 상태 설정
-        val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
-        val currentTime = System.currentTimeMillis()
-        val twentyFourHoursInMillis = 24 * 60 * 60 * 1000
-        if (currentTime - lastSpinTime < twentyFourHoursInMillis) {
-            disableButton()
-        }
+//        val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
+//        val currentTime = System.currentTimeMillis()
+//        val twentyFourHoursInMillis = 24 * 60 * 60 * 1000
+//        if (currentTime - lastSpinTime < twentyFourHoursInMillis) {
+//            disableButton()
+//        }
         if(sharedPreferences.contains(currentDate)) {
+            disableButton()
             binding.getPointView.text = sharedPreferences.getString(currentDate, "")
             binding.getPointView.visibility = View.VISIBLE
         }
@@ -100,22 +101,22 @@ class CheckedinFragment : Fragment() {
     }
 
     private fun onCheckInButtonClick() {
-        val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
-        val currentTime = System.currentTimeMillis()
+//        val lastSpinTime = sharedPreferences.getLong(KEY_LAST_SPIN_TIME, 0L)
+//        val currentTime = System.currentTimeMillis()
+//        // 자정 이후 출석체크 가능
+//        val calendar = Calendar.getInstance()
+//        calendar.timeInMillis = currentTime
+//        calendar.set(Calendar.HOUR_OF_DAY, 0)
+//        calendar.set(Calendar.MINUTE, 0)
+//        calendar.set(Calendar.SECOND, 0)
+//        calendar.set(Calendar.MILLISECOND, 0)
+//        val midnightTime = calendar.timeInMillis
 
-        // 자정 이후 출석체크 가능
-        val calendar = Calendar.getInstance()
-        calendar.timeInMillis = currentTime
-        calendar.set(Calendar.HOUR_OF_DAY, 0)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
-        calendar.set(Calendar.MILLISECOND, 0)
-        val midnightTime = calendar.timeInMillis
 
-        if (!isSpinning && currentTime >= midnightTime && (currentTime - lastSpinTime >= 0)) {
+        if (!isSpinning && !sharedPreferences.contains(currentDate)) {
             binding.getPointView.visibility = View.GONE
             val point = spinRoulette()
-            sharedPreferences.edit().putLong(KEY_LAST_SPIN_TIME, currentTime).apply()
+//            sharedPreferences.edit().putLong(KEY_LAST_SPIN_TIME, currentTime).apply()
 
             sharedPreferences.edit().putString("${currentDate}", point).apply()
             disableButton()
@@ -165,7 +166,7 @@ class CheckedinFragment : Fragment() {
                     "9 point" -> { myPoint += 9 }
                     "10 point" -> { myPoint += 10 }
                 }
-                binding.getPointText.text = myPoint.toString() + " point"
+                binding.getPointText.text = selectedItem
                 binding.getPointText.visibility = View.VISIBLE
                 myPointSharedPreferences.edit().putInt("MyPoint", myPoint).apply()
             }
